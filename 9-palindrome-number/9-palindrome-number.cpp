@@ -4,23 +4,21 @@ public:
         if(x < 0){
             return false;
         }
-        vector<int> a;
-        int per;
+        char a;
+        string a1;
+        string a2;
         while(x > 0){
-            a.push_back(x%10);
-            x = x/10;
+            a = (x%10) + '0';
+            a1 +=a;
+            x /= 10;
         }
-        int low = 0;
-        int high = a.size()-1;
-        while(low < high){
-            if(a[low] == a[high]){
-                low++;
-                high--;
-            }
-            else{
-                return false;
-            }
+        a2 = a1;
+      reverse(a1.begin(), a1.end());
+        if(a1 == a2){
+            return true;
         }
-        return true; 
+        else{
+            return false;
+        }
     }
 };
