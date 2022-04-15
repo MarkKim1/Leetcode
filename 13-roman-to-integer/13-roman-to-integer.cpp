@@ -11,13 +11,13 @@ public:
         while(j < s.size()){
             if(chart[s[i]] > chart[s[j]]){
                 result +=chart[s[i]]-chart[s[j]];
-                cout << result << endl;
+                //cout << result << endl;
                 j+=2;
                 i+=2;
             }
             else{
                 result +=chart[s[j]];
-                cout << result << endl;
+                //cout << result << endl;
                 j++;
                 i++;
             }
