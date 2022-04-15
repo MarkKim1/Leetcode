@@ -9,22 +9,18 @@ public:
             return chart[s[0]];
         }
         while(j < s.size()){
-            first = chart[s[i]];
-            second = chart[s[j]];
-            if(first > second){
-                result +=first-second;
+            if(chart[s[i]] > chart[s[j]]){
+                result +=chart[s[i]]-chart[s[j]];
                 cout << result << endl;
                 j+=2;
                 i+=2;
             }
             else{
-                result +=second;
+                result +=chart[s[j]];
                 cout << result << endl;
                 j++;
                 i++;
             }
-            
-            
         }
         return result;
     }
