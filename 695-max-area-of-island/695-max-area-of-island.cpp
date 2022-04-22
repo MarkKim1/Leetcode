@@ -27,9 +27,7 @@ class Solution {
         for(int i = 0; i < y; i++){
             for(int j = 0; j < x; j++){
                 if(grid[i][j] == 1){
-                    cout << "found: 1 " << i << j;
                     result = DFS(grid,i,j,y,x,count);
-                    cout <<" "<<result <<endl;
                     if(max <= result){
                         max = result;
                     }
