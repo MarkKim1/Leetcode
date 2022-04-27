@@ -17,15 +17,15 @@ public:
         Node *runner;
         while(curr){
             if(curr->child){
-                temp_next = curr->next;
-                curr->next = curr->child;
-                curr->next->prev = curr;
-                curr->child = NULL;
+                temp_next = curr->next;//save curr->next value to temp_next;
+                curr->next = curr->child; // curr->next is now curr->child
+                curr->next->prev = curr; // connect prev to curr;
+                curr->child = NULL; // curr->child is not needed anymore since curr->next is pointing to child node
                     
-                runner = curr->next;
-                while(runner->next) runner = runner->next;
-                runner->next = temp_next;
-                if(runner->next) runner->next->prev = runner;
+                runner = curr->next; // runner gets curr->next node(the child node)
+                while(runner->next) runner = runner->next;//runner goes through until it hits runner->next is NULL
+                runner->next = temp_next;//after runner reaches final pointer runner points to previously saved next node
+                if(runner->next) runner->next->prev = runner;//if temp_next was not null pointer make temp_next to point runner 
                 
             }
             curr = curr->next;
