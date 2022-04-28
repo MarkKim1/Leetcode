@@ -17,19 +17,19 @@ public:
 class Solution {
 public:
     Node* copyRandomList(Node* head) {
-        map<Node*, Node*> m;
-        int i=0;
-        Node* ptr = head;
-        while (ptr) {
-            m[ptr] =new Node(ptr->val);
+        unordered_map<Node*,Node*> hash;
+        Node *ptr = head;
+        while(ptr){
+            hash[ptr] = new Node(ptr->val);
             ptr = ptr->next;
         }
         ptr = head;
-        while (ptr) {
-            m[ptr]->next = m[ptr->next];
-            m[ptr]->random = m[ptr->random];
+        while(ptr){
+            hash[ptr]->next = hash[ptr->next];
+            hash[ptr]->random = hash[ptr->random];
             ptr = ptr->next;
         }
-        return m[head];
+        ptr = head;
+        return hash[ptr];
     }
 };
