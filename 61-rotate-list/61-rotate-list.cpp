@@ -27,7 +27,9 @@ public:
         for(int i = 0; i < a; i++){
            new_tail = new_tail->next;
         }
-        newhead = new_tail->next;
+        for(int i = 0; i <n-k%n; i++){
+           newhead = newhead->next;
+        }
         new_tail->next = NULL;
             
         return newhead;
