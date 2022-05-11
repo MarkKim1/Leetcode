@@ -3,9 +3,13 @@ public:
     vector<vector<int>> permuteUnique(vector<int>& nums) {
         vector<vector<int>> result;
         vector<int> sub;
+        sort(nums.begin(),nums.end());
         result.push_back(nums);
         int count = 0;
-        permutation(nums,result,sub,count);
+        while(next_permutation(nums.begin(),nums.end())){
+            result.push_back(nums);
+        }
+        //permutation(nums,result,sub,count);
         return result;
     }
     void permutation(vector<int>&nums,vector<vector<int>>&result,vector<int>&sub,int count){
