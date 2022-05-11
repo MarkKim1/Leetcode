@@ -4,17 +4,17 @@ public:
         vector<vector<int>> result;
         vector<int> sub;
         sort(nums.begin(),nums.end());
-        result.push_back(nums);
+        //result.push_back(nums);
         int count = 0;
-        while(next_permutation(nums.begin(),nums.end())){
-            result.push_back(nums);
-        }
-        //permutation(nums,result,sub,count);
+        // while(next_permutation(nums.begin(),nums.end())){
+        //     result.push_back(nums);
+        // }
+        permutation(nums,result,sub,count);
         return result;
     }
     void permutation(vector<int>&nums,vector<vector<int>>&result,vector<int>&sub,int count){
         unordered_set<int> set;
-        if(find(result.begin(),result.end(),sub) == result.end() && sub.size() == nums.size()){
+        if(sub.size() == nums.size()){
             result.push_back(sub);
         }
         for(int i = count; i < nums.size(); i++){
