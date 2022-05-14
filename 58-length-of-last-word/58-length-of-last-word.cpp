@@ -12,7 +12,6 @@ public:
                 }
             }else{
                 if(length > 0){
-                    cout << length;
                     result.push_back(length);
                     length = 0;
                 }
