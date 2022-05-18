@@ -11,22 +11,37 @@
  */
 class Solution {
 public:
-    int minDepth(TreeNode* root) {
-    if (root == NULL) return 0;
-    queue<TreeNode*> Q;
-    Q.push(root);
-    int i = 0;
-    while (!Q.empty()) {
-        i++;
-        int k = Q.size();
-        for (int j=0; j<k; j++) {
-            TreeNode* rt = Q.front();
-            if (rt->left) Q.push(rt->left);
-            if (rt->right) Q.push(rt->right);
-            Q.pop();
-            if (rt->left==NULL && rt->right==NULL) return i;
+    int min_Depth = 0;
+    queue<pair<TreeNode*, int>> q;
+    vector<int> a;
+    int _min(){
+        if(q.empty()){
+            return 0;
         }
+        auto sub_q = q.front();
+        q.pop();
+        auto node = sub_q.first;
+        auto level = sub_q.second + 1;
+        if(node->left != NULL){
+            q.push(make_pair(node->left,level));
+        }
+        if(node->right != NULL){
+            q.push(make_pair(node->right,level));
+        }
+        if(node->right == NULL && node->left == NULL){
+            a.push_back(level);
+        }
+        return _min();
+        
     }
-    return -1; //For the compiler thing. The code never runs here.
-}
+    
+    int minDepth(TreeNode* root) {
+        if(root == NULL){
+            return 0;
+        }
+        q.push(make_pair(root,min_Depth));
+        int result = _min();
+        sort(a.begin(),a.end());
+        return a[0];
+    }
 };
