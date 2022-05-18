@@ -12,11 +12,12 @@
 class Solution {
 public:
     int min_Depth = 0;
+    int result_Depth = INT_MAX;
     queue<pair<TreeNode*, int>> q;
     vector<int> a;
     int _min(){
         if(q.empty()){
-            return 0;
+            return result_Depth;
         }
         auto sub_q = q.front();
         q.pop();
@@ -29,7 +30,7 @@ public:
             q.push(make_pair(node->right,level));
         }
         if(node->right == NULL && node->left == NULL){
-            a.push_back(level);
+            result_Depth = min(result_Depth,level);
         }
         return _min();
         
@@ -41,7 +42,7 @@ public:
         }
         q.push(make_pair(root,min_Depth));
         int result = _min();
-        sort(a.begin(),a.end());
-        return a[0];
+        //sort(a.begin(),a.end());
+        return result;
     }
 };
