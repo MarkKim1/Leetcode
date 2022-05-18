@@ -31,7 +31,7 @@ public:
 			return 0;
 		}
 		queue<pair<TreeNode*, int>> empty;
-		swap(next_items, empty);
+		//swap(next_items, empty);
 		max_depth = 0;
 		
 		next_items.push(make_pair(root, 0));
