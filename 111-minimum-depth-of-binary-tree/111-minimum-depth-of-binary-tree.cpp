@@ -14,11 +14,7 @@ public:
     int min_Depth = 0;
     int result_Depth = INT_MAX;
     queue<pair<TreeNode*, int>> q;
-    vector<int> a;
     int _min(){
-        if(q.empty()){
-            return result_Depth;
-        }
         auto sub_q = q.front();
         q.pop();
         auto node = sub_q.first;
@@ -30,7 +26,8 @@ public:
             q.push(make_pair(node->right,level));
         }
         if(node->right == NULL && node->left == NULL){
-            result_Depth = min(result_Depth,level);
+            result_Depth = level;
+            return result_Depth;
         }
         return _min();
         
