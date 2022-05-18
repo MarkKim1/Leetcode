@@ -26,7 +26,7 @@ public:
     
     bool isBalanced(TreeNode* root) {
         TreeNode *curr = root;
-        int result = helper(curr);
+        helper(curr);
         return ans;
         
     }
