@@ -1,5 +1,7 @@
 class Solution {
 public:
+    //Boyer-Moore only works with finding majority inside the array when majority count is more than n/2
+    //where n is size of vector
     int majorityElement(vector<int>& nums) {
         int candidate = -1;
         int votes = 0;
