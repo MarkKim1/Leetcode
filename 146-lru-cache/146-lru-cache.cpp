@@ -1,35 +1,41 @@
-class LRUCache
-{
-    public:
-        list<pair<int,int>> l;
-        unordered_map<int,list<pair<int, int>>::iterator> m;
-        int size;
-        LRUCache(int capacity)
-        {
-            size=capacity;
+class LRUCache {
+public:
+    unordered_map<int, pair<list<int>::iterator, int>> ht;
+    list<int> dll;
+    int cap;
+    LRUCache(int capacity) {
+        cap=capacity;
+    }
+    
+    void moveToFirst(int key){
+        dll.erase(ht[key].first);
+        dll.push_front(key);
+        ht[key].first=dll.begin();
+    }
+    
+    int get(int key) {
+        if(ht.find(key)==ht.end()) return -1;
+        
+        moveToFirst(key);
+        return ht[key].second;
+    }
+    
+    void put(int key, int value) {
+        if(ht.find(key)!=ht.end()){
+            ht[key].second=value;
+            moveToFirst(key);
         }
-        int get(int key)
-        {
-            if(m.find(key)==m.end())
-                return -1;
-            l.splice(l.begin(),l,m[key]);
-            return m[key]->second;
+        else{
+            dll.push_front(key);
+            ht[key]={dll.begin(), value};
+            cap--;
         }
-        void put(int key, int value)
-        {
-            if(m.find(key)!=m.end())
-            {
-                l.splice(l.begin(),l,m[key]);
-                m[key]->second=value;
-                return;
-            }
-            if(l.size()==size)
-            {
-                auto d_key=l.back().first;
-                l.pop_back();
-                m.erase(d_key);
-            }
-            l.push_front({key,value});
-            m[key]=l.begin();
+        
+        if(cap<0){
+            ht.erase(dll.back());
+            dll.pop_back();
+            cap++;
         }
+        
+    }
 };
