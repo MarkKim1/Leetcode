@@ -1,41 +1,40 @@
 class LRUCache {
 public:
-    unordered_map<int, pair<list<int>::iterator, int>> ht;
-    list<int> dll;
-    int cap;
-    LRUCache(int capacity) {
-        cap=capacity;
-    }
+    list<pair<int,int>> l;
+    unordered_map<int,list<pair<int,int>>::iterator> map;
+    int size;
     
-    void moveToFirst(int key){
-        dll.erase(ht[key].first);
-        dll.push_front(key);
-        ht[key].first=dll.begin();
+    LRUCache(int capacity) {
+        size = capacity;
     }
     
     int get(int key) {
-        if(ht.find(key)==ht.end()) return -1;
-        
-        moveToFirst(key);
-        return ht[key].second;
+        if(map.find(key) == map.end()){
+            return -1;
+        }
+        l.splice(l.begin(),l,map[key]);
+        return map[key]->second;
     }
     
     void put(int key, int value) {
-        if(ht.find(key)!=ht.end()){
-            ht[key].second=value;
-            moveToFirst(key);
+        if(map.find(key) != map.end()){
+            l.splice(l.begin(),l,map[key]);
+            map[key]->second = value;
+            return;
         }
-        else{
-            dll.push_front(key);
-            ht[key]={dll.begin(), value};
-            cap--;
+        if(l.size() == size){
+            auto last = l.back().first;
+            l.pop_back();
+            map.erase(last);
         }
-        
-        if(cap<0){
-            ht.erase(dll.back());
-            dll.pop_back();
-            cap++;
-        }
-        
+        l.push_front(make_pair(key,value));
+        map[key] = l.begin();
     }
 };
+
+/**
+ * Your LRUCache object will be instantiated and called as such:
+ * LRUCache* obj = new LRUCache(capacity);
+ * int param_1 = obj->get(key);
+ * obj->put(key,value);
+ */
