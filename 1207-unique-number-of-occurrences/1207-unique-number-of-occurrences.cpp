@@ -9,9 +9,6 @@ public:
         for(auto a:map){
             set.insert(a.second);
         }
-        if(map.size() == set.size()){
-            return true;
-        }
-        return false;
+        return map.size() == set.size();
     }
 };
