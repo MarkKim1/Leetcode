@@ -6,7 +6,7 @@ public:
         for(int i = 0; i < arr.size(); i++){
             map[arr[i]]++;
         }
-        for(auto a:map){
+        for(auto &a:map){
             set.insert(a.second);
         }
         if(map.size() == set.size()){
