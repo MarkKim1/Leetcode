@@ -18,14 +18,12 @@ public:
             for(int i = 0; i < ans.size(); i++){
                 if(i == ans.size()-1){
                     ans[i] = val;
+                    sum+=ans[i];
                     break;
                 }
                 ans[i] = ans[i+1];
-            }
-            for(int i = 0; i < ans.size(); i++){
-                sum+=ans[i];
-            }
-            
+                sum +=ans[i];
+            }   
         }
         return sum / ans.size();
     }
