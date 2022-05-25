@@ -13,7 +13,7 @@ public:
                 digit.push_back(s);
             }
         }
-        sort(sub.begin(),sub.end(),[&](auto a,auto b){
+        stable_sort(sub.begin(),sub.end(),[&](auto a,auto b){
             return a.second == b.second ? a.first < b.first : a.second < b.second;
         });
         for(auto a:sub){
