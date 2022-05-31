@@ -1,31 +1,29 @@
 class Solution {
     public String decodeString(String s) {
         Stack<Integer> countStack = new Stack();
-        Stack<StringBuilder> stringStack = new Stack();
-        StringBuilder currentString = new StringBuilder();
-        int k = 0;
+        Stack<String> stringStack = new Stack();
+        int count = 0;
+        String res = "";
         
-        for(char ch : s.toCharArray()){
-            if(Character.isDigit(ch)){
-                k = k * 10 + ch-'0';
-            }else if(ch == '['){
-                //push the number k to countStack
-                countStack.push(k);
-                //push the currentString to stringStack
-                stringStack.push(currentString);
-                //reset the currentString and k
-                currentString = new StringBuilder();
-                k = 0;
-            }else if(ch == ']'){
-                StringBuilder decodedString = stringStack.pop();
-                for(int i = countStack.pop(); i > 0; i--){
-                    decodedString.append(currentString);
+        for(int i = 0; i < s.length(); i++){
+            if(Character.isDigit(s.charAt(i))){
+                count = count * 10 +(s.charAt(i) -'0');
+            }else if(s.charAt(i) == '['){
+                countStack.push(count);
+                stringStack.push(res);
+                res = "";
+                count = 0;
+            }else if (s.charAt(i) == ']'){
+                StringBuilder temp = new StringBuilder(stringStack.pop());
+                for(int j = 0; j < countStack.peek(); j++){
+                    temp.append(res);
                 }
-                    currentString = decodedString;
+                countStack.pop();
+                res = temp.toString();
             }else{
-                currentString.append(ch);
+                res+=s.charAt(i);
             }
         }
-        return currentString.toString();
+        return res;
     }
 }
