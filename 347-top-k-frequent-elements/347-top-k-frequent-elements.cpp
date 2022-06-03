@@ -16,6 +16,7 @@ public:
             }
         }
         pq.push(make_pair(freq,comp));
+        
         for(int i = 0; i < k; i++){
             ans.push_back(pq.top().second);
             pq.pop();
