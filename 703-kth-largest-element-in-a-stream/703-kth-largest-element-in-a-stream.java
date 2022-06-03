@@ -1,7 +1,7 @@
 class KthLargest {
 
     private int k;
-    private Queue<Integer> minHeap = new PriorityQueue<>();
+    private PriorityQueue<Integer> minHeap = new PriorityQueue<>();
     
     public KthLargest(int k, int[] nums) {
         this.k = k;    
