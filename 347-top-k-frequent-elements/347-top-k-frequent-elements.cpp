@@ -6,9 +6,6 @@ public:
         sort(nums.begin(),nums.end());
         int freq = 0;
         int comp = nums[0];
-        if(nums.size() ==1){
-            return nums;
-        }
         for(int i = 0; i < nums.size(); i++){
             if(nums[i] == comp){
                 freq++;
