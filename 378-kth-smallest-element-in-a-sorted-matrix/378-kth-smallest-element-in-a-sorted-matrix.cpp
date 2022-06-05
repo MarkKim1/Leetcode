@@ -5,7 +5,7 @@ public:
         int start = matrix[0][0];
         int end = matrix[n-1][n-1];
         while(start < end){
-            int pivot = start + (end - start) / 2;
+            int pivot = start + (end-start) /2;
             
             vector<int> sub = {matrix[0][0],matrix[n-1][n-1]};
             
