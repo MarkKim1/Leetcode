@@ -5,7 +5,7 @@ public:
         int n = matrix[0].size();
         int value,row,col;
         priority_queue<vector<int>, vector<vector<int>>, greater<>> pq;
-        for(int i = 0; i < m; i++){
+        for(int i = 0; i < min(m,k); i++){
             pq.push({matrix[i][0],i,0});
         }
         for(int i = 0; i < k; i++){
