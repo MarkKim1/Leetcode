@@ -16,7 +16,7 @@ class Solution {
     return false;
   }
 
-  protected boolean backtrack(int row, int col, String word, int index) {
+    protected boolean backtrack(int row, int col, String word, int index) {
     /* Step 1). check the bottom case. */
     if (index >= word.length())
       return true;
@@ -27,20 +27,19 @@ class Solution {
       return false;
 
     /* Step 3). explore the neighbors in DFS */
-    boolean ret = false;
     // mark the path before the next exploration
     this.board[row][col] = '#';
 
     int[] rowOffsets = {0, 1, 0, -1};
     int[] colOffsets = {1, 0, -1, 0};
     for (int d = 0; d < 4; ++d) {
-      ret = this.backtrack(row + rowOffsets[d], col + colOffsets[d], word, index + 1);
-      if (ret)
-        break;
+      if (this.backtrack(row + rowOffsets[d], col + colOffsets[d], word, index + 1))
+        // return without cleanup
+        return true;
     }
 
     /* Step 4). clean up and return the result. */
     this.board[row][col] = word.charAt(index);
-    return ret;
+    return false;
   }
 }
