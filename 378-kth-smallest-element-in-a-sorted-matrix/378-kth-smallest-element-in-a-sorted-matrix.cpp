@@ -1,21 +1,40 @@
 class Solution {
 public:
     int kthSmallest(vector<vector<int>>& matrix, int k) {
-        int m = matrix.size();
-        int n = matrix[0].size();
-        int value,row,col;
-        priority_queue<vector<int>, vector<vector<int>>, greater<>> pq;
-        for(int i = 0; i < min(m,k); i++){
-            pq.push({matrix[i][0],i,0});
+        const int n = matrix.size();
+        int start = matrix[0][0];
+        int end = matrix[n-1][n-1];
+        while(start < end){
+            int pivot = start + (end - start) / 2;
+            
+            vector<int> sub = {matrix[0][0],matrix[n-1][n-1]};
+            
+            int count = this->searchForCount(matrix,n,pivot,sub);
+            
+            if(count == k) return sub[0];
+            
+            if(count < k) start = sub[1];
+            else end = sub[0];
+            }
+        return start;
+    }
+    int searchForCount(vector<vector<int>>&matrix,int n,int pivot, vector<int>&sub){
+        int row = matrix.size()-1;
+        int col = 0;
+        int count = 0;
+        while(row >= 0 and col < n){
+            
+            if(matrix[row][col] > pivot){
+                sub[1] = min(sub[1],matrix[row][col]);
+                row--;
+                
+            }else{
+                sub[0] = max(sub[0],matrix[row][col]);
+                count +=row+1;
+                col++;
+            }
         }
-        for(int i = 0; i < k; i++){
-            auto top = pq.top();
-            value = top[0];
-            row = top[1];
-            col = top[2];
-            pq.pop();
-            if(col + 1 < n) pq.push({matrix[row][col+1],row,col+1});
-        }
-        return value;
-    } 
+        //cout << "efef" << endl;
+        return count;
+    }
 };
