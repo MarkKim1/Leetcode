@@ -6,7 +6,6 @@ public:
         this->n = nums.size();
         this->m = multipliers.size();
         int memo[1001][1001] = {};
-        
         for(int i = m-1; i >= 0; i--){
             for(int left = i; left >= 0; left--){
                 int right = n - 1 - (i - left);
