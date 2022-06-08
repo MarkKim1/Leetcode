@@ -1,7 +1,7 @@
 class Solution {
 public:
     int maximalSquare(vector<vector<char>>& matrix) {
-        int dp[301][301] = {0};
+        vector<vector<int>> dp(matrix.size(),vector<int>(matrix[0].size(),0));
         int area = 0;
         for(int i = 0; i < matrix.size(); i++){
             for(int j = 0; j < matrix[0].size(); j++){
