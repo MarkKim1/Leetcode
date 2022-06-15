@@ -1,14 +1,44 @@
 class Solution {
 public:
-       bool canFinish(int n, vector<vector<int>>& prerequisites) {
-        vector<vector<int>> G(n);
-        vector<int> degree(n, 0), bfs;
-        for (auto& e : prerequisites)
-            G[e[1]].push_back(e[0]), degree[e[0]]++;
-        for (int i = 0; i < n; ++i) if (!degree[i]) bfs.push_back(i);
-        for (int i = 0; i < bfs.size(); ++i)
-            for (int j: G[bfs[i]])
-                if (--degree[j] == 0) bfs.push_back(j);
-        return bfs.size() == n;
+    
+    //detct the cycle in graph 
+    bool iscycle(vector<int> adj[], vector<int>&visit,int node){
+        if(visit[node]==1){
+            return true; 
+        }
+        
+        if(visit[node]==0){
+            visit[node]= 1;
+            for(auto x: adj[node]){
+                if(iscycle(adj,visit,x)){
+                    return true;
+                }
+            }
+        }
+        
+        visit[node]=2;
+        return false;
+        
+    }
+    
+    
+    bool canFinish(int numc, vector<vector<int>>& pqt) {
+       // unordered_map<int,vector<int>>adj;
+        //graph is ready 
+        vector<int>adj[numc];
+        
+        for(auto x: pqt){
+             adj[x[1]].push_back(x[0]);
+        }
+        
+        //visit vector
+        vector<int>visit(numc,0);
+        
+        for(int i =0; i<numc; i++){
+            if(iscycle(adj,visit,i)){
+                return false;
+            }
+        }
+        return true;
     }
 };
