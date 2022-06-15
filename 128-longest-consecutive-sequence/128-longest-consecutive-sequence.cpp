@@ -1,23 +1,46 @@
+class uf{
+    public:
+    unordered_map<int,int>parent,rank;
+    uf(vector<int>&nums){
+        for(auto & i:nums){
+            parent[i]=i;
+            rank[i]=1;
+        }
+    }
+    int find(int ele){
+        if(parent[ele]==ele)
+            return ele;
+        return parent[ele]=find(parent[ele]);
+    }
+    void un(int a,int b){
+        int p1=find(a),p2=find(b);
+        if(p1==p2)
+            return;
+        if(rank[p2]>=rank[p1])
+            swap(p2,p1);
+        parent[p2]=p1;
+        rank[p1]=rank[p1]+rank[p2];
+    }
+    int ans(){
+        int res=0;
+        for(auto & [u,v]:rank)
+          res=max(res,v);  
+        return res;
+    }
+};
+
 class Solution {
 public:
     int longestConsecutive(vector<int>& nums) {
-        set<int> num_set;
-        int longest_streak =0;
-        int streak = 1;
-        for(int i = 0; i< nums.size(); i++){
-            num_set.insert(nums[i]);
+        uf ob(nums);
+        unordered_set<int>seen;
+        for(auto & i:nums){
+            if(seen.count(i-1))
+                ob.un(i,i-1);
+            if(seen.count(i+1))
+                ob.un(i,i+1);
+            seen.insert(i);
         }
-        for(int i = 0; i < nums.size(); i++){
-            if(!num_set.count(nums[i]-1)){
-                int new_num = nums[i];
-                while(num_set.count(new_num+1)){
-                    streak++;
-                    new_num = new_num+1;
-                }
-            longest_streak = max(longest_streak,streak);
-            streak = 1;
-            }
-        }
-        return longest_streak;
+        return ob.ans();
     }
 };
