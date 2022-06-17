@@ -1,53 +1,36 @@
-class TrieNode {
-    public:
-        map<char,TrieNode*> next;
-        bool end = false;
-};
 class Trie {
-public:
-    TrieNode* node;
+    private:
+    vector<string> a;
+    public:
     Trie() {
-        node = new TrieNode();
+        
     }
     
     void insert(string word) {
-        TrieNode* root = node;
-        for(auto ch:word) {
-            if(root->next.count(ch)) {
-                root = root->next[ch];
-            } else {
-                root->next[ch] = new TrieNode();
-                root = root->next[ch];
-            }
-            
-        }
-        
-        root->end = true;     
-        
+        a.push_back(word);
     }
     
     bool search(string word) {
-        TrieNode* root = node;
-        for(auto ch:word) {
-            if(root->next.count(ch)) {
-                root = root->next[ch];
-            }  else {
-                return false;
+        for(int i = 0; i < a.size(); i++){
+            if(a[i] == word){
+                return true;
             }
         }
-        return root->end;
+        return false;
     }
     
     bool startsWith(string prefix) {
-        TrieNode* root = node;
-        for(auto ch:prefix) {
-            if(root->next.count(ch)) {
-                root = root->next[ch];
-            }  else {
-                return false;
+        int count = 0;
+        for(int i = 0; i < a.size(); i++){
+            while(a[i][count] == prefix[count]){
+                count++;
+                if(count == prefix.size()){
+                    return true;
+                }
             }
+            count = 0;
         }
-        return true;
+        return false;
     }
 };
 
