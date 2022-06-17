@@ -22,4 +22,8 @@ public:
         }
         return ans;
     }
+    //this solution has space complextiy of O(1) since we are not allocating any extra space to find substring
+    // time complexity is O(N^2)
+    //1. The number of possible palindromic centers we process
+    //2. How much time we spend processing each center
 };
