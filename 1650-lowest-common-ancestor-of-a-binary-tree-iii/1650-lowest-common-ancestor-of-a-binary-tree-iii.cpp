@@ -11,15 +11,37 @@ public:
 
 class Solution {
 public:
-    Node* lowestCommonAncestor(Node* p, Node * q) {
-        Node* a = p;
-        Node* b = q;
+     Node* lowestCommonAncestor(Node* p, Node * q) {
+        Node* pCopy = p;
+        int pNum = 0;
+        Node* qCopy = q;
+        int qNum = 0;
         
-        while(a != b){
-            a = a==nullptr ? p : a->parent;
-            b = b==nullptr ? q : b->parent;
-            
+        //find distance from the root
+        while(pCopy->parent != nullptr){
+            pCopy = pCopy->parent;
+            pNum++;
         }
-        return a;
+        while(qCopy->parent != nullptr){
+            qCopy = qCopy->parent;
+            qNum++;
+        }
+        
+        //Put both pointers at the same depth
+        while(qNum > pNum){
+            q = q -> parent;
+            qNum--;
+        }
+        while(pNum > qNum){
+            p = p -> parent;
+            pNum--;
+        }
+        
+        //keep going to the next parent until you have the same parent
+        while(p != q){
+            p = p->parent;
+            q = q->parent;
+        }
+        return p;
     }
 };
