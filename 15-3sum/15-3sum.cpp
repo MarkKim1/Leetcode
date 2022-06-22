@@ -20,7 +20,7 @@ public:
                         right--;
                     }else if(first + nums[left] + nums[right] < 0){
                         left++;
-                    }else if(first + nums[left] + nums[right] > 0){
+                    }else{
                         right--;
                     }
                 }
