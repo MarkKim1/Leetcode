@@ -1,43 +1,25 @@
 class Solution {
 public:
-    int n;
-    int dx[8]={-1,0,1,1,1,0,-1,-1};
-    int dy[8]={-1,-1,-1,0,1,1,1,0};
-    bool valid(int x,int y,vector<vector<int>>& grid)
-    {
-        if(x<0 || y<0 || x>=n || y>=n || grid[x][y] != 0) return false;
-        return true;
+    int shortestPathBinaryMatrix(vector<vector<int>>& g, int steps = 0) {
+  queue<pair<int, int>> q;
+  q.push({ 0, 0 });
+  while (!q.empty()) {
+    ++steps;
+    queue<pair<int, int>> q1;
+    while (!q.empty()) {
+      auto c = q.front();
+      q.pop();
+      if (c.first >= 0 && c.second >= 0 && c.first < g.size() && c.second < g.size() && !g[c.first][c.second]) {
+        g[c.first][c.second] = 1;
+        if (c.first == g.size() - 1 && c.second == g.size() - 1) return steps;
+        for (auto i = -1; i < 2; ++i)
+          for (auto j = -1; j < 2; ++j)
+            if (i != 0 || j != 0) q1.push({ c.first + i, c.second + j });
+      }
     }
-    int shortestPathBinaryMatrix(vector<vector<int>>& grid) {
-        n = grid.size();
-        queue<pair<int,int>>q;
-        bool reached = false;
-        if(grid[0][0]==0) q.push({0,0});
-        int dist = 0,x,y;
-        while(!reached && !q.empty())
-        {
-            int size = q.size();
-            dist++;
-            for(int i=0;i<size;i++)
-            {
-                auto [x,y] = q.front();
-                q.pop();
-                if(x==n-1 && y==n-1)
-                {
-                    reached = true;
-                    break;
-                }
-                for(int ind=0;ind<8;ind++)
-                {
-                    if(valid(x+dx[ind],y+dy[ind],grid))
-                    {
-                        q.push({x+dx[ind],y+dy[ind]});
-                        grid[x+dx[ind]][y+dy[ind]] = 2;
-                    }
-                }
-            }
-        }
-        if(reached) return dist;
-        return -1;
-    }
+    swap(q, q1);
+  }
+  return -1;
+}
+    
 };
