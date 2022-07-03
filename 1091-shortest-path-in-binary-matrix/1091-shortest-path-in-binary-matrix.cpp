@@ -14,18 +14,18 @@ public:
             q.pop();
             int row = it.first;
             int col = it.second;
+            int distance = grid[row][col];
+            if(row == grid.size()-1 and col == grid[0].size()-1){
+                return distance;
+            }
             for(auto neighbor: neighbors(row,col,grid)){
                 int newRow = neighbor.first;
                 int newCol = neighbor.second;
-                grid[newRow][newCol] = grid[row][col] + 1;
+                grid[newRow][newCol] = distance + 1;
                 q.push(make_pair(newRow,newCol));
             }
         }
-        if(grid[grid.size()-1][grid[0].size()-1] != 0){
-            return grid[grid.size()-1][grid[0].size()-1];
-        }else{
-            return -1;
-        }
+        return -1;
     }
     vector<pair<int,int>> neighbors(int row,int col, vector<vector<int>>& grid){
         vector<pair<int,int>> result;
