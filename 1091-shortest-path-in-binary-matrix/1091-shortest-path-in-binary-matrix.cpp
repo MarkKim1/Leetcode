@@ -30,14 +30,13 @@ public:
     vector<pair<int,int>> neighbors(int row,int col, vector<vector<int>>& grid){
         vector<pair<int,int>> result;
         for(int i = 0; i < directions.size(); i++){
-            if(row + directions[i][0] < 0 || col + directions[i][1] < 0 || row + directions[i][0] >= grid.size() || col + directions[i][1] >= grid[0].size()){
+            if(row + directions[i][0] < 0 || col + directions[i][1] < 0 || row + directions[i][0] >= grid.size() || col + directions[i][1] >= grid[0].size() ||
+              grid[row + directions[i][0]][col + directions[i][1]] != 0){
                 continue;
             }
             int newRow = row + directions[i][0];
             int newCol = col + directions[i][1];
-            if(grid[newRow][newCol] == 0){
                 result.push_back(make_pair(newRow,newCol));
-            }
         }
         return result;
     }
