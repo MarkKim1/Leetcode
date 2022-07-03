@@ -1,45 +1,43 @@
 class Solution {
 public:
-    vector<vector<int>> directions = {{-1,-1},{-1,0},{-1,1},{0,-1},{0,1},{1,-1},{1,0},{1,1}};
+    int n;
+    int dx[8]={-1,0,1,1,1,0,-1,-1};
+    int dy[8]={-1,-1,-1,0,1,1,1,0};
+    bool valid(int x,int y,vector<vector<int>>& grid)
+    {
+        if(x<0 || y<0 || x>=n || y>=n || grid[x][y] != 0) return false;
+        return true;
+    }
     int shortestPathBinaryMatrix(vector<vector<int>>& grid) {
-        if(grid[0][0] != 0 || grid[grid.size()-1][grid[0].size()-1] != 0){
-            return -1;
-        }
-        queue<pair<int,int>> q;
-        q.push(make_pair(0,0));
-        grid[0][0] = 1;
-        
-        while(!q.empty()){
-            auto it = q.front();
-            q.pop();
-            int row = it.first;
-            int col = it.second;
-            int distance = grid[row][col];
-            if(row == grid.size()-1 and col == grid[0].size()-1){
-                return distance;
+        n = grid.size();
+        queue<pair<int,int>>q;
+        bool reached = false;
+        if(grid[0][0]==0) q.push({0,0});
+        int dist = 0,x,y;
+        while(!reached && !q.empty())
+        {
+            int size = q.size();
+            dist++;
+            for(int i=0;i<size;i++)
+            {
+                auto [x,y] = q.front();
+                q.pop();
+                if(x==n-1 && y==n-1)
+                {
+                    reached = true;
+                    break;
+                }
+                for(int ind=0;ind<8;ind++)
+                {
+                    if(valid(x+dx[ind],y+dy[ind],grid))
+                    {
+                        q.push({x+dx[ind],y+dy[ind]});
+                        grid[x+dx[ind]][y+dy[ind]] = 2;
+                    }
+                }
             }
-            for(auto neighbor: neighbors(row,col,grid)){
-                int newRow = neighbor.first;
-                int newCol = neighbor.second;
-                grid[newRow][newCol] = distance + 1;
-                q.push(make_pair(newRow,newCol));
-            }
         }
+        if(reached) return dist;
         return -1;
     }
-    vector<pair<int,int>> neighbors(int row,int col, vector<vector<int>>& grid){
-        vector<pair<int,int>> result;
-        for(int i = 0; i < directions.size(); i++){
-            if(row + directions[i][0] < 0 || col + directions[i][1] < 0 || row + directions[i][0] >= grid.size() || col + directions[i][1] >= grid[0].size()){
-                continue;
-            }
-            int newRow = row + directions[i][0];
-            int newCol = col + directions[i][1];
-            if(grid[newRow][newCol] == 0){
-                result.push_back(make_pair(newRow,newCol));
-            }
-        }
-        return result;
-    }
-    
 };
