@@ -55,7 +55,7 @@ public:
         UnionFind uf(size);
         int count = 0;
         int result = 0;
-        for(int i = 0; i < fucking_graph.size() and count < size ;i++){
+        for(int i = 0; i < fucking_graph.size() and count < size-1 ;i++){
             int node1 = fucking_graph[i].second.first;
             int node2 = fucking_graph[i].second.second;
             int weight = fucking_graph[i].first;
