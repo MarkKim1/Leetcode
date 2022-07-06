@@ -24,6 +24,9 @@ public:
             int currnode = pq.top().second;
             int weight = pq.top().first;
             pq.pop();
+            if (weight > signal_sum[currnode]) {
+                continue;
+            }
             for(auto neighborNode: adj[currnode]){
                 int newWeight = neighborNode.first;
                 int nextNode = neighborNode.second;
