@@ -15,7 +15,7 @@ public:
             q.pop();
             
             // Broadcast the signal to adjacent nodes
-            for (auto edge : adj[currNode]) {
+            for (pair<int,int> edge : adj[currNode]) {
                 int time = edge.first;
                 int neighborNode = edge.second;
                 
