@@ -17,6 +17,7 @@ public:
             return;
         }
         grid[row][col] = '0';
+        
         DFS(grid,row+1,col);
         DFS(grid,row-1,col);
         DFS(grid,row,col+1);
