@@ -1,17 +1,16 @@
 class MinStack {
 public:
-    int minimum = INT_MAX;
     stack<pair<int,int>> stk;
     MinStack() {
+        
     }
     
     void push(int val) {
         if(stk.empty()){
             stk.push(make_pair(val,val));
-            return;
+        }else{
+            stk.push(make_pair(val,min(val,stk.top().second)));
         }
-        auto curr = stk.top();
-        stk.push(make_pair(val,min(val,curr.second)));
         
     }
     
@@ -20,13 +19,11 @@ public:
     }
     
     int top() {
-        auto curr = stk.top();
-        return curr.first;
+        return stk.top().first;
     }
     
     int getMin() {
-        auto curr = stk.top();
-        return curr.second;
+        return stk.top().second;
     }
 };
 
