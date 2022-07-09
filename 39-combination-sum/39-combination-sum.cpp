@@ -1,24 +1,24 @@
 class Solution {
 public:
     vector<vector<int>> result;
+    
     vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
-        vector<int> sub;
-        int sum = 0;
-        recurs(sub,candidates,sum,target,0);
+        vector<int> output;
+        backtrack(candidates,0,target,output,0);
         return result;
     }
-    void recurs(vector<int> sub,vector<int>& candidates,int sum,int target,int start){
-        if(sum > target){
-            return;
-        }
-        if(sum == target){
-            result.push_back(sub);
+    void backtrack(vector<int>& candidates, int sum, int target,vector<int>& output,int start){
+        if(target == sum){
+            result.push_back(output);
             return;
         }
         for(int i = start; i < candidates.size(); i++){
-                sub.emplace_back(candidates[i]);
-                recurs(sub,candidates,sum+candidates[i],target,i);
-                sub.pop_back();
+            if(sum + candidates[i] <= target){
+                output.push_back(candidates[i]);
+                backtrack(candidates,sum + candidates[i],target,output,i);
+                output.pop_back();
+            }
         }
+        
     }
 };
