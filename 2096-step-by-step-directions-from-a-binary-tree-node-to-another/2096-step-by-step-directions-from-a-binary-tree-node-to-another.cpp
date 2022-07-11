@@ -11,39 +11,23 @@
  */
 class Solution {
 public:
-    string s_p ="";
-    string d_p = "";
-    string sub = "";
-    string getDirections(TreeNode* root, int startValue, int destValue) {
-        find(root,startValue,destValue);
-        if(s_p.empty()) return d_p;
-        if(d_p.empty()) return string(s_p.size(),'U');
-        // cout << s_p << endl;
-        // cout << d_p << endl;
-        int i = 0;
-        while(i < s_p.size() and i < d_p.size() and s_p[i] == d_p[i]){
-            i++;
-        }
-        return string(s_p.size()-i,'U') + d_p.substr(i);
-        
+    bool find(TreeNode* n, int val, string &path) {
+    if (n->val == val)
+        return true;
+    if (n->left && find(n->left, val, path))
+        path.push_back('L');
+    else if (n->right && find(n->right, val, path))
+        path.push_back('R');
+    return !path.empty();
+}
+string getDirections(TreeNode* root, int startValue, int destValue) {
+    string s_p, d_p;
+    find(root, startValue, s_p);
+    find(root, destValue, d_p);
+    while (!s_p.empty() && !d_p.empty() && s_p.back() == d_p.back()) {
+        s_p.pop_back();
+        d_p.pop_back();
     }
-    void find(TreeNode* root,int start,int dest){
-        if(!root) return;
-        if(root->val == start){
-            s_p = sub;
-        }
-        if(root->val == dest){
-            d_p = sub;
-        }
-        if(root->left){
-            sub+='L';
-            find(root->left,start,dest);
-            sub.pop_back();
-        }
-        if(root->right){
-            sub+='R';
-            find(root->right,start,dest);
-            sub.pop_back();
-        }
-    }
+    return string(s_p.size(), 'U') + string(rbegin(d_p), rend(d_p));
+}
 };
