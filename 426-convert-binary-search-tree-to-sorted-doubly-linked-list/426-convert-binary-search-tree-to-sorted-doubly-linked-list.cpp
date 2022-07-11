@@ -24,27 +24,26 @@ public:
 
 class Solution {
 public:
-    Node* first = NULL;
-    Node* last = NULL;
-    
-    Node* treeToDoublyList(Node* root) {
-        if(!root) return NULL;
-        helper(root);
-        last->right = first;
-        first->left = last;
-        return first;
+    Node* head = NULL;
+    Node* tail = NULL;
+    Node* treeToDoublyList(Node* root) { 
+        if(!root)return NULL;
+        inorder(root);
+        tail->right = head;
+        head->left = tail;
+        return head;
     }
-    void helper(Node* node){
-        if(node){
-            helper(node->left);
-            if(last){
-                last->right = node;
-                node->left = last;
+    void inorder(Node* curr){
+        if(curr){
+            inorder(curr->left);
+            if(head){
+                tail->right = curr;
+                curr->left = tail;
             }else{
-                first = node;
+                head = curr;
             }
-            last = node;
-            helper(node->right);
+            tail = curr;
+            inorder(curr->right);
         }
     }
 };
