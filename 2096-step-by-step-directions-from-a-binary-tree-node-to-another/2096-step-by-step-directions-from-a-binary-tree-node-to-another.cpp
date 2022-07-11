@@ -24,9 +24,7 @@ public:
         while(i < s_p.size() and i < d_p.size() and s_p[i] == d_p[i]){
             i++;
         }
-        string start(s_p.size()-i,'U');
-        string end = d_p.substr(i);
-        return start + end;
+        return string(s_p.size()-i,'U') + d_p.substr(i);
         
     }
     void find(TreeNode* root,int start,int dest){
