@@ -11,23 +11,24 @@
  */
 class Solution {
 public:
-    vector<vector<int>> result;
     vector<vector<int>> findLeaves(TreeNode* root) {
-        this->result.clear();
-        DFS(root);
+        priority_queue<pair<int,int>, vector<pair<int,int>>, greater<pair<int,int>>> pq;
+        int depth = DFS(root,pq);
+        vector<vector<int>> result(depth+1);
+        int size = pq.size();
+        while(!pq.empty()){
+            result[pq.top().first].push_back(pq.top().second);
+            pq.pop();
+        }
         return result;
     }
-    int DFS(TreeNode* root){
-        if(root==NULL){
-            return -1;
-        }
-        int leftHeight = DFS(root->left);
-        int rightHeight = DFS(root->right);
-        int currHeight = max(leftHeight,rightHeight)+1;
-        if(result.size() == currHeight){
-            result.push_back({});
-        }
-        result[currHeight].push_back(root->val);
-        return currHeight;
+    int DFS(TreeNode* root,priority_queue<pair<int,int>, vector<pair<int,int>>, greater<pair<int,int>>>& pq){
+        if(root == NULL) return -1;
+        
+        int left = DFS(root->left,pq);
+        int right = DFS(root->right,pq);
+        int curr = max(left,right)+1;
+        pq.push({curr,root->val});
+        return curr;
     }
 };
