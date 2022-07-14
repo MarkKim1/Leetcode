@@ -15,8 +15,8 @@ private:
         if (!node)  return;
         if (lb) res.push_back(node->val);
         if (!lb && !rb && !node->left && !node->right)  res.push_back(node->val);
-        getBounds(node->left, res, lb, rb && !node->right);
-        getBounds(node->right, res, lb && !node->left, rb);
+        getBounds(node->left, res, lb, rb && node->right == NULL);
+        getBounds(node->right, res, lb && node->left == NULL, rb);
         if (rb) res.push_back(node->val);
     }
 };
