@@ -11,25 +11,39 @@
  */
 class Solution {
 public:
-    
     void recoverTree(TreeNode* root) {
-        TreeNode* prev = NULL;
+        TreeNode* node = root;
+        TreeNode* pred = NULL;
+        TreeNode* predecessor = NULL;
         TreeNode* x = NULL;
         TreeNode* y = NULL;
-        recover(root,prev,x,y);
-        swap(x->val,y->val);
-        
-    }
-    void recover(TreeNode* root,TreeNode*& prev,TreeNode*& x, TreeNode*& y){
-        if(root == NULL) return;
-        recover(root->left,prev,x,y);
-        if(prev != NULL and root->val < prev->val){
-            x = root;
-            if(y == NULL){
-                y = prev;
+        while(node){
+            if(node->left){
+                predecessor = node->left;
+                while(predecessor->right and predecessor->right != node){
+                    predecessor = predecessor->right;
+                }
+                if(predecessor->right == NULL){
+                    predecessor->right = node;
+                    node = node->left;
+                }else{
+                    if(pred and node->val < pred->val){
+                        y = node;
+                        if(x == NULL) x = pred;
+                    }
+                    pred = node;
+                    predecessor->right = NULL;
+                    node = node->right;
+                }
+            }else{
+                if(pred and node->val < pred->val){
+                    y = node;
+                    if(x == NULL) x = pred;
+                }
+                pred = node;
+                node = node->right;
             }
         }
-        prev = root;
-        recover(root->right,prev,x,y);
+        swap(x->val,y->val);
     }
 };
