@@ -12,38 +12,34 @@
 class Solution {
 public:
     void recoverTree(TreeNode* root) {
-        TreeNode* node = root;
-        TreeNode* pred = NULL;
-        TreeNode* predecessor = NULL;
-        TreeNode* x = NULL;
-        TreeNode* y = NULL;
-        while(node){
-            if(node->left){
-                predecessor = node->left;
-                while(predecessor->right and predecessor->right != node){
-                    predecessor = predecessor->right;
+        TreeNode* previous = NULL, *pred = NULL,*x = NULL,*y = NULL;
+        while(root){
+            if(root->left){
+                pred = root->left;
+                while(pred->right and pred->right != root){
+                    pred = pred->right;
                 }
-                if(predecessor->right == NULL){
-                    predecessor->right = node;
-                    node = node->left;
+                if(pred->right != root){
+                    pred->right = root;
+                    root = root->left;
                 }else{
-                    if(pred and node->val < pred->val){
-                        y = node;
-                        if(x == NULL) x = pred;
+                    if(previous != NULL and previous->val > root->val){
+                        y = root;
+                        if(x == NULL) x = previous;
                     }
-                    pred = node;
-                    predecessor->right = NULL;
-                    node = node->right;
+                    previous = root;
+                    pred->right = NULL;
+                    root = root->right;
                 }
             }else{
-                if(pred and node->val < pred->val){
-                    y = node;
-                    if(x == NULL) x = pred;
-                }
-                pred = node;
-                node = node->right;
+                if(previous != NULL and previous->val > root->val){
+                        y = root;
+                        if(x == NULL) x = previous;
+                    }
+                previous = root;
+                root = root->right;
             }
         }
-        swap(x->val,y->val);   
+        swap(x->val,y->val);
     }
 };
