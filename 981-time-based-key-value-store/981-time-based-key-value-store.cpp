@@ -1,7 +1,6 @@
 class TimeMap {
 public:
     unordered_map<string,map<int,string>> map;
-    int prev_timeStamp;
     TimeMap() {
         
     }
