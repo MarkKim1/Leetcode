@@ -27,8 +27,7 @@ public:
         for(int i = 0; i < parenthesis.size(); i++){
             if(parenthesis[i] == '('){
                 balance++;
-            }
-            if(parenthesis[i] == ')'){
+            }else if(parenthesis[i] == ')'){
                 balance--;
             }
             if(balance < 0) return false;
