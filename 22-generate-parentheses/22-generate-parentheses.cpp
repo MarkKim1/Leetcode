@@ -1,34 +1,38 @@
 class Solution {
 public:
+    vector<string> result;
     vector<string> generateParenthesis(int n) {
-        string current;
-        current.resize(2*n);
-        vector<string> combination;
-        generate(current,0,combination);
-        return combination;
+        string parenthesis;
+        //parenthesis.resize(2*n);
+        generate(parenthesis,2*n);
+        return result;
     }
-    void generate(string current, int pos, vector<string>& combination){
-        if(pos == current.size()){
-            if(valid(current)){
-                combination.emplace_back(current);
+    void generate(string parenthesis,int valid){
+        if(valid == 0){
+            if(isvalid(parenthesis)){
+                result.push_back(parenthesis);
             }
-        }else{
-            current[pos] = '(';
-            generate(current,pos+1,combination);
-            current[pos] = ')';
-            generate(current,pos+1,combination);
+            return;
         }
+        parenthesis.push_back('(');
+        generate(parenthesis,valid-1);
+        parenthesis.pop_back();
+        
+        parenthesis.push_back(')');
+        generate(parenthesis,valid-1);
+        parenthesis.pop_back();
     }
-    bool valid(string current){
+    bool isvalid(string parenthesis){
         int balance = 0;
-        for(auto a:current){
-            if(a == '('){
+        for(int i = 0; i < parenthesis.size(); i++){
+            if(parenthesis[i] == '('){
                 balance++;
-            }else{
+            }
+            if(parenthesis[i] == ')'){
                 balance--;
             }
             if(balance < 0) return false;
         }
-        return (balance == 0);
+        return balance == 0 ? true : false;
     }
 };
