@@ -1,35 +1,33 @@
 class Solution {
 public:
-    //TC-O(n)
     string longestPalindrome(string s) {
-        string ans = "";
-        ans += s[0];
-        int maxLen = 0;
-        //partition between letters
-        for(int i=1;i<s.size();i++){
-            int j = 1, k = 0;
-            while(i + k < s.size() && i - j >= 0 && s[i + k] == s[i - j]){
-                if(2 * j > maxLen){
-                    maxLen = 2 * j;
-                    ans  = s.substr(i - j, maxLen);   
-                }
-                j++;
-                k++;
+        if(s.size()==0) return "";
+        int i = 0, j = 0;
+        int n = s.size();
+        //initialize P[n][n], we only need half of P, and initialize it like: (e.g. : s="abbc")
+        vector<vector<bool>> P(s.size(),vector<bool>(s.size()));
+        for(int x = 0;x<n;x++){
+            P[x][x]=true;
+            if(x==n-1) break;
+            P[x][x+1] = (s[x]==s[x+1]);
+        }
+        //dp 
+        for(int i = n-3; i>=0; --i){
+            for(int j = i+2;j<n; ++j){
+                P[i][j] = (P[i+1][j-1] && s[i]==s[j]);     
             }
         }
-        
-        //letter itself as center
-        for(int i=1;i<s.size();i++){
-            int j = 1;
-            while(i - j >= 0 && i + j < s.size() && s[i - j] == s[i + j]){
-                if(2 * j + 1 > maxLen){
-                    maxLen = 2 * j + 1;
-                    ans = s.substr(i - j, maxLen);
+        //get maxstr result
+        int max = 0;
+        string maxstr = "";
+        for(int i=0;i<n;i++){
+            for(int j=i;j<n;j++){
+                if(P[i][j]==true and j-i+1>max){
+                    max = j-i+1;
+                    maxstr = s.substr(i,j-i+1);
                 }
-                j++;
             }
         }
-        
-        return ans;
+        return maxstr;
     }
 };
