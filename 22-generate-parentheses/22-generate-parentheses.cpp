@@ -4,34 +4,23 @@ public:
     vector<string> generateParenthesis(int n) {
         string parenthesis;
         //parenthesis.resize(2*n);
-        generate(parenthesis,2*n);
+        generate(parenthesis,0,0,n);
         return result;
     }
-    void generate(string parenthesis,int valid){
-        if(valid == 0){
-            if(isvalid(parenthesis)){
-                result.push_back(parenthesis);
-            }
+    void generate(string parenthesis,int open, int close, int max){
+        if(parenthesis.size() == max*2){
+            result.push_back(parenthesis);
             return;
         }
-        parenthesis.push_back('(');
-        generate(parenthesis,valid-1);
-        parenthesis.pop_back();
-        
-        parenthesis.push_back(')');
-        generate(parenthesis,valid-1);
-        parenthesis.pop_back();
-    }
-    bool isvalid(string parenthesis){
-        int balance = 0;
-        for(int i = 0; i < parenthesis.size(); i++){
-            if(parenthesis[i] == '('){
-                balance++;
-            }else if(parenthesis[i] == ')'){
-                balance--;
-            }
-            if(balance < 0) return false;
+        if(open < max){
+            parenthesis.push_back('(');
+            generate(parenthesis,open+1,close,max);
+            parenthesis.pop_back();
         }
-        return balance == 0 ? true : false;
+        if(close < open){
+            parenthesis.push_back(')');
+            generate(parenthesis,open,close+1,max);
+            parenthesis.pop_back();   
+        }
     }
 };
