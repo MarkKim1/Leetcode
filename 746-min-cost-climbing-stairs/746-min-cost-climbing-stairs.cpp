@@ -1,19 +1,12 @@
 class Solution {
 public:
     int minCostClimbingStairs(vector<int>& cost) {
-        int n = cost.size();
-        unordered_map<int,int> memo;
-        return dp(cost,n,memo);
-    }
-    
-    int dp(vector<int>& cost, int n, unordered_map<int,int>& memo){
-        memo[0] = cost[0];
-        memo[1] = cost[1];
-        for(int i = 2; i < n; i++){
-            if(memo.find(i) == memo.end()){
-                memo[i] = cost[i] + min(memo[i-1],memo[i-2]);
-            }
+        vector<int> dp(cost.size());
+        dp[0] = cost[0];
+        dp[1] = cost[1];
+        for(int i = 2; i < cost.size(); i++){
+            dp[i] = min(dp[i-1],dp[i-2]) + cost[i];
         }
-        return memo[n-1] > memo[n-2] ? memo[n-2] : memo[n-1];
+        return min(dp[cost.size()-1],dp[cost.size()-2]);
     }
 };
