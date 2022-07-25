@@ -1,14 +1,12 @@
 class Solution {
 public:
-    int maxScoreSightseeingPair(vector<int>& A) {
-    int result = 0;
-    int maxsofar = A[0]+0;
-    
-    for (int i=1; i<A.size(); ++i)
-    {
-        maxsofar = max(maxsofar, A[i-1]+i-1);  
-        result = max(result, A[i]-i+maxsofar);         
+    int maxScoreSightseeingPair(vector<int>& values) {
+        int result = INT_MIN;
+        int maxSoFar = values[0] + 0;
+        for(int i = 1; i < values.size(); i++){
+            maxSoFar = max(maxSoFar,values[i-1]+i-1);
+            result = max(result,values[i]-i + maxSoFar);
+        }
+        return result;
     }
-    return result;
-}
 };
