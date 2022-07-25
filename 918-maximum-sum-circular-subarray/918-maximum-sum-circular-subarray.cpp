@@ -13,6 +13,6 @@ public:
             minresult = min(mincur,minresult);
             total +=nums[i];
         }
-        return maxcur > 0 ? max(total-minresult,maxresult) : maxresult;
+        return maxresult > 0 ? max(total-minresult,maxresult) : maxresult;
     }
 };
