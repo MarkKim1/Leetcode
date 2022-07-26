@@ -1,18 +1,25 @@
 class Solution {
 public:
-	int maxProfit(vector<int>& prices){
-		if (prices.size() <= 1) return 0;
-		vector<int> s0(prices.size(), 0);
-		vector<int> s1(prices.size(), 0);
-		vector<int> s2(prices.size(), 0);
-		s1[0] = -prices[0];
-		s0[0] = 0;
-		s2[0] = INT_MIN;
-		for (int i = 1; i < prices.size(); i++) {
-			s0[i] = max(s0[i - 1], s2[i - 1]);
-			s1[i] = max(s1[i - 1], s0[i - 1] - prices[i]);
-			s2[i] = s1[i - 1] + prices[i];
-		}
-		return max(s0[prices.size() - 1], s2[prices.size() - 1]);
-	}
+    unordered_map<int,unordered_map<bool,int>> map;
+    int maxProfit(vector<int>& prices) {
+       return dfs(0,true,prices);
+    }
+    int dfs(int i, bool buying,vector<int>& prices){
+        if(i >= prices.size()){
+            return 0;
+        }
+        if(map[i].find(buying) != map[i].end()){
+            return map[i][buying];
+        }
+        if(buying){
+            int buy = dfs(i+1,!buying,prices)-prices[i];
+            int cooldown = dfs(i+1,buying,prices);
+            map[i][buying] = max(buy,cooldown); 
+        }else{
+            int sell = dfs(i+2,!buying,prices) + prices[i];
+            int cooldown = dfs(i+1,buying,prices);
+            map[i][buying] = max(sell,cooldown); 
+        }
+        return map[i][buying];
+    }
 };
