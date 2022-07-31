@@ -1,19 +1,24 @@
 class Solution {
 public:
     int minMeetingRooms(vector<vector<int>>& intervals) {
-    map<int, int> mp; // key: time; val: +1 if start, -1 if end
-
-    for(int i=0; i< intervals.size(); i++) {
-        mp[intervals[i][0]] ++;
-        mp[intervals[i][1]] --;
-    }
-    
-    int cnt = 0, maxCnt = 0;
-    for(auto it = mp.begin(); it != mp.end(); it++) {
-        cnt += it->second;
-        maxCnt = max( cnt, maxCnt);
-    }
-    
-    return maxCnt;
+        priority_queue<pair<int,int>, vector<pair<int,int>>, greater<>> minheap;
+        priority_queue<pair<int,int>, vector<pair<int,int>>, greater<>> maxheap;
+        for(auto interval: intervals){
+            minheap.push(make_pair(interval[0],interval[1]));
+        }
+        while(!minheap.empty()){
+            auto temp = minheap.top();
+            minheap.pop();
+            if(maxheap.empty()){
+                maxheap.push(make_pair(temp.second,temp.first));
+            }
+            else if(maxheap.top().first <= temp.first){
+                maxheap.pop();
+                maxheap.push(make_pair(temp.second,temp.first));
+            }else{
+                maxheap.push(make_pair(temp.second,temp.first));
+            }
+        }
+        return maxheap.size();
     }
 };
