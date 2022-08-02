@@ -6,29 +6,27 @@ public:
         int ans = INT_MAX;
         for(int i = 1; i < matrix.size(); i++){
             for(int j = 0; j < matrix[0].size(); j++){
-                if(j == 0 and matrix[i].size() >= j){
+                if(j == 0){
                     result = min(matrix[i][j]+matrix[i-1][j],matrix[i][j]+matrix[i-1][j+1]);
                     matrix[i][j] = result;
                     result = INT_MAX;
                     if(i == matrix.size()-1){
                         ans = min(ans,matrix[i][j]);
                     }
-                    continue;
-                }
-                if(j == matrix[i].size()-1 and j-1 >= 0){
+                }else if(j == matrix[i].size()-1){
                     result = min(matrix[i][j]+matrix[i-1][j],matrix[i][j]+matrix[i-1][j-1]);
                     matrix[i][j] = result;
                     result = INT_MAX;
                     if(i == matrix.size()-1){
                         ans = min(ans,matrix[i][j]);
                     }
-                    continue;
-                }
-                result = min(matrix[i][j]+matrix[i-1][j+1],min(matrix[i][j]+matrix[i-1][j-1],matrix[i][j]+matrix[i-1][j]));
-                matrix[i][j] = result;
-                result = INT_MAX;
-                if(i == matrix.size()-1){
-                    ans = min(ans,matrix[i][j]);
+                }else{
+                    result = min(matrix[i][j]+matrix[i-1][j+1],min(matrix[i][j]+matrix[i-1][j-1],matrix[i][j]+matrix[i-1][j]));
+                    matrix[i][j] = result;
+                    result = INT_MAX;
+                    if(i == matrix.size()-1){
+                        ans = min(ans,matrix[i][j]);
+                    }
                 }
             }
         }
