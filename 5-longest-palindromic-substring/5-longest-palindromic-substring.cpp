@@ -1,30 +1,50 @@
 class Solution {
 public:
     string longestPalindrome(string s) {
-        string res = "";
-        int resLen = 0;
-        for(int i = 0; i < s.size(); i++){
-            int l = i, r = i;
-            //odd length
-            while(l >= 0 and r < s.size() and s[l] == s[r]){
-                if(r-l+1 > resLen){
-                    res = s.substr(l,r-l+1);
-                    resLen = r-l+1;
+        string ans = "";
+        for(int n = 1; n < s.size(); n++){
+            if(s[n-1] == s[n+1]){
+                string temp = s.substr(n-1,3);
+                if(ans.size() <= temp.size()){
+                    ans = temp;
                 }
-                l--;
-                r++;
-            }
-            l = i;
-            r = i+1;
-            while(l >= 0 and r < s.size() and s[l] == s[r]){
-                if(r-l+1 > resLen){
-                    res = s.substr(l,r-l+1);
-                    resLen = r-l+1;
+                int left = n-1,right = n+1;
+                while(left > 0 and right < s.size()){
+                    left--;
+                    right++;
+                    if(s[left] == s[right]){
+                        string temp = s.substr(left,right-left+1);
+                        if(ans.size() <= temp.size()){
+                            ans = temp;
+                        }    
+                    }else{
+                        break;
+                    }
                 }
-                l--;
-                r++;
+            }if(s[n-1] == s[n]){
+                string temp = s.substr(n-1,2);
+                if(ans.size() <= temp.size()){
+                    ans = temp;
+                }
+                int left = n-1,right = n;
+                while(left > 0 and right < s.size()){
+                    left--;
+                    right++;
+                    if(s[left] == s[right]){
+                        string temp = s.substr(left,right-left+1);
+                        if(ans.size() <= temp.size()){
+                            ans = temp;
+                        }    
+                    }else{
+                        break;
+                    }
+                }
             }
         }
-        return res;
+        if(ans.empty()){
+            ans = s[0];
+            return ans;
+        }
+        return ans;
     }
 };
