@@ -9,7 +9,7 @@ public:
                     ans = temp;
                 }
                 int left = n-1,right = n+1;
-                while(left > 0 and right < s.size()){
+                while(left > 0 and right < s.size() and s[left] == s[right]){
                     left--;
                     right++;
                     if(s[left] == s[right]){
@@ -27,7 +27,7 @@ public:
                     ans = temp;
                 }
                 int left = n-1,right = n;
-                while(left > 0 and right < s.size()){
+                while(left > 0 and right < s.size() and s[left] == s[right]){
                     left--;
                     right++;
                     if(s[left] == s[right]){
