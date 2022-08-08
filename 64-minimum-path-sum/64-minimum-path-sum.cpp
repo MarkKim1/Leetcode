@@ -1,22 +1,21 @@
 class Solution {
 public:
     int minPathSum(vector<vector<int>>& grid) {
-        if(grid.size() == 1 and grid[0].size() == 1) return grid[0][0];
-        int row = grid.size();
-        int col = grid[0].size();
-        int dp[row][col];
-        dp[row-1][col-1] = grid[row-1][col-1];
-        for(int i = row-1; i >= 0; i--){
-            for(int j = col-1; j>=0; j--){
-                if(i == row-1 and j>=1){
-                    dp[i][j-1] = grid[i][j-1] + dp[i][j];
-                }else if(j == col-1 and i >= 0){
-                    dp[i][j] = grid[i][j] + dp[i+1][j];
-                }else if(j != col-1 and i != row-1){
-                    dp[i][j] = grid[i][j] + min(dp[i+1][j],dp[i][j+1]);
-                }
+        // vector<vector<int>> dp(grid.size(),vector<int>(grid[0].size()));
+        int ROW = grid.size();
+        int COL = grid[0].size();
+        for(int i = 1; i <COL; i++){
+            grid[0][i] +=grid[0][i-1];
+        }
+        for(int i = 1; i < ROW; i++){
+            grid[i][0] +=grid[i-1][0];
+        }
+        for(int i = 1; i < ROW; i++){
+            for(int j = 1; j < COL; j++){
+                grid[i][j] = min(grid[i-1][j],grid[i][j-1]) + grid[i][j];
             }
         }
-        return dp[0][0];
+        return grid[ROW-1][COL-1];
     }
 };
+// [[1,2,3],[4,5,6],[4,5,6],[4,5,6],[4,5,6]]
