@@ -1,44 +1,29 @@
 class Solution {
 public:
-    vector<vector<int>> directions = {{-1,-1},{-1,0},{-1,1},{0,-1},{0,1},{1,-1},{1,0},{1,1}};
+    vector<int> x = {-1,-1,-1, 0,0, 1,1,1};
+    vector<int> y = {-1, 0, 1,-1,1,-1,0,1};
     int shortestPathBinaryMatrix(vector<vector<int>>& grid) {
-        if(grid[0][0] != 0 || grid[grid.size()-1][grid[0].size()-1] != 0){
-            return -1;
-        }
-        queue<pair<int,int>> q;
-        q.push(make_pair(0,0));
+        if(grid[0][0] != 0) return -1;
         grid[0][0] = 1;
-        
+        queue<pair<int,int>> q;
+        q.push({0,0});
+        int i,j;
         while(!q.empty()){
-            auto it = q.front();
+            i = q.front().first;
+            j = q.front().second;
             q.pop();
-            int row = it.first;
-            int col = it.second;
-            for(auto neighbor: neighbors(row,col,grid)){
-                int newRow = neighbor.first;
-                int newCol = neighbor.second;
-                grid[newRow][newCol] = grid[row][col] + 1;
-                q.push(make_pair(newRow,newCol));
+            for(int n = 0; n < x.size(); n++){
+                int new_row = i + x[n];
+                int new_col = j + y[n];
+                if(new_row >= 0 and new_col >= 0 and new_row < grid.size() and new_col < grid[0].size()){
+                    if(grid[new_row][new_col] == 0){
+                        grid[new_row][new_col] = grid[i][j] + 1;
+                        q.push({new_row,new_col});
+                    }
+                }
             }
         }
-        if(grid[grid.size()-1][grid[0].size()-1] != 0){
-            return grid[grid.size()-1][grid[0].size()-1];
-        }else{
-            return -1;
-        }
+        if(grid.size() > 1 and grid[grid.size()-1][grid[0].size()-1] < 2) return -1;
+        return grid[grid.size()-1][grid[0].size()-1];
     }
-    vector<pair<int,int>> neighbors(int row,int col, vector<vector<int>>& grid){
-        vector<pair<int,int>> result;
-        for(int i = 0; i < directions.size(); i++){
-            if(row + directions[i][0] < 0 || col + directions[i][1] < 0 || row + directions[i][0] >= grid.size() || col + directions[i][1] >= grid[0].size() ||
-              grid[row + directions[i][0]][col + directions[i][1]] != 0){
-                continue;
-            }
-            int newRow = row + directions[i][0];
-            int newCol = col + directions[i][1];
-                result.push_back(make_pair(newRow,newCol));
-        }
-        return result;
-    }
-    
 };
