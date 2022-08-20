@@ -1,52 +1,37 @@
 class Solution {
-    public:
-     vector<int> root;
-    vector<int> rank;
-    int count;
+public:
+    vector<int> graph;
+    int result;
     int findCircleNum(vector<vector<int>>& isConnected) {
-        if (isConnected.size() == 0) {
-            return 0;
+        this->result = isConnected.size();
+        if(isConnected.size() == 1){
+            return 1;
         }
-        this->count = isConnected.size();
-        int n = isConnected.size();
-        for (int i = 0; i < n; i++) {
-            root.push_back(i);
-            rank.push_back(1);
+        this->graph.resize(isConnected.size());
+        for(int i = 0; i < graph.size(); i++){
+            graph[i] = i;
         }
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                if (isConnected[i][j] == 1) {
-                    unionSet(i, j, n);
+        for(int i = 0 ; i < isConnected.size(); i++){
+            for(int j = 0; j < isConnected[i].size(); j++){
+                if(isConnected[i][j] == 1){
+                    unionfind(i,j);
                 }
             }
         }
-        return getCount();
+        return result;
     }
-    int find(int x) {
-        if (x == root[x]) {
-            return x;
-        }
-        return root[x] = find(root[x]);
-    }
-
-    void unionSet(int x, int y,int n) {
-        int rootX = find(x);
-        int rootY = find(y);
-        if (rootX != rootY) {
-            if (rank[rootX] > rank[rootY]) {
-                root[rootY] = rootX;
-            } else if (rank[rootX] < rank[rootY]) {
-                root[rootX] = rootY;
-            } else {
-                root[rootY] = rootX;
-                rank[rootX] += 1;
-            }
-            count--;
+    void unionfind(int a,int b){
+        int rootx = find(a);
+        int rooty = find(b);
+        if(rootx != rooty){
+            graph[rootx] = rooty;
+            result--;
         }
     }
-
-    int getCount() {
-        return count;
+    int find(int x){
+        if(graph[x] == x){
+            return graph[x];
+        }
+        return graph[x] = find(graph[x]);
     }
-
 };
