@@ -16,7 +16,7 @@ public:
                     result.push_back(matrix[up][col]);
                 visited[up][col] = 1;
             }
-            //Traverse from up to down
+            //Traverse to downwards
             for(int row = up+1; row <= down; row++){
                 if(visited[row][right] == -1)
                     result.push_back(matrix[row][right]);
@@ -28,7 +28,7 @@ public:
                     result.push_back(matrix[down][col]);
                 visited[down][col] = 1;
             }
-            //Traverse from down to up
+            //Traverse to upwards
             for(int row = down-1; row > up; row--){
                 if(visited[row][left] == -1)
                     result.push_back(matrix[row][left]);
