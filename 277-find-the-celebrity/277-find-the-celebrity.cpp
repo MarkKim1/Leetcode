@@ -14,7 +14,7 @@ public:
     bool isCelebrity(int i,int n){
         for(int j = 0; j <n; j++){
             if(i == j) continue;
-            if(knows(i,j) or !knows(j,i)){
+            if(knows(i,j) or knows(j,i) == false){
                 return false;
             }
         }
