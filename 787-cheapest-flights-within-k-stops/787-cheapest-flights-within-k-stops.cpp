@@ -1,61 +1,37 @@
 class Solution {
-    
-    public int findCheapestPrice(int n, int[][] flights, int src, int dst, int K) {
-     
-        // Build the adjacency matrix
-        int adjMatrix[][] = new int[n][n];
-        for (int[] flight: flights) {
-            adjMatrix[flight[0]][flight[1]] = flight[2];
-        }
-        
-        // Shortest distances array
-        int[] distances = new int[n];
-        
-        // Shortest steps array
-        int[] currentStops = new int[n];
-        Arrays.fill(distances, Integer.MAX_VALUE);
-        Arrays.fill(currentStops, Integer.MAX_VALUE);
-        distances[src] = 0;
-        currentStops[src] = 0;
-        
-        // The priority queue would contain (node, cost, stops)
-        PriorityQueue<int[]> minHeap = new PriorityQueue<int[]>((a, b) -> a[1] - b[1]);
-        minHeap.offer(new int[]{src, 0, 0});
-        
-         while (!minHeap.isEmpty()) {
-             
-            int[] info = minHeap.poll();
-            int node = info[0], stops = info[2], cost = info[1];
-             
-             // If destination is reached, return the cost to get here
-            if (node == dst) {
-                return cost;
-            }
-             
-            // If there are no more steps left, continue 
-            if (stops == K + 1) {
-                continue;
-            }
-             
-            // Examine and relax all neighboring edges if possible 
-            for (int nei = 0; nei < n; nei++) {
-                if (adjMatrix[node][nei] > 0) {
-                    int dU = cost, dV = distances[nei], wUV = adjMatrix[node][nei];
-                    
-                    // Better cost?
-                    if (dU + wUV < dV) {
-                        minHeap.offer(new int[]{nei, dU + wUV, stops + 1});
-                        distances[nei] = dU + wUV;
-                        currentStops[nei] = stops;
-                    }
-                    else if (stops < currentStops[nei]) {
-                        // Better steps?
-                        minHeap.offer(new int[]{nei, dU + wUV, stops + 1});
-                    }
+public:
+    int findCheapestPrice(int n, vector<vector<int>>& flights, int src, int dst, int k) {
+        vector<int> prices(n,INT_MAX);
+        prices[src] = 0;
+        for(int i = 0; i <=k; i++){
+            vector<int> temp(prices);
+            for(auto f : flights){
+                if(prices[f[0]]==INT_MAX){
+                    continue;
                 }
+                temp[f[1]] = min(temp[f[1]],prices[f[0]] + f[2]);
             }
-         }
-        
-        return distances[dst] == Integer.MAX_VALUE? -1 : distances[dst];
+            prices = temp;
+        }
+        return prices[dst] == INT_MAX ? -1 : prices[dst];
     }
-}
+};
+
+// class Solution {
+// public:
+//     //bellman ford.
+//     //just run it k+1 iterations.
+//     int findCheapestPrice(int n, vector<vector<int>>& a, int src, int sink, int k) {
+        
+//         vector<int> c(n, 1e8);
+//         c[src] = 0;
+        
+//         for(int z=0; z<=k; z++){
+//             vector<int> C(c);
+//             for(auto e: a)
+//                 C[e[1]] = min(C[e[1]], c[e[0]] + e[2]);
+//             c = C;
+//         }
+//         return c[sink] == 1e8 ? -1 : c[sink];
+//     }
+// };
