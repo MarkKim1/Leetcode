@@ -16,7 +16,8 @@ public:
         int ans = 0;
         for(int i = 0; i < g.size(); i++){
             for(int j = 0; j < g[0].size(); j++){
-                ans += dfs(g,i,j) ? 1 : 0;
+                if(g[i][j] == 0)
+                    ans += dfs(g,i,j) ? 1 : 0;
             }
         }
         return ans;
