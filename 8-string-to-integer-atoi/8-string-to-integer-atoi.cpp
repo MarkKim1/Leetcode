@@ -19,13 +19,7 @@ public:
                 continue;
             }
             //if(s[i] == '0' and result == 0) continue; 
-            if(result != 0 and s[i] == '-'){
-                return result;
-            }
-            if(result != 0 and s[i] == '+'){
-                return result;
-            }
-            if(result != 0 and s[i] =='.'){
+            if(result != 0 and (s[i] == '-' or s[i] == '+' or s[i] =='.')){
                 return result;
             }
             if(s[i] == '-'){
