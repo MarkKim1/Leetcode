@@ -38,10 +38,7 @@ public:
                 error++;
                 if(error == 2) return 0;
             }
-            if(result != 0 and isalpha(s[i])){
-                return result;
-            }
-            if(result == 0 and isalpha(s[i])){
+            if(isalpha(s[i])){
                 return result;
             }
             if(s[i]-'0' >= 0 and s[i]-'0' <= 9){
