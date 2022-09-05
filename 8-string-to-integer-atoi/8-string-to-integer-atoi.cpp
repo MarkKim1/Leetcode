@@ -4,7 +4,6 @@ public:
         int result = 0;
         int to_compute = 1;
         if(s == "0") return 0;
-        if(isalpha(s[0])) return 0;
         if(s[0] == '.')return 0;
         int error = 0;
         int zero_count = 0;
