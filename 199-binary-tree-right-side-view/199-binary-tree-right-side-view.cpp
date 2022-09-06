@@ -11,23 +11,21 @@
  */
 class Solution {
 public:
-    int max_depth;
-    vector<int> result;
+    int count = 0;
     vector<int> rightSideView(TreeNode* root) {
-        max_depth = 0;
-        DFS(root,1);
+        vector<int> result;
+        if(root == NULL) return result;
+        result.push_back(root->val);
+        helper(root,0,result);
         return result;
     }
-    void DFS(TreeNode* root,int curr){
-        if(root == NULL){
-            return;
-        }
-        if(curr > max_depth){
-            max_depth = curr;
+    void helper(TreeNode* root, int curr, vector<int>& result){
+        if(root == NULL) return;
+        if(curr > count){
             result.push_back(root->val);
+            count = curr;
         }
-        DFS(root->right,curr+1);
-        DFS(root->left,curr+1);
-        
+        helper(root->right,curr+1,result);
+        helper(root->left,curr+1,result);
     }
 };
