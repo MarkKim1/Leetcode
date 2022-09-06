@@ -1,43 +1,46 @@
 class Solution {
 public:
     vector<int> spiralOrder(vector<vector<int>>& matrix) {
+        vector<int> result;
+        vector<vector<bool>> visited(matrix.size(),vector<bool>(matrix[0].size(),false));
         int row = matrix.size();
         int col = matrix[0].size();
-        int up = 0;
-        int left = 0;
-        int right = col-1;
-        int down = row-1;
-        vector<int> result;
-        vector<vector<int>> visited(matrix.size(),vector<int>(matrix[0].size(),-1));
-        while(result.size() < row*col){
-            //Traverse from left to right
-            for(int col = left; col <= right; col++){
-                if(visited[up][col] == -1)
-                    result.push_back(matrix[up][col]);
-                visited[up][col] = 1;
+        int up = 0,right = col,down = row,left = 0;
+        int current_state = 0;
+        while(result.size() < col*row){
+            for(int i = up; i < right; i++){
+                if(visited[up][i]){
+                    break;
+                }
+                visited[up][i] = true;
+                result.push_back(matrix[up][i]);
             }
-            //Traverse to downwards
-            for(int row = up+1; row <= down; row++){
-                if(visited[row][right] == -1)
-                    result.push_back(matrix[row][right]);
-                visited[row][right] = 1;
+            for(int i = up+1; i < down; i++){
+                if(visited[i][right-1]){
+                    break;
+                }
+                visited[i][right-1] = true;
+                result.push_back(matrix[i][right-1]);
             }
-            //Traverse from left to right
-            for(int col = right-1; col >= left; col--){
-                if(visited[down][col] == -1)
-                    result.push_back(matrix[down][col]);
-                visited[down][col] = 1;
+            for(int i = right-1; i >= left+1; i--){
+                if(visited[down-1][i-1]){
+                    break;
+                }
+                visited[down-1][i-1] = true;
+                result.push_back(matrix[down-1][i-1]);
             }
-            //Traverse to upwards
-            for(int row = down-1; row > up; row--){
-                if(visited[row][left] == -1)
-                    result.push_back(matrix[row][left]);
-                visited[row][left] = 1;
+            for(int i = down-2; i >= up+1; i--){
+                if(visited[i][left]){
+                    break;
+                }
+                visited[i][left] = true;
+                result.push_back(matrix[i][left]);
             }
             up++;
-            left++;
             right--;
             down--;
+            left++;
+            
         }
         return result;
     }
