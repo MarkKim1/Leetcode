@@ -1,32 +1,35 @@
 class Solution {
 public:
-    unordered_map<char,vector<char>> map = 
-    {{'2',{'a','b','c'}},{'3',{'d','e','f'}},{'4',{'g','h','i'}},{'5',{'j','k','l'}},
-    {'6',{'m','n','o'}},{'7',{'p','q','r','s'}},{'8',{'t','u','v'}},{'9',{'w','x','y','z'}}};
-    string phoneDigits;
-    int a = 0;
     vector<string> letterCombinations(string digits) {
-        this->phoneDigits = digits;
-        string letter = "";
-        vector<string> combination;
-        
-        if(digits.size() == 0){
-            return combination;
+        unordered_map<char,string> map = {
+            {'2',"abc"},
+            {'3',"def"},
+            {'4',"ghi"},
+            {'5',"jkl"},
+            {'6',"mno"},
+            {'7',"pqrs"},
+            {'8',"tuv"},
+            {'9',"wxyz"}
+        };
+        vector<string> container;
+        for(int i = 0; i < digits.size(); i++){
+            container.push_back(map[digits[i]]);
         }
-        backTracking(0,letter,combination);
-        return combination;
+        vector<string> result;
+        if(digits.empty()) return result;
+        string sub = "";
+        helper(0,container,result,sub);
+        return result;
     }
-    void backTracking(int index,string letter,vector<string>&combination){
-        if(letter.length() == phoneDigits.length()){
-            combination.push_back(letter);
+    void helper(int i,vector<string>& container, vector<string>& result, string& sub){
+        if(i >= container.size()){
+            result.push_back(sub);
             return;
         }
-        
-        vector<char> possibleLetter = map[phoneDigits[index]];
-        for(char a: possibleLetter){
-            letter+=a;
-            backTracking(index+1,letter,combination);
-            letter.pop_back();
+        for(int n = 0; n < container[i].size(); n++){
+            sub+=container[i][n];
+            helper(i+1,container,result,sub);
+            sub.pop_back();
         }
     }
 };
