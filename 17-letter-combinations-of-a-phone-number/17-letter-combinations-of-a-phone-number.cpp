@@ -19,6 +19,8 @@ public:
         if(digits.empty()) return result;
         string sub = "";
         helper(0,container,result,sub);
+        container.clear();
+        map.clear();
         return result;
     }
     void helper(int i,vector<string>& container, vector<string>& result, string& sub){
