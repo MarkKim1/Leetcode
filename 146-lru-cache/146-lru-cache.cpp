@@ -1,11 +1,10 @@
 class LRUCache {
 public:
     list<pair<int,int>> l;
-    unordered_map<int,list<pair<int,int>>::iterator> map;
+    unordered_map<int,list<pair<int,int>>::iterator>map;
     int size;
-    
     LRUCache(int capacity) {
-        size = capacity;
+        this->size = capacity;
     }
     
     int get(int key) {
@@ -13,22 +12,23 @@ public:
             return -1;
         }
         l.splice(l.begin(),l,map[key]);
-        return map[key]->second;
+        return l.front().second;
     }
     
     void put(int key, int value) {
         if(map.find(key) != map.end()){
-            l.splice(l.begin(),l,map[key]);
             map[key]->second = value;
+            l.splice(l.begin(),l,map[key]);
             return;
         }
         if(l.size() == size){
-            auto last = l.back().first;
+            map.erase(l.back().first);
             l.pop_back();
-            map.erase(last);
         }
-        l.push_front(make_pair(key,value));
+        l.push_front({key,value});
         map[key] = l.begin();
+        
+        
     }
 };
 
