@@ -10,22 +10,8 @@ public:
             while(nums[j] <= nums[i]){
                 j--;
             }
-            swap(nums,i,j);
+            swap(nums[i],nums[j]);
         }
-        reverse(nums,i+1);
-    }
-    void swap(vector<int>&nums, int i, int j){
-        int temp;
-        temp = nums[i];
-        nums[i] = nums[j];
-        nums[j] = temp;
-    }
-    void reverse(vector<int>&nums,int i){
-        int j = nums.size()-1;
-        while(i < j){
-            swap(nums,i,j);
-            j--;
-            i++;
-        }
+        reverse(nums.begin() + i+1,nums.end());
     }
 };
