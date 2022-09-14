@@ -6,9 +6,9 @@ public:
         int result = nums[0];
         for(int i = 1; i < nums.size(); i++){
             int curr = nums[i];
-            int tempMax = max(curr,max(maxSoFar * curr,minSoFar * curr));
-            minSoFar = min(curr,min(minSoFar * curr,maxSoFar*curr));
-            maxSoFar = tempMax;
+            int temp = max(nums[i],max(maxSoFar * nums[i],minSoFar * nums[i]));
+            minSoFar = min(nums[i],min(maxSoFar * nums[i],minSoFar * nums[i]));
+            maxSoFar = temp;
             result = max(maxSoFar,result);
         }
         return result;
