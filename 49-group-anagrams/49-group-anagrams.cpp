@@ -9,7 +9,7 @@ public:
             map[temp].push_back(strs[i]);
         }
         for(auto a : map){
-            result.push_back(a.second);
+            result.push_back(move(a.second));
         }
         return result;
     }
