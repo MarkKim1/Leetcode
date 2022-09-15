@@ -22,15 +22,14 @@ public:
             return head;
         }
         int compute = listCount-n;
-        delete node;
-        ListNode* node1 = head;
+        node = head;
         for(int i = 0; i < compute-1; i++){
-            node1 = node1->next;
+            node = node->next;
         }
-        if(!node1->next){
+        if(!node->next){
             return NULL;
         }
-        node1->next = node1->next->next;
+        node->next = node->next->next;
         return head;
     }
 };
