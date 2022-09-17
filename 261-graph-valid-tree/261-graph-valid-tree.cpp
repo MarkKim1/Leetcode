@@ -1,26 +1,31 @@
 class Solution {
 public:
+    vector<int> vertex;
     bool validTree(int n, vector<vector<int>>& edges) {
-        if(n == 0) return true;
-        if(n-1 != edges.size()) return false;
-        vector<int> nodes(n,0);
+        if (edges.size() != n - 1) return false;
         for(int i = 0; i < n; i++){
-            nodes[i] = i;
+            vertex.push_back(i);
         }
-        
-        for(int i = 0; i < edges.size(); i++){
-            int A = find(edges[i][0],nodes);
-            int B = find(edges[i][1],nodes);
-            nodes[A] = B;
-            if(A == B) return false;
+        for(auto edge: edges){
+            if(!uf(edge[0],edge[1])){
+                return false;
+            }
         }
         return true;
     }
-    
-    int find(int a,vector<int>& nodes){
-        if(a == nodes[a]){
-            return nodes[a];
+    bool uf(int x, int y){
+        int rootx = find(x);
+        int rooty = find(y);
+        vertex[rooty] = rootx;
+        if(rootx == rooty){
+            return false;
         }
-        return a = find(nodes[a],nodes);
+        return true;
+    }
+    int find(int a){
+        if(a == vertex[a]){
+            return a;
+        }
+        return vertex[a] = find(vertex[a]);
     }
 };
