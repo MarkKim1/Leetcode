@@ -9,17 +9,23 @@
  * };
  */
 class Solution {
-    private:
-    public:
+public:
     ListNode* swapPairs(ListNode* head) {
-        if(head==NULL || head->next == NULL){
-            return head;
+        ListNode* dummy = new ListNode();
+        dummy->next = head;
+        ListNode* prev = dummy;
+        while(head and head->next){
+            //nodes to be swapped
+            ListNode* firstNode = head;
+            ListNode* secondNode = head->next;
+            //swap nodes
+            prev->next = secondNode;
+            firstNode->next = secondNode->next;
+            secondNode->next = firstNode;
+            
+            prev = firstNode;
+            head = firstNode->next;
         }
-        ListNode *firstNode = head;
-        ListNode *secondNode = head->next;
-        
-        firstNode->next = swapPairs(secondNode->next);
-        secondNode->next = firstNode;
-        return secondNode;
+        return dummy->next;
     }
 };
