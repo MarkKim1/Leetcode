@@ -26,7 +26,7 @@ class Solution {
         if(targetSum == 0 and root->left == NULL and root->right == NULL){
             result.push_back(ans);
         }
-        targetSum+=root->val;
+        //targetSum+=root->val;
         ans.pop_back();
     }
 };
