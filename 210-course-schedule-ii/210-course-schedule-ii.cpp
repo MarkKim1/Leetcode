@@ -1,40 +1,30 @@
 class Solution {
-    public:
+public:
     vector<int> findOrder(int numCourses, vector<vector<int>>& pre) {
         vector<vector<int>> graph(numCourses);
-        stack<int> result;
+        vector<int> indegree(numCourses,0);
         vector<int> ans;
-        vector<bool> todo(numCourses,false),done(numCourses,false);
-        for(vector<int> a : pre){
-            graph[a[1]].push_back(a[0]);
+        for(int i = 0; i < pre.size(); i++){
+            graph[pre[i][1]].push_back(pre[i][0]);
+            indegree[pre[i][0]]++;
         }
+        queue<int> q;
         for(int i = 0; i < numCourses; i++){
-            if(!DFS(graph,result,todo,done,i)){
-                return ans;
+            if(indegree[i] == 0){
+                q.push(i);
             }
         }
-        while(!result.empty()){
-            ans.push_back(result.top());
-            result.pop();
-        }
-        return ans;
-    }
-    bool DFS(vector<vector<int>>& graph,stack<int>& result, vector<bool>& todo, vector<bool>& done,int node){
-        if(todo[node]){
-            return false;
-        }
-        if(done[node]){
-            return true;
-        }
-        todo[node] = true;
-        done[node] = true;
-        for(auto a : graph[node]){
-            if(DFS(graph,result,todo,done,a) == false){
-                return false;
+        while(!q.empty()){
+            int curr = q.front();
+            q.pop();
+            ans.push_back(curr);
+            for(auto a : graph[curr]){
+                if(--indegree[a] == 0){
+                    q.push(a);
+                }
             }
         }
-        result.push(node);
-        todo[node] = false;
-        return true;
+        if(ans.size() == numCourses) return ans;
+        return {};
     }
 };
