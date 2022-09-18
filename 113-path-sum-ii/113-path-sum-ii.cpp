@@ -20,13 +20,12 @@ class Solution {
     void preorder(TreeNode* root,int targetSum){
         if(root == NULL) return;
         ans.push_back(root->val);
-        targetSum-=root->val;
-        preorder(root->left,targetSum);
-        preorder(root->right,targetSum);
-        if(targetSum == 0 and root->left == NULL and root->right == NULL){
+        //targetSum-=root->val;
+        preorder(root->left,targetSum-root->val);
+        preorder(root->right,targetSum-root->val);
+        if(root->val == targetSum and root->left == NULL and root->right == NULL){
             result.push_back(ans);
         }
-        //targetSum+=root->val;
         ans.pop_back();
     }
 };
