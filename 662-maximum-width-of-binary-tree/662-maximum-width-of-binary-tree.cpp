@@ -25,7 +25,7 @@ public:
                 // we will use it while inserting it children
                 // left child will be 2 * idx + 1;
                 // right chils will be 2 * idx + 2;
-                int idx = p.second - start;
+                int idx = p.second;
                 
                 q.pop();
                 
