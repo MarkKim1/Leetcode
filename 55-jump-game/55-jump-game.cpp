@@ -16,8 +16,7 @@ public:
         if(memo[i] != UNKNOWN){
             return memo[i] == GOOD ? true : false;
         }
-        int size = nums.size()-1;
-        int jump = min(i + nums[i],size);
+        int jump = min(i + nums[i],(int)nums.size()-1);
         for(int j = i+1; j <= jump; j++){
             if(canJumpFromPosition(j,nums,memo)){
                 memo[i] = GOOD;
