@@ -1,25 +1,25 @@
 class Solution {
-    private Map<String, Integer> memo = new HashMap<>();
-
-    private int dfs(int x, int y) {
-        String key = x + "," + y;
-        if (memo.containsKey(key)) {
-            return memo.get(key);
-        }
-
-        if (x + y == 0) {
-            return 0;
-        } else if (x + y == 2) {
-            return 2;
-        } else {
-            Integer ret = Math.min(dfs(Math.abs(x - 1), Math.abs(y - 2)),
-                    dfs(Math.abs(x - 2), Math.abs(y - 1))) + 1;
-            memo.put(key, ret);
-            return ret;
-        }
-    }
-
     public int minKnightMoves(int x, int y) {
-        return dfs(Math.abs(x), Math.abs(y));
+        // Symmetry for axes
+        x = Math.abs(x);
+        y = Math.abs(y);
+        // Symmetry for diagonal
+        if (x < y) {
+            int temp = x;
+            x = y;
+            y = temp;
+        }
+        if (x == 1 && y == 0) {
+            return 3;
+        }
+        if (x == 2 && y == 2) {
+            return 4;
+        }
+        int delta = x - y;
+        if (y > delta) {
+            return (int) (delta - 2 * Math.floor((float) (delta - y) / 3));
+        } else {
+            return (int) (delta - 2 * Math.floor((delta - y) / 4));
+        }
     }
 }
