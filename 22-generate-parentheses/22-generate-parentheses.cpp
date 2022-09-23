@@ -1,26 +1,25 @@
 class Solution {
 public:
-    vector<string> result;
     vector<string> generateParenthesis(int n) {
-        string parenthesis;
-        //parenthesis.resize(2*n);
-        generate(parenthesis,0,0,n);
-        return result;
+        vector<string> ans;
+        int open = 0, close = 0;
+        string result = "";
+        backtracking(n,ans,open,close,result);
+        return ans;
     }
-    void generate(string parenthesis,int open, int close, int max){
-        if(parenthesis.size() == max*2){
-            result.push_back(parenthesis);
-            return;
+    void backtracking(int n, vector<string>& ans,int open, int close, string result){
+        if(close == n){
+            ans.push_back(result);
         }
-        if(open < max){
-            parenthesis.push_back('(');
-            generate(parenthesis,open+1,close,max);
-            parenthesis.pop_back();
+        if(open < n){
+            result.push_back('(');
+            backtracking(n,ans,open+1,close,result);
+            result.pop_back();
         }
         if(close < open){
-            parenthesis.push_back(')');
-            generate(parenthesis,open,close+1,max);
-            parenthesis.pop_back();   
+            result.push_back(')');
+            backtracking(n,ans,open,close+1,result);
+            result.pop_back();
         }
     }
 };
