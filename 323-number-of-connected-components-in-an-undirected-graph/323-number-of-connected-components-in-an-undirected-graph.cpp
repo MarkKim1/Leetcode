@@ -9,11 +9,20 @@ class DSU{
             rank.push_back(1);
         }
     }
-    void Union(int a, int b){
+    int Union(int a, int b){
         int rootx = find(a);
         int rooty = find(b);
-        if(rootx != rooty){
-            root[rooty] = rootx;
+        if(rootx == rooty){
+            return 0;
+        }else{
+            if(rank[rootx] > rank[rooty]){
+                rank[rootx] += rank[rooty];
+                root[rooty] = rootx;
+            }else{
+                rank[rooty] += rank[rootx];
+                root[rootx] = rooty;
+            }
+            return 1;
         }
     }
     int find(int x){
@@ -23,21 +32,14 @@ class DSU{
         return root[x] = find(root[x]);
     }
 };
-void DSU::find_root(unordered_set<int>& set){
-    for(int i = 0; i < root.size(); i++){
-        set.insert(find(root[i]));
-    }
-}
 class Solution {
 public:
     int countComponents(int n, vector<vector<int>>& edges) {
-        //sort(edges.begin(),edges.end());
         DSU* dsu = new DSU(n);
-        unordered_set<int> set;
+        int result = n;
         for(int i = 0; i < edges.size(); i++){
-            dsu->Union(edges[i][0],edges[i][1]);
+            result -= dsu->Union(edges[i][0],edges[i][1]);
         }
-        dsu->find_root(set);
-        return set.size();
+        return result;
     }
 };
