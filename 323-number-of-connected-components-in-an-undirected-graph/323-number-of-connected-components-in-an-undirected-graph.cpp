@@ -15,13 +15,7 @@ class DSU{
         if(rootx == rooty){
             return 0;
         }else{
-            if(rank[rootx] > rank[rooty]){
-                rank[rootx] += rank[rooty];
-                root[rooty] = rootx;
-            }else{
-                rank[rooty] += rank[rootx];
-                root[rootx] = rooty;
-            }
+            root[rootx] = rooty;
             return 1;
         }
     }
