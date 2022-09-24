@@ -10,12 +10,7 @@ public:
     int pickIndex() {
         float random = (float)rand() / RAND_MAX;
         float a = random * v.back();
-        for(int i = 0; i < v.size(); i++){
-            if(a < v[i]){
-                return i;
-            }
-        }
-        return v.size()-1;
+        return upper_bound(v.begin(),v.end(),a) - v.begin();
     }
 };
 
