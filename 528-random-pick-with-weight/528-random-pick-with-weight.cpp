@@ -1,21 +1,21 @@
 class Solution {
 public:
-    vector<int> a;
+    vector<int> v;
     Solution(vector<int>& w) {
-        for(int v : w){
-            a.push_back(v + (a.empty() ? 0 :a.back()));
+        for(int i = 0; i < w.size(); i++){
+            v.push_back(w[i] + (v.empty() ? 0 : v.back()));
         }
     }
     
     int pickIndex() {
-        float rand_number = (float)rand() / RAND_MAX;
-        float target = rand_number * a.back();
-        for(int i = 0; i < a.size(); i++){
-            if(target < a[i]){
+        float random = (float)rand() / RAND_MAX;
+        float a = random * v.back();
+        for(int i = 0; i < v.size(); i++){
+            if(a < v[i]){
                 return i;
             }
         }
-        return a.size()-1;
+        return v.size()-1;
     }
 };
 
