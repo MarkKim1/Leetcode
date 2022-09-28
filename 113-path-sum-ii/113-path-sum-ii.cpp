@@ -22,7 +22,7 @@ public:
         sub.push_back(root->val);
         helper(ans,sub,root->left,targetSum-root->val);
         helper(ans,sub,root->right,targetSum-root->val);
-        if(targetSum-root->val == 0 and !root->left and !root->right){
+        if(targetSum == root->val and !root->left and !root->right){
             ans.push_back(sub);
         }
         sub.pop_back();
