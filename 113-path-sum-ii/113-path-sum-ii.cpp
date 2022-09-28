@@ -10,22 +10,21 @@
  * };
  */
 class Solution {
-    public:
-    vector<vector<int>> result;
-    vector<int> ans;
+public:
     vector<vector<int>> pathSum(TreeNode* root, int targetSum) {
-        preorder(root,targetSum);
-        return result;
+        vector<vector<int>> ans;
+        vector<int> sub;
+        helper(ans,sub,root,targetSum);
+        return ans;
     }
-    void preorder(TreeNode* root,int targetSum){
-        if(root == NULL) return;
-        ans.push_back(root->val);
-        //targetSum-=root->val;
-        preorder(root->left,targetSum-root->val);
-        preorder(root->right,targetSum-root->val);
-        if(root->val == targetSum and root->left == NULL and root->right == NULL){
-            result.push_back(ans);
+    void helper(vector<vector<int>>& ans, vector<int>& sub, TreeNode* root, int targetSum){
+        if(!root) return;
+        sub.push_back(root->val);
+        helper(ans,sub,root->left,targetSum-root->val);
+        helper(ans,sub,root->right,targetSum-root->val);
+        if(targetSum-root->val == 0 and !root->left and !root->right){
+            ans.push_back(sub);
         }
-        ans.pop_back();
+        sub.pop_back();
     }
 };
