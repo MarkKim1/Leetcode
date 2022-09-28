@@ -1,35 +1,29 @@
 class Solution {
 public:
-    bool equationsPossible(vector<string>& equations) {
-        constexpr int SIZE = 26;
-        vector<int> root(SIZE);
-        iota(root.begin(), root.end(), 0);
-
-        function<int(int)> find = [&](int x) {
-            if (root[x] != x) {
-                root[x] = find(root[x]);
+    bool equationsPossible(vector<string>& es) {
+        vector<int> root(26);
+        iota(root.begin(),root.end(),0);
+        
+        function<int(int)> find = [&](int x){
+            if(root[x] == x){
+                return x;
             }
-            return root[x];
+            return root[x] = find(root[x]);
         };
-
-        auto unionSet = [&](int x, int y) {
-            int rx = find(x), ry = find(y);
-            root[rx] = ry;
+        
+        auto unionSet = [&](int a, int b){
+            int rootx = find(a);
+            int rooty = find(b);
+            root[rooty] = rootx;
         };
-
-        for (string& eqn : equations) {
-            if (eqn[1] == '=') {
-                int x = eqn[0] - 'a';
-                int y = eqn[3] - 'a';
-                unionSet(x, y);
+        for(auto e: es){
+            if(e[1] == '='){
+                unionSet(e[0]-'a',e[3]-'a');
             }
         }
-
-        for (string& eqn : equations) {
-            if (eqn[1] == '!') {
-                int x = eqn[0] - 'a';
-                int y = eqn[3] - 'a';
-                if (find(x) == find(y)) {
+        for(auto e: es){
+            if(e[1] == '!'){
+                if(find(e[0]-'a') == find(e[3]-'a')){
                     return false;
                 }
             }
