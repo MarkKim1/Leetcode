@@ -24,7 +24,7 @@ public:
     
     int Front() {
         if(isEmpty()) return -1;
-        return front == 0 ? cq[front] : cq[(front)%maxSize];
+        return cq[(front)%maxSize];
     }
     
     int Rear() {
