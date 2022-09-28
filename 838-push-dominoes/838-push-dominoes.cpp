@@ -19,10 +19,9 @@ public:
                     int temp_right = right;
                     int temp_left = left;
                     while(temp_right < temp_left){
-                        d[temp_right] = 'R';
-                        d[temp_left] = 'L';
-                        temp_right++;
-                        temp_left--;
+                        d[temp_right++] = 'R';
+                        d[temp_left--] = 'L';
+                        
                     }
                 }
             }else if(d[i] == 'R'){
