@@ -1,42 +1,33 @@
 class MyCircularQueue {
+private:
+    vector<int> v;
+    int start = 0, len = 0;
 public:
-    queue<int> q;
-    int size;
-    MyCircularQueue(int k) {
-        this->size = k;
-    }
-    
+    MyCircularQueue(int k): v(k) {}
     bool enQueue(int value) {
-        if(q.size() == size){
-            return false;
-        }else{
-            q.push(value);
-        }
+        if (isFull()) return false;
+        v[(start + len++) % v.size()] = value;
         return true;
     }
-    
     bool deQueue() {
-        if(q.empty()) return false;
-        q.pop();
+        if (isEmpty()) return false;
+        start = (start + 1) % v.size();
+        --len;
         return true;
     }
-    
     int Front() {
-        if(q.empty()) return -1;
-        return q.front();
+        if (isEmpty()) return -1;
+        return v[start];
     }
-    
     int Rear() {
-        if(q.empty()) return -1;
-        return q.back();
+        if (isEmpty()) return -1;
+        return v[(start + len - 1) % v.size()];
     }
-    
     bool isEmpty() {
-        return q.empty();
+        return !len;
     }
-    
     bool isFull() {
-        return q.size() == size;
+        return len == v.size();
     }
 };
 
