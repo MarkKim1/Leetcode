@@ -1,32 +1,44 @@
 class Solution {
 public:
-    string pushDominoes(string s) {
-    int N = s.size(), right = -1;
-    for (int i = 0; i < N; ++i) {
-        if (s[i] == 'L') {
-            if (right == -1) { 
-                // Step 2
-                for (int j = i - 1; j >= 0 && s[j] == '.'; --j) {
-                  s[j] = 'L';  
-                } 
-            } else {
-                // Step 8
-                for (int j = right + 1, k = i - 1; j < k; ++j, --k) {
-                    s[j] = 'R';
-                    s[k] = 'L';
-                } 
-                right = -1;
+    string pushDominoes(string d) {
+        int right = -1;
+        int left = 0;
+        for(int i = 0; i < d.size(); i++){
+            if(d[i] == 'L'){
+                if(right == -1){
+                    for(int j = i; j >= 0; j--){
+                        d[j] = 'L';
+                    }
+                }else if(i > left and left > right){
+                    for(int j = i; j >= left; j--){
+                        d[j] = 'L';
+                    }
+                    left = i;
+                }else{
+                    left = i;
+                    int temp_right = right;
+                    int temp_left = left;
+                    while(temp_right < temp_left){
+                        d[temp_right] = 'R';
+                        d[temp_left] = 'L';
+                        temp_right++;
+                        temp_left--;
+                    }
+                }
+            }else if(d[i] == 'R'){
+                if(right != -1 and (left < right || left == 0)){
+                    for(int j = right; j < i; j++){
+                        d[j] = 'R';
+                    }
+                }
+                right = i;
             }
-        } else if (s[i] == 'R') {
-            if (right != -1) {
-                for (int j = right + 1; j < i; ++j) s[j] = 'R';
-            }
-            right = i;
         }
+        if(left < right || left == 0){
+            for(int i = right; i < d.size(); i++){
+                d[i] = 'R';
+            }
+        }
+        return d;
     }
-    if (right != -1) {
-        for (int j = right + 1; j < N; ++j) s[j] = 'R';
-    }
-    return s;
-}
 };
