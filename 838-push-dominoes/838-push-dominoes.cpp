@@ -21,7 +21,6 @@ public:
                     while(temp_right < temp_left){
                         d[temp_right++] = 'R';
                         d[temp_left--] = 'L';
-                        
                     }
                 }
             }else if(d[i] == 'R'){
