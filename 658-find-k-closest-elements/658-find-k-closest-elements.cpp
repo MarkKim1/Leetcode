@@ -14,7 +14,7 @@ public:
         //find 
         while(left < right){
             mid = (left + right) / 2;
-            if(arr[mid] >= x){
+            if(arr[mid] > x){
                 right = mid;
             }else{
                 left = mid+1;
