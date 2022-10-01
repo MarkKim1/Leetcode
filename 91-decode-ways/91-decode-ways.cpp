@@ -8,12 +8,13 @@ public:
         if(memo.find(i) != memo.end()){
             return memo[i];
         }
-        if(s[i] == '0'){
-            return 0;
-        }
         if(i >= s.size()){
             return 1;
         }
+        if(s[i] == '0'){
+            return 0;
+        }
+        
         if(i == s.size()-1){
             return 1;
         }
