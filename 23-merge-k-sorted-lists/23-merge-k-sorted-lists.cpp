@@ -11,23 +11,44 @@
 class Solution {
 public:
     ListNode* mergeKLists(vector<ListNode*>& lists) {
-        vector<int> result;
-        for(int i = 0; i < lists.size(); i++){
-            while(lists[i] and lists[i]->next){
-                result.push_back(lists[i]->val);
-                lists[i] = lists[i]->next;
-            }
-            if(lists[i]){
-                result.push_back(lists[i]->val);
-            }
+        if(lists.size() == 0) return NULL;
+        if(lists.size() == 1){
+            return lists[0];
         }
-        sort(result.begin(),result.end());
+        
+        int interval = 1;
+        while(interval < lists.size()){
+            for(int i = 0; i + interval < lists.size(); i = i + interval*2){
+                lists[i] = merge(lists[i],lists[i+interval]);
+            }
+            interval*=2;
+        }
+        return lists[0];
+    }
+    ListNode* merge(ListNode* l1, ListNode* l2){
         ListNode* curr = new ListNode();
-        ListNode* head = curr;
-        for(int i = 0; i < result.size(); i++){
-            curr->next = new ListNode(result[i]);
-            curr = curr->next;
+        ListNode* ans = curr;
+        while(l1 and l2){
+            if(l1->val < l2->val){
+                curr->next = new ListNode(l1->val);
+                curr = curr->next;
+                l1 = l1->next;
+            }else{
+                curr->next = new ListNode(l2->val);
+                curr = curr->next;
+                l2 = l2->next;
+            }
         }
-        return head->next;
+        while(l1 == NULL and l2){
+                curr->next = new ListNode(l2->val);
+                curr = curr->next;
+                l2 = l2->next;
+            }
+            while(l2 == NULL and l1){
+                curr->next = new ListNode(l1->val);
+                curr = curr->next;
+                l1 = l1->next;
+            }
+        return ans->next;
     }
 };
