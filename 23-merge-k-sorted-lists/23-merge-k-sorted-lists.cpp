@@ -44,11 +44,11 @@ public:
                 curr = curr->next;
                 l2 = l2->next;
             }
-            while(l2 == NULL and l1){
-                curr->next = new ListNode(l1->val);
-                curr = curr->next;
-                l1 = l1->next;
-            }
+        while(l2 == NULL and l1){
+            curr->next = new ListNode(l1->val);
+            curr = curr->next;                
+            l1 = l1->next;
+        }
         return ans->next;
     }
 };
