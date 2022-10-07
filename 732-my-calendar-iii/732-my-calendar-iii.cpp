@@ -9,8 +9,8 @@ public:
         int cur = 0, res = 0;
         diff[start]++;
         diff[end]--;
-        for (auto& [_, delta] : diff) {
-            cur += delta;
+        for (auto& delta : diff) {
+            cur += delta.second;
             res = max(res, cur);
         }
         return res;
