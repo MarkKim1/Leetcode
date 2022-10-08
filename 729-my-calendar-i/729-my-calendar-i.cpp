@@ -1,19 +1,30 @@
 class MyCalendar {
-    set<pair<int, int>> books;
+    set<pair<int,int>> set;
 public:
-    bool book(int s, int e) {
-        auto next = books.lower_bound({s, e}); // first element with key not go before k (i.e., either it is equivalent or goes after).
-        if (next != books.end()){
-            if(next->first < e){
+    MyCalendar() {
+        
+    }
+    
+    bool book(int start, int end) {
+        pair<int,int> pair = make_pair(start,end);
+        auto next = set.lower_bound(pair);
+        if(next != set.end() and next->first < end){
+            return false;
+        }
+        // need to check if next is first index of set so that prev method can be used
+        if(next != set.begin()){ 
+            auto a = prev(next);
+            if(a->second > start){
                 return false;
             }
         }
-        if (next != books.begin()){
-            if(s < (--next)->second){
-                return false;
-            }
-        }
-        books.insert({ s, e });
+        set.insert(make_pair(start,end));
         return true;
     }
 };
+
+/**
+ * Your MyCalendar object will be instantiated and called as such:
+ * MyCalendar* obj = new MyCalendar();
+ * bool param_1 = obj->book(start,end);
+ */
