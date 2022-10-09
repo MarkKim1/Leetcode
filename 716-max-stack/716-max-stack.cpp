@@ -1,45 +1,38 @@
 class MaxStack {
+    set<pair<int,int>> stack;
+    set<pair<int,int>> values;
+    int count;
 public:
-    stack<int>stk;
-    stack<int> maxStack;
-    
     MaxStack() {
-        
+        this->count = 0;
     }
     
     void push(int x) {
-        int max = maxStack.empty() ? x : maxStack.top();
-        maxStack.push(x > max ? x : max);
-        stk.push(x);
+        stack.insert({count,x});
+        values.insert({x,count});
+        count++;
     }
     
     int pop() {
-        maxStack.pop();
-        int a = stk.top();
-        stk.pop();
-        return a;
+        auto temp = *stack.rbegin();
+        values.erase({temp.second,temp.first});
+        stack.erase(temp);
+        return temp.second;
     }
     
     int top() {
-        return stk.top();
+        return stack.rbegin()->second;
     }
     
     int peekMax() {
-        return maxStack.top();
+        return values.rbegin()->first;
     }
     
     int popMax() {
-        int max = maxStack.top();
-        stack<int> buffer;
-        while(top() != max){
-            buffer.push(pop());
-        }
-        pop();
-        while(!buffer.empty()){
-            push(buffer.top());
-            buffer.pop();
-        }
-        return max;
+        auto temp = *values.rbegin();
+        stack.erase({temp.second,temp.first});
+        values.erase(temp);
+        return temp.first;
     }
 };
 
