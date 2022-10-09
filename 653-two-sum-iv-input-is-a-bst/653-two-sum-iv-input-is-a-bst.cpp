@@ -11,7 +11,7 @@
  */
 class Solution {
 public:
-    unordered_map<int,int>map;
+    unordered_set<int>set;
     bool findTarget(TreeNode* root, int k) {
         if(!root->left and !root->right){
             return false;
@@ -22,10 +22,10 @@ public:
         if(!root){
             return false;
         }
-        if(map.find(k-root->val) != map.end()){
+        if(set.find(k-root->val) != set.end()){
             return true;
         }
-        map[root->val] = root->val;
+        set.insert(root->val);
         return DFS(root->left,k) || DFS(root->right,k);
     }
 };
