@@ -1,25 +1,24 @@
 class Solution {
-public:
-    vector<vector<string>> groupAnagrams(vector<string>& strs) {
-        unordered_map<string,vector<string>> map;
-        for(int i = 0; i < strs.size(); i++){
-            map[strSort(strs[i])].push_back(strs[i]);
+    func groupAnagrams(_ strs: [String]) -> [[String]] {
+        var map = [String: [String]]()
+        for str in strs {
+            var sorted = String(str.sorted())
+            map[sorted,default: []].append(str)
         }
-        vector<vector<string>> ans;
-        for(auto a : map){
-            ans.push_back(a.second);
-        }
-        return ans;
+        return Array(map.values)
     }
-    string strSort(string str) {
-        int arr[26] = {0};
-        for(int i = 0; i < str.size(); i++){
-            arr[str[i]-'a']++;
-        }
-        string result = "";
-        for(int i = 0; i < 26; i++){
-            result+=string(arr[i],i + 'a');
-        }
-        return result;
-    }
-};
+}
+
+// class Solution {
+//     func groupAnagrams(_ strs: [String]) -> [[String]] {
+//         if strs.isEmpty { return [] }
+        
+//         var map = [String: [String]]()
+//         for str in strs {
+//             let sortedStr = String(str.sorted())
+//             map[sortedStr, default: []] += [str]
+//         }
+                
+//         return Array(map.values)
+//     }
+// }
