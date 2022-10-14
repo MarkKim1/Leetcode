@@ -1,32 +1,34 @@
 class Solution {
 public:
     int minCostConnectPoints(vector<vector<int>>& points) {
+        priority_queue<pair<int,int>,vector<pair<int,int>>, greater<>> minheap;
+        set<int> visited;
+        minheap.push({0,0});
         int n = points.size();
-        priority_queue<pair<int,int>,vector<pair<int,int>>,greater<pair<int,int>>> heap;
-        heap.push({0,0});
-        vector<bool> visited(n);
-        int mstCost = 0;
         int edgesUsed = 0;
+        int result = 0;
+        
         while(edgesUsed < n){
-            pair<int,int> topElement = heap.top();
-            heap.pop();
-            int weight = topElement.first;
-            int currNode = topElement.second;
+            auto top = minheap.top();
+            minheap.pop();
+            int distance = top.first;
+            int node = top.second;
             
-            if(visited[currNode]){
+            if(visited.count(node)){
                 continue;
             }
-            visited[currNode] = true;
+            visited.insert(node);
             edgesUsed++;
-            mstCost+=weight;
-            for(int nextNode = 0; nextNode < n; nextNode++){
-                if(!visited[nextNode]){
-                    int nextweight = abs(points[currNode][0] - points[nextNode][0]) + abs(points[currNode][1] - points[nextNode][1]);
-                    heap.push({nextweight,nextNode});
+            result+=distance;
+            
+            for(int i = 0; i < n; i++){
+                if(not visited.count(i)){
+                    int manhattanDistance = abs(points[node][0] - points[i][0]) + abs(points[node][1] - points[i][1]);
+                    minheap.push({abs(manhattanDistance),i});
                 }
-               
             }
         }
-        return mstCost;
+        return result;
+        
     }
 };
