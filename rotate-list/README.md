@@ -1,3 +1,4 @@
+[Discussion Post (created on 15/9/2022 at 18:11)](https://leetcode.com/problems/rotate-list/discuss/2705322/My-C%2B%2B-code-Using-Queue)  
 <h2>  Rotate List</h2><hr><div><p>Given the <code>head</code> of a linked&nbsp;list, rotate the list to the right by <code>k</code> places.</p>
 
 <p>&nbsp;</p>
