@@ -16,13 +16,11 @@ public:
         while(true){
             ListNode* kth = getKth(groupPrev,k);
             if(not kth) break;
-            
             ListNode* groupNext = kth->next;
             
-            //reverse the nodes
-            ListNode* prev = kth->next;
+            //reverse
+            ListNode* prev = groupNext;
             ListNode* curr = groupPrev->next;
-            
             while(curr != groupNext){
                 ListNode* temp = curr->next;
                 curr->next = prev;
