@@ -11,35 +11,26 @@
  */
 class Solution {
 public:
-    long long result = 0;
+    unordered_map<long,int> map;
+    int result = 0;
     int pathSum(TreeNode* root, int targetSum) {
-        if(!root) return 0;
-        queue<TreeNode*> q;
-        q.push(root);
-        while(!q.empty()){
-            int size = q.size();
-            for(int i = 0; i < size; i++){
-                TreeNode* root = q.front();
-                helper(root,targetSum,0);
-                q.pop();
-                if(root->left){
-                    q.push(root->left);
-                }
-                if(root->right){
-                    q.push(root->right);
-                }
-            }
-        }
+        helper(root,targetSum,0);
         return result;
     }
-    void helper(TreeNode* root, int targetSum, long long curr){
+    void helper(TreeNode* root, int targetSum, long curr){
         if(!root){
             return;
         }
-        if(curr + root->val == targetSum){
+        long sum = curr+root->val;
+        if(sum == targetSum){
             result+=1;
         }
+        if(map.find(sum-targetSum) != map.end()){
+            result+=map[sum-targetSum];
+        }
+        map[sum]++;
         helper(root->left,targetSum,curr + root->val);
-        helper(root->right,targetSum,curr + root->val);
+        helper(root->right,targetSum,curr+root->val);
+        map[sum]--;
     }
 };
