@@ -20,7 +20,7 @@ public:
         for(auto& a: adj){
             if(a.second == 1){
                 q.push(a.first);
-                a.second--;
+                
             }
         }
         while(!q.empty()){
