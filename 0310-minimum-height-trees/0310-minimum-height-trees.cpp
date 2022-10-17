@@ -17,10 +17,9 @@ public:
             adj[edges[i][1]]++;
         }
         queue<int> q;
-        for(auto& a: adj){
+        for(auto a: adj){
             if(a.second == 1){
                 q.push(a.first);
-                
             }
         }
         while(!q.empty()){
