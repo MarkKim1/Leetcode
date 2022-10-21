@@ -1,26 +1,35 @@
 class Solution {
 public:
-     int numBusesToDestination(vector<vector<int>>& routes, int S, int T) {
-        unordered_map<int, vector<int>> to_routes;
-        for (int i = 0; i < routes.size(); ++i)
-            for (int j : routes[i])
-                to_routes[j].push_back(i);
-        queue<pair<int, int>> bfs;
-        bfs.push({S, 0});
-        unordered_set<int> seen = {S};
-        while (!bfs.empty()) {
-            int stop = bfs.front().first, bus = bfs.front().second;
-            bfs.pop();
-            if (stop == T)
-                return bus;
-            for (int i : to_routes[stop]) {
-                for (int j : routes[i]) {
-                    if (seen.find(j) == seen.end()) {
-                        seen.insert(j);
-                        bfs.push({j, bus + 1});
-                    }
+    int numBusesToDestination(vector<vector<int>>& routes, int source, int target) {
+        unordered_map<int,vector<int>> map;
+        for(int i = 0 ; i < routes.size(); i++){
+            for(int each : routes[i]){
+                map[each].push_back(i);
+            }
+        }
+        queue<pair<int,int>> q;
+        set<int> seen;
+        q.push({source,0});
+        seen.insert(source);
+        while(!q.empty()){
+            int size = q.size();
+            for(int i = 0; i < size; i++){
+                auto [stop,bus] = q.front();
+                if(stop == target){
+                    return bus;
                 }
-                routes[i].clear();
+                q.pop();
+                //for each index of routes[index]
+                for(auto each : map[stop]){
+                    //for each routes[each][a]
+                    for(auto a : routes[each]){
+                        if(seen.find(a) == seen.end()){
+                            seen.insert(a);
+                            q.push({a,bus+1});
+                        }
+                    }
+                    routes[each].clear();
+                }
             }
         }
         return -1;
