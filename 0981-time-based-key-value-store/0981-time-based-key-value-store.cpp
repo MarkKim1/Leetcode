@@ -6,7 +6,7 @@ public:
     }
     
     void set(string key, string value, int timestamp) {
-        map[key].insert(make_pair(timestamp,value));
+        map[key][timestamp] = value;
     }
     
     string get(string key, int timestamp) {
