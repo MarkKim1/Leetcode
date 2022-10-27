@@ -20,17 +20,26 @@ public:
 */
 
 class Solution {
-public:
+private:
     unordered_map<Node*, Node*> map;
+public:
     Node* cloneGraph(Node* node) {
         if(!node) return NULL;
-        if(map.find(node) != map.end()){
-            return map[node];
-        }
-        Node* clone = new Node(node->val);
+        Node* clone = new Node(node->val,vector<Node*>());
         map[node] = clone;
-        for(Node* neighbor: node->neighbors){
-            clone->neighbors.push_back(cloneGraph(neighbor));
+        queue<Node*> q;
+        q.push(node);
+        
+        while(!q.empty()){
+            Node* curr = q.front();
+            q.pop();
+            for(Node* neighbor : curr->neighbors){
+                if(map.find(neighbor) == map.end()){
+                    map[neighbor] = new Node(neighbor->val,vector<Node*>());
+                    q.push(neighbor);
+                }
+                map[curr]->neighbors.push_back(map[neighbor]);
+            }
         }
         return clone;
     }
