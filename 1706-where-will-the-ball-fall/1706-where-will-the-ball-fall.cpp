@@ -2,17 +2,18 @@ class Solution {
 public:
     vector<int> findBall(vector<vector<int>>& grid) {
         vector<int> ans(grid[0].size(),0);
-        for(int i = 0; i < grid[0].size(); i++){
-            ans[i] = helper(grid,0,i);
+        for(int col = 0; col < grid[0].size(); col++){
+            int currentCol = col;
+            for(int row = 0; row < grid.size(); row++){
+                int nextCol = currentCol + grid[row][currentCol];
+                if(nextCol < 0 || nextCol >= grid[0].size() || grid[row][currentCol] != grid[row][nextCol]){
+                    ans[col] = -1;
+                    break;
+                }
+                ans[col] = nextCol;
+                currentCol = nextCol;
+            }
         }
         return ans;
-    }
-    int helper(vector<vector<int>>& grid, int row, int col){
-        if(row == grid.size()) return col;
-        int nextCol = col + grid[row][col];
-        if(nextCol < 0 || nextCol >= grid[0].size() || grid[row][col] != grid[row][nextCol]){
-            return -1;
-        }
-        return helper(grid,row+1,nextCol);
     }
 };
