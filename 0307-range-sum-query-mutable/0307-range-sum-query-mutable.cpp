@@ -6,7 +6,7 @@ public:
     NumArray(vector<int>& nums) {
         this->n = nums.size();
         this->nums = nums;
-        query.resize(nums.size() * 4,0);
+        query.resize((4*n)+1,0);
         setquery(0,0,nums.size()-1,nums,query);
     }
     void setquery(int pos, int left, int right, vector<int>& nums, vector<int>& query){
