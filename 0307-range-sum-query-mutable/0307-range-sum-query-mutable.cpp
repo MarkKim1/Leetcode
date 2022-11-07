@@ -29,9 +29,7 @@ public:
             return;
         }
         if(left == right){
-            
-                query[pos] = val;    
-            
+            query[pos] = val;    
             return;
         }
         int mid = (left + right) / 2;
@@ -43,17 +41,16 @@ public:
     int sumRange(int left, int right) {
         if(n == 0) return 0;
         return rangeUtil(left,right,0,n-1,0);
-    }
-    int rangeUtil(int qlow, int qhigh, int low, int high, int pos){
-        if (qlow <= low && qhigh>= high){ // total overlap
+    }//                1           3          0          4
+    int rangeUtil(int qleft, int qright, int left, int right, int pos){
+        if(qleft <= left and qright >= right){
             return query[pos];
         }
-        if (qlow > high || qhigh < low) { // no overlap
+        if(qleft > right || qright < left){
             return 0;
         }
-        // partial overlap
-        int mid = (high + low)/2;
-        return (rangeUtil(qlow, qhigh, low, mid, 2*pos+1) + rangeUtil(qlow, qhigh, mid+1, high, 2*pos+2));
+        int mid = (right + left) / 2;
+        return rangeUtil(qleft,qright,left,mid,2*pos+1) + rangeUtil(qleft,qright,mid+1,right,2*pos+2);
     }
 };
 
