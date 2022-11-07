@@ -29,9 +29,9 @@ public:
             return;
         }
         if(left == right){
-            if(left == index){
+            
                 query[pos] = val;    
-            }
+            
             return;
         }
         int mid = (left + right) / 2;
