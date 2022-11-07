@@ -2,20 +2,21 @@ class TrieNode {
     public:
     string word = "";
     vector<TrieNode*> children;
-    TrieNode(){
+    TrieNode() {
         for(int i = 0; i < 26; i++){
-            children.push_back(nullptr);
+            children.push_back(NULL);
         }
     }
+    
 };
+
 class Solution {
 public:
     vector<string> result;
     vector<string> findWords(vector<vector<char>>& board, vector<string>& words) {
         TrieNode* trie = new TrieNode();
-        
-        for(auto word: words){
-            TrieNode* temp = trie;
+        for(auto word : words){
+            auto temp = trie;
             for(int i = 0; i < word.size(); i++){
                 if(temp->children[word[i]-'a'] == NULL){
                     temp->children[word[i]-'a'] = new TrieNode();
@@ -24,9 +25,8 @@ public:
             }
             temp->word = word;
         }
-        //traverse board
-        for(int i = 0; i < board.size(); i++){
-            for(int j = 0; j < board[i].size(); j++){
+        for(int i = 0 ; i < board.size(); i++){
+            for(int j = 0; j < board[0].size(); j++){
                 DFS(board,trie,i,j);
             }
         }
@@ -36,22 +36,21 @@ public:
         if(min(i,j) < 0 || i >= board.size() || j >= board[0].size() || board[i][j] == '#'){
             return;
         }
-        char c = board[i][j];
-        if(!trie->children[c-'a']){
+        if(!trie->children[board[i][j]-'a']){
             return;
         }
-        trie = trie->children[c-'a'];
+        trie = trie->children[board[i][j]-'a'];
         if(trie->word.size() > 0){
-            result.push_back(trie->word);
+            string curr = trie->word;
+            result.push_back(curr);
             trie->word = "";
-        } 
-        
+        }
+        char c = board[i][j];
         board[i][j] = '#';
         DFS(board,trie,i+1,j);
-        DFS(board,trie,i-1,j);
         DFS(board,trie,i,j+1);
         DFS(board,trie,i,j-1);
+        DFS(board,trie,i-1,j);
         board[i][j] = c;
-        
     }
 };
