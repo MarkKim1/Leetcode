@@ -2,20 +2,20 @@ class TrieNode {
     public:
     string word = "";
     vector<TrieNode*> children;
-    TrieNode() {
+    TrieNode(){
+        children.resize(26);
         for(int i = 0; i < 26; i++){
-            children.push_back(NULL);
+            children[i] = NULL;
         }
     }
-    
 };
-
 class Solution {
 public:
-    vector<string> result;
+    vector<string> ans;
     vector<string> findWords(vector<vector<char>>& board, vector<string>& words) {
         TrieNode* trie = new TrieNode();
-        for(auto word : words){
+        
+        for(auto word: words){
             auto temp = trie;
             for(int i = 0; i < word.size(); i++){
                 if(temp->children[word[i]-'a'] == NULL){
@@ -25,14 +25,14 @@ public:
             }
             temp->word = word;
         }
-        for(int i = 0 ; i < board.size(); i++){
+        for(int i = 0; i < board.size(); i++){
             for(int j = 0; j < board[0].size(); j++){
-                DFS(board,trie,i,j);
+                backtrack(board,trie,i,j);
             }
         }
-        return result;
+        return ans;
     }
-    void DFS(vector<vector<char>>& board, TrieNode* trie, int i, int j){
+    void backtrack(vector<vector<char>>& board, TrieNode* trie, int i, int j){
         if(min(i,j) < 0 || i >= board.size() || j >= board[0].size() || board[i][j] == '#'){
             return;
         }
@@ -41,16 +41,15 @@ public:
         }
         trie = trie->children[board[i][j]-'a'];
         if(trie->word.size() > 0){
-            string curr = trie->word;
-            result.push_back(curr);
+            ans.push_back(trie->word);
             trie->word = "";
         }
         char c = board[i][j];
         board[i][j] = '#';
-        DFS(board,trie,i+1,j);
-        DFS(board,trie,i,j+1);
-        DFS(board,trie,i,j-1);
-        DFS(board,trie,i-1,j);
+        backtrack(board,trie,i+1,j);
+        backtrack(board,trie,i,j+1);
+        backtrack(board,trie,i-1,j);
+        backtrack(board,trie,i,j-1);
         board[i][j] = c;
     }
 };
