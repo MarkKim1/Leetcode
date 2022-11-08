@@ -1,56 +1,57 @@
 class NumArray {
+public:
     vector<int> query;
     vector<int> nums;
     int n;
-public:
-    NumArray(vector<int>& nums) {
-        this->n = nums.size();
-        this->nums = nums;
-        query.resize((4*n),0);
-        setquery(0,0,nums.size()-1,nums,query);
-    }
-    void setquery(int pos, int left, int right, vector<int>& nums, vector<int>& query){
+    void setquery(int pos, int left, int right, vector<int>& nums){
         if(left == right){
             query[pos] = nums[left];
             return;
         }
         int mid = (left + right) / 2;
-        setquery(2*pos+1, left, mid,nums,query);
-        setquery(2*pos+2,mid+1,right,nums,query);
+        setquery(2*pos+1, left, mid, nums);
+        setquery(2*pos+2, mid+1,right,nums);
         query[pos] = query[2*pos+1] + query[2*pos+2];
     }
-    
-    void update(int index, int val) {
-        if(n == 0) return;
-        updateUtil(0,n-1,index,val,0);
-    }
-    void updateUtil(int left, int right, int index, int val,int pos){
+    void updateHelper(int pos, int left, int right, int index, int val){
         if(index < left || index > right){
             return;
         }
         if(left == right){
-            query[pos] = val;    
-            return;
+            if(left == index){
+                query[pos] = val;
+                return;
+            }
         }
-        int mid = (left + right) / 2;
-        updateUtil(left, mid,index,val,2*pos+1);
-        updateUtil(mid+1, right,index,val,2*pos+2);
+        int mid = (right + left) / 2;
+        updateHelper(2*pos+1, left, mid, index,val);
+        updateHelper(2*pos+2, mid+1,right,index,val);
         query[pos] = query[2*pos+1] + query[2*pos+2];
+    }
+    int sumHelper(int pos, int numsleft, int numsright, int left, int right){
+        if(numsleft >= left and numsright <= right){
+            return query[pos];
+        }
+        if(numsleft > right || numsright < left){
+            return 0;
+        }
+        int mid = (numsleft + numsright) / 2;
+        return sumHelper(2*pos+1,numsleft,mid,left,right) + sumHelper(2*pos+2,mid+1,numsright,left,right);
+    }
+    NumArray(vector<int>& nums) {
+        this->nums = nums;
+        this->n = nums.size();
+        this->query.resize(4*n,0);
+        setquery(0,0,n-1,nums);
+    }
+    
+    
+    void update(int index, int val) {
+        updateHelper(0,0,n-1,index,val);
     }
     
     int sumRange(int left, int right) {
-        if(n == 0) return 0;
-        return rangeUtil(left,right,0,n-1,0);
-    }//                1           3          0          4
-    int rangeUtil(int qleft, int qright, int left, int right, int pos){
-        if(qleft <= left and qright >= right){
-            return query[pos];
-        }
-        if(qleft > right || qright < left){
-            return 0;
-        }
-        int mid = (right + left) / 2;
-        return rangeUtil(qleft,qright,left,mid,2*pos+1) + rangeUtil(qleft,qright,mid+1,right,2*pos+2);
+        return sumHelper(0,0,n-1,left,right);
     }
 };
 
