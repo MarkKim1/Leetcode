@@ -2,27 +2,23 @@ class Solution {
 public:
     
     vector<int> sortByBits(vector<int>& arr) {
-           auto comparator = [](int &x, int &y) {
-            int x_1 = 0;
-            int y_1 = 0;
-            
-            int temp_x = x;
-            int temp_y = y;
-            
-            while(temp_x) {
-                temp_x = temp_x & (temp_x-1);
-                x_1++;
+        auto comparator = [](int a, int b){
+            int acount = 0;
+            int bcount = 0;
+            int tempa = a;
+            int tempb = b;
+            while(a){
+                a = (a & (a-1));
+                acount++;
             }
-            
-            while(temp_y) {
-                temp_y = temp_y & (temp_y-1);
-                y_1++;
+            while(b){
+                b = (b & (b-1));
+                bcount++;
             }
-            
-            if(x_1 == y_1)
-                return x < y;
-            
-            return x_1<y_1;
+            if(acount == bcount){
+                return tempa < tempb;
+            }
+            return acount < bcount;
         };
         
         sort(arr.begin(),arr.end(),comparator);
