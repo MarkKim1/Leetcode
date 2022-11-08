@@ -1,22 +1,19 @@
 class Solution {
 public:
+    
     vector<int> sortByBits(vector<int>& arr) {
-        priority_queue<pair<int,int>,vector<pair<int,int>>,greater<>> minheap;
-        vector<int> ans;
-        for(int i = 0; i < arr.size(); i++){
-            int count = 0;
-            int curr = arr[i];
-            while(curr){
-                curr = curr & (curr-1);
-                count++;
+        auto comparator = [](int a, int b){
+            bitset<32> aBit(a);
+            bitset<32> bBit(b);
+            int acount = aBit.count();
+            int bcount = bBit.count();
+            if(acount == bcount){
+                return a < b;
+            }else{
+                return acount < bcount;
             }
-            minheap.push({count,arr[i]});
-        }
-        while(!minheap.empty()){
-            auto curr = minheap.top();
-            minheap.pop();
-            ans.push_back(curr.second);
-        }
-        return ans;
+        };
+        sort(arr.begin(),arr.end(),comparator);
+        return arr;
     }
 };
