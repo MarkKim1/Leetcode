@@ -2,20 +2,20 @@ class Solution {
 public:
     int countPrimes(int n) {
         if(n == 1 || n == 0) return 0;
-        vector<bool> arr(n,false);
-        for(int i = 2; i*i < n; i++){
-            if(!arr[i]){
-                for(int j = i*i; j < n; j+=i){
-                    arr[j] = true;
+        vector<bool> prime(n,false);
+        for(int i = 2; i < sqrt(n); i++){
+            if(!prime[i]){
+                for(int j = i*i; j < n; j += i){
+                    prime[j] = true;
                 }
             }
         }
-        int ans = 0;
+        int primecount = 0;
         for(int i = 2; i < n; i++){
-            if(arr[i] == false){
-                ans++;
+            if(!prime[i]){
+                primecount++;
             }
         }
-        return ans;
+        return primecount;
     }
 };
