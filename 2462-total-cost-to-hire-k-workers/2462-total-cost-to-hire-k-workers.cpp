@@ -1,23 +1,23 @@
 class Solution {
 public:
     long long totalCost(vector<int>& costs, int k, int candidates) {
-        priority_queue<int,vector<int>,greater<int>> pq1,pq2;
-        long long ans=0;
-        int cnt = 0,i=0,j=costs.size()-1;
-        while(cnt<k){
-            while(pq1.size()<candidates && i<=j) pq1.push(costs[i++]);
-            while(pq2.size()<candidates && j>=i) pq2.push(costs[j--]);
-            int a=pq1.size()>0?pq1.top():INT_MAX;
-            int b=pq2.size()>0?pq2.top():INT_MAX;
-            // cout<<a<<" "<<b<<"\n";
-            if(a<=b){
+        priority_queue<int,vector<int>,greater<>> left;
+        priority_queue<int,vector<int>,greater<>> right;
+        int i = 0;
+        int j = costs.size()-1;
+        long long ans = 0;
+        while(k--){
+            while(left.size() < candidates and i <= j) left.push(costs[i++]);
+            while(right.size() < candidates and i <= j) right.push(costs[j--]);
+            int a = left.size() > 0 ? left.top() : INT_MAX;
+            int b = right.size() > 0 ? right.top() : INT_MAX;
+            if(a <= b){
                 ans+=a;
-                pq1.pop();
+                left.pop();
             }else{
                 ans+=b;
-                pq2.pop();
+                right.pop();
             }
-            cnt++;
         }
         return ans;
     }
