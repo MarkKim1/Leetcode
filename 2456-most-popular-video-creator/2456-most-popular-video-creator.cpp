@@ -1,36 +1,26 @@
 class Solution {
 public:
     vector<vector<string>> mostPopularCreator(vector<string>& creators, vector<string>& ids, vector<int>& views) {
+        unordered_map<string,int> popular,sum_views;
         vector<vector<string>> ans;
-        // add total views
-        unordered_map<string,int> popularity;
-        unordered_map<string,map<string,int>> fuck;
-        int currmax = INT_MIN;
-        vector<string> consider;
-        for(int i = 0; i < creators.size(); i++){
-            popularity[creators[i]] += views[i];
-            currmax = max(popularity[creators[i]],currmax);
-        }
-        for(int i = 0; i < creators.size(); i++){
-            fuck[creators[i]][ids[i]] = views[i];
-        }
-        for(auto cr : popularity){
-            if(cr.second == currmax){
-                consider.push_back(cr.first);
-            }
-        }
-        for(auto creator : consider){
-            int maxview = INT_MIN;
-            string minID = "zzzzzzzzzzz";
-            for(auto each : fuck[creator]){
-                maxview = max(maxview,each.second);
-            }
-            for(auto each : fuck[creator]){
-                if(each.second == maxview){
-                    minID = min(each.first,minID);
+        int max_views = INT_MIN;
+        for(int i = 0; i < ids.size(); i++){
+            max_views = max(max_views,sum_views[creators[i]] += views[i]);
+            auto it = popular.find(creators[i]);
+            if(it == end(popular)){
+                popular[creators[i]] = i;
+            }else if(views[i] >= views[it->second]){
+                if(views[i] == views[it->second]){
+                    it->second = ids[i] < ids[it->second] ? i : it->second;
+                }else{
+                    it->second = i;
                 }
             }
-            ans.push_back({creator,minID});
+        }
+        for(auto [creator,views] : sum_views){
+            if(views == max_views){
+                ans.push_back({creator,ids[popular[creator]]});
+            }
         }
         return ans;
     }
