@@ -26,7 +26,7 @@ public:
                 int row = curr.first;
                 int col = curr.second;
                 q.pop();
-                if(!q.empty() and count >= 3 and row == q.front().first and col == q.front().second){
+                if(!q.empty() and row == q.front().first and col == q.front().second){
                     return true;
                 }
                 grid[row][col] = '#';
