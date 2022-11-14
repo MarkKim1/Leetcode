@@ -1,44 +1,28 @@
 class Solution {
 public:
-    bool containsCycle(vector<vector<char>>& grid) {
-        for(int i = 0; i < grid.size(); i++){
-            for(int j = 0; j < grid[0].size(); j++){
-                if(isalpha(grid[i][j])){
-                    if(bfs(grid,i,j,0)){
-                        return true;
+    vector<int> d = {1, 0, -1, 0, 1};
+bool containsCycle(vector<vector<char>>& g) {
+    for (int i = 0; i < g.size(); ++i)
+        for (int j = 0; j < g[i].size(); ++j) {
+            if (g[i][j] >= 'a') {
+                char val = g[i][j];
+                vector<pair<int, int>> q = {{i, j}};
+                while (!q.empty()) {
+                    vector<pair<int, int>> q1;
+                    for (auto [x, y] : q) {
+                        if (g[x][y] < 'a')
+                            return true;
+                        g[x][y] -= 26;
+                        for (auto k = 0; k < 4; ++k) {
+                            int dx = x + d[k], dy = y + d[k + 1];
+                            if (dx >= 0 && dy >= 0 && dx < g.size() && dy < g[dx].size() && g[dx][dy] == val)
+                                q1.push_back({dx, dy});
+                        }
                     }
+                    swap(q, q1);
                 }
             }
         }
-        return false;
-    }
-    bool bfs(vector<vector<char>>& grid, int i, int j, int count){
-        vector<int> x = {0,1,0,-1};
-        vector<int> y = {1,0,-1,0};
-        queue<pair<int,int>> q;
-        q.push(make_pair(i,j));
-        char source = grid[i][j];
-        while(!q.empty()){
-            int size = q.size();
-            count++;
-            for(int i = 0; i < size; i++){
-                auto curr = q.front();
-                int row = curr.first;
-                int col = curr.second;
-                q.pop();
-                if(!q.empty() and row == q.front().first and col == q.front().second){
-                    return true;
-                }
-                grid[row][col] = '#';
-                for(int i = 0; i < 4; i++){
-                    int newrow = row + x[i];
-                    int newcol = col + y[i];
-                    if(min(newrow,newcol) >= 0 and newrow < grid.size() and newcol < grid[0].size() and grid[newrow][newcol] == source){
-                        q.push(make_pair(newrow,newcol));
-                    }
-                }
-            }
-        }
-        return false;
-    }
+    return false;
+}
 };
