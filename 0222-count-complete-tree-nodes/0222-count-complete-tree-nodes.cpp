@@ -28,7 +28,7 @@ public:
             int pivot = left + (right-left)/2;
             if(index <= pivot){
                 node = node->left;
-                right = pivot;
+                right = pivot-1;
             }else{
                 node = node->right;
                 left = pivot+1;
