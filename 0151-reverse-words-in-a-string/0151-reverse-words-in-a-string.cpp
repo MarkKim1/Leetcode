@@ -1,21 +1,28 @@
 class Solution {
-public:
-    string reverseWords(string s) {
-        stringstream ss(s);
-        string input;
-        vector<string> vec;
-        while(getline(ss,input,' ')){
-            if(input == ""){
-                continue;
-            }
-            vec.push_back(input);
-        }
-        string ans = "";
-        for(int i = vec.size()-1; i >= 0; i--){
-            ans+=vec[i];
-            ans+=' ';
-        }
-        ans.pop_back();
-        return ans;
+  public:
+  string reverseWords(string s) {
+    // reverse the whole string
+    reverse(s.begin(), s.end());
+
+    int n = s.size();
+    int idx = 0;
+    for (int start = 0; start < n; ++start) {
+      if (s[start] != ' ') {
+        // go to the beginning of the word
+        if (idx != 0) s[idx++] = ' ';
+
+        // go to the end of the word
+        int end = start;
+        while (end < n && s[end] != ' ') s[idx++] = s[end++];
+
+        // reverse the word
+        reverse(s.begin() + idx - (end - start), s.begin() + idx);
+
+        // move to the next word
+        start = end;
+      }
     }
+    s.erase(s.begin() + idx, s.end());
+    return s;
+  }
 };
