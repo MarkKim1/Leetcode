@@ -12,31 +12,26 @@ public:
 class Solution {
 public:
     Node* lowestCommonAncestor(Node* p, Node * q) {
-        Node* pCopy = p;
-        Node* qCopy = q;
-        int pNum = 0;
-        int qNum = 0;
-        
-        while(pCopy != NULL){
-            pCopy = pCopy->parent;
-            pNum++;
+        int pdepth = getdepth(p);
+        int qdepth = getdepth(q);
+        if(pdepth > qdepth){
+            swap(p,q);
         }
-        while(qCopy != NULL){
-            qCopy = qCopy->parent;
-            qNum++;
-        }
-        while(qNum > pNum){
+        int diff = abs(pdepth - qdepth);
+        for(int i = 0; i < diff; i++){
             q = q->parent;
-            qNum--;
-        }
-        while(pNum > qNum){
-            p = p->parent;
-            pNum--;
         }
         while(p != q){
             p = p->parent;
             q = q->parent;
         }
-        return p;
+        return q;
+    }
+    int getdepth(Node* node){
+        int depth = 0;
+        while(node->parent){
+            depth++,node = node->parent;
+        }
+        return depth;
     }
 };
