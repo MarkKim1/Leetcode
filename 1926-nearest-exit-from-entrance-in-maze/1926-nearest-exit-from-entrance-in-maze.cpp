@@ -1,32 +1,40 @@
 class Solution {
 public:
     int nearestExit(vector<vector<char>>& maze, vector<int>& entrance) {
-        int ROW = maze.size();
-        int COL = maze[0].size();
-        vector<int> x = {0,1,0,-1};
-        vector<int> y = {1,0,-1,0};
-        queue<pair<int,pair<int,int>>> q;
-        q.push(make_pair(0,make_pair(entrance[0],entrance[1])));
-        int result = INT_MAX;
+        vector<int> row = {1,0,-1,0};
+        vector<int> col = {0,1,0,-1};
+        queue<pair<int,int>> q;
+        q.push({entrance[0],entrance[1]});
+        int count = 0;
         while(!q.empty()){
-            auto it = q.front();
-            q.pop();
-            for(int i = 0; i < x.size();i++){
-                int row = it.second.first + x[i];
-                int col = it.second.second + y[i];
-                int a = it.first;
-                if(min(row,col) >= 0 and row < ROW and col < COL){
-                    if(maze[row][col] == '.'){
-                        q.push({a+1,{row,col}});
-                        maze[row][col] = '+';
-                        if(row == 0 || col == 0 || row == ROW-1 || col == COL-1){
-                            result = min(result,a+1);
-                        }
-                        maze[it.second.first][it.second.second] = '+';
+            int size = q.size();
+            for(int i = 0; i < size; i++){
+                auto curr = q.front();
+                q.pop();
+                int x = curr.first;
+                int y = curr.second;
+                maze[x][y] = '+';
+                if(count != 0 and (x == 0 || y == 0 || x == maze.size()-1
+                                  || y == maze[0].size()-1)){
+                    return count;
+                }
+                for(int i = 0; i < 4; i++){
+                    int next_x = x + row[i];
+                    int next_y = y + col[i];
+                    if(min(next_x,next_y) >= 0 and next_x < maze.size() and
+                      next_y < maze[0].size() and maze[next_x][next_y] != '+'){
+                        maze[next_x][next_y] = '+';
+                        q.push({next_x,next_y});
                     }
                 }
             }
+            count++;
         }
-        return result == INT_MAX ? -1 : result;
+        return -1;
     }
 };
+ // ["+","0","+","+","+","+","+"],
+ // ["+","0","+","0","0","0","+"],
+ // ["+","0","+","0","+","0","+"],
+ // ["+","0","0","0","+","0","+"],
+ // ["+","+","+","+","+","0","+"]
