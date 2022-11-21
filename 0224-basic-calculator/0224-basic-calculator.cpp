@@ -19,7 +19,6 @@ public:
             }else if(s[i] == '('){
                 stack.push(result);
                 stack.push(sign);
-                number = 0;
                 result = 0;
                 sign = 1;
             }else if(s[i] == ')'){
