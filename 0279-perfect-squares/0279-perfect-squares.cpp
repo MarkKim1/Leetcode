@@ -18,7 +18,7 @@ public:
                 int curr = dp[i-squares[0]] + dp[i - (i-squares[0])];
                 for(int j = 0; j < squares.size(); j++){
                     if(i-squares[j] > 0){
-                        curr = min(curr,dp[i-squares[j]] + dp[i - (i-squares[j])]);
+                        curr = min(curr,dp[i-squares[j]] + 1);
                     }else{
                         break;
                     }
