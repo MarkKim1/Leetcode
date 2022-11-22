@@ -6,7 +6,7 @@ public:
         squares.push_back(1);
         dp[1] = 1;
         for(int i = 2; i <= n; i++){
-            int square_index = pow(i,2);
+            int square_index = i * i;
             if(square_index <= n){
                 dp[square_index] = 1;
                 squares.push_back(square_index);
