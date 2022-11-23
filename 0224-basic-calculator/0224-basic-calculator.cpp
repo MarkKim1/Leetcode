@@ -1,37 +1,38 @@
 class Solution {
 public:
     int calculate(string s) {
-        stack<int> stack;
-        long long number = 0;
-        int sign = 1;
+        stack<int> stk;
         int result = 0;
+        long long curr_number = 0;
+        int sign = 1;
         for(int i = 0; i < s.size(); i++){
             if(isdigit(s[i])){
-                number = 10 * number + s[i] - '0';
+                curr_number = curr_number * 10 + s[i]-'0';
             }else if(s[i] == '-'){
-                result += sign * number;
-                number = 0;
+                result += sign * curr_number;
+                curr_number = 0;
                 sign = -1;
             }else if(s[i] == '+'){
-                result += sign * number;
-                number = 0;
+                result += sign * curr_number;
+                curr_number = 0;
                 sign = 1;
             }else if(s[i] == '('){
-                stack.push(result);
-                stack.push(sign);
+                stk.push(result);
+                stk.push(sign);
                 result = 0;
                 sign = 1;
             }else if(s[i] == ')'){
-                result += sign * number;
-                result *= stack.top();
-                stack.pop();
-                result += stack.top();
-                stack.pop();
-                number = 0;
+                result+=sign*curr_number;
+                result*=stk.top();
+                stk.pop();
+                result+=stk.top();
+                stk.pop();
+                curr_number = 0;
+                sign = 1;
             }
         }
-        if(number != 0){
-            result += (sign == -1) ? -number : number;
+        if(curr_number != 0){
+            result += sign * curr_number;
         }
         return result;
     }
