@@ -7,13 +7,19 @@ public:
                 return false;
             }
             if(num[i] == '6'){
-                strobo.push_back('9');
+                if(num[num.size()-i-1] != '9'){
+                    return false;
+                }
             }else if(num[i] == '9'){
-                strobo.push_back('6');
+                 if(num[num.size()-i-1] != '6'){
+                    return false;
+                }
             }else{
-                strobo.push_back(num[i]);
+                if(num[num.size() -i-1] != num[i]){
+                    return false;
+                }
             }
         }
-        return strobo == num;
+        return true;
     }
 };
