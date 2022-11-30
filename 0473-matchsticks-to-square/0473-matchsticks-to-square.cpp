@@ -1,7 +1,10 @@
 class Solution {
 public:
     bool makesquare(vector<int>& match) {
-        int total = accumulate(match.begin(),match.end(),0);
+        int total = 0;
+        for(int a : match){
+            total +=a;
+        }
         if(match.size() < 4 || total % 4 != 0)return false;
         int target = total / 4;
         vector<int> sum(4,0);
