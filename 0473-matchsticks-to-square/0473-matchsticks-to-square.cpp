@@ -18,7 +18,12 @@ public:
         for(int i = 0; i < 4; i++){
             if(sum[i] + match[index] > target) continue;
             int j = i;
-            
+            while(--j >= 0){
+                if(sum[j] == sum[i]){
+                    break;
+                }
+            }
+            if(j != -1) continue;
             sum[i]+=match[index];
             if(DFS(index+1,target,sum,match)){
                 return true;
