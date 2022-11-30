@@ -8,7 +8,7 @@ public:
         if(match.size() < 4 || total % 4 != 0)return false;
         int target = total / 4;
         vector<int> sum(4,0);
-        sort(match.begin(),match.end(),greater<int>());
+        sort(match.rbegin(),match.rend());
         return DFS(0,target,sum,match);
     }
     bool DFS(int index, int target,vector<int>& sum, vector<int>& match){
