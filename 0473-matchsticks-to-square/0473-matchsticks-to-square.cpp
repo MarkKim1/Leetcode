@@ -12,11 +12,8 @@ public:
         return DFS(0,target,sum,match);
     }
     bool DFS(int index, int target,vector<int>& sum, vector<int>& match){
-        if(index >= match.size()){
-            if(sum[0] == sum[1] and sum[1] == sum[2] and sum[2] == sum[3]){
-                return true;
-            }
-            return false;
+        if(index == match.size()){
+            return sum[0] == sum[1] and sum[1] == sum[2] and sum[2] == sum[3];
         }
         for(int i = 0; i < 4; i++){
             if(sum[i] + match[index] > target) continue;
