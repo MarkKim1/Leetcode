@@ -8,7 +8,7 @@ public:
         if(match.size() < 4 || total % 4 != 0)return false;
         int target = total / 4;
         vector<int> sum(4,0);
-        sort(match.rbegin(),match.rend());
+        sort(match.begin(),match.end(),greater<int>());
         return DFS(0,target,sum,match);
     }
     bool DFS(int index, int target,vector<int>& sum, vector<int>& match){
@@ -17,14 +17,14 @@ public:
         }
         for(int i = 0; i < 4; i++){
             if(sum[i] + match[index] > target) continue;
-            sum[i]+=match[index];
             int j = i;
-            // while(--j >= 0){
-            //     if(sum[j] == sum[i]){
-            //         break;
-            //     }
-            // }
-            // if(j != -1) continue;
+            while(--j >= 0){
+                if(sum[j] == sum[i]){
+                    break;
+                }
+            }
+            if(j != -1) continue;
+            sum[i]+=match[index];
             if(DFS(index+1,target,sum,match)){
                 return true;
             }
