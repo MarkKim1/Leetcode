@@ -1,18 +1,18 @@
 class Solution {
 public:
     int longestValidParentheses(string s) {
-        stack<int> stk;
-        stk.push(-1);
+        vector<int> longest(s.size(),0);
         int ans = 0;
-        for(int i = 0; i < s.size(); i++){
-            if(s[i] == '('){
-                stk.push(i);
-            }else{
-                stk.pop();
-                if(stk.empty()){
-                    stk.push(i);
+        for(int i = 1; i < s.size(); i++){
+            if(s[i] == ')'){
+                if(s[i-1] == '('){
+                    longest[i] = i - 2 >= 0 ? longest[i-2] + 2 : 2; 
+                    ans = max(ans,longest[i]);
                 }else{
-                    ans = max(ans,i-stk.top());
+                    if(i-longest[i-1]-1 >= 0 and s[i-longest[i-1]-1] == '('){
+                        longest[i] = longest[i-1] + 2 + (i-longest[i-1]-2 >= 0 and s[i-longest[i-1]-2] == ')' ? longest[i-longest[i-1]-2] : 0);
+                        ans = max(ans,longest[i]);
+                    }
                 }
             }
         }
