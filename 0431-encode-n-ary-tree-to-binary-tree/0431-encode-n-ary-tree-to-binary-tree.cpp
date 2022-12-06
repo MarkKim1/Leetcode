@@ -50,16 +50,15 @@ public:
 	
     // Decodes your binary tree to an n-ary tree.
     Node* decode(TreeNode* root) {
-        if (root==NULL) return NULL;
-        Node* ret=new Node;
-        ret->val=root->val;
-        TreeNode *now=root->left;
-        while (now){
-            ret->children.push_back(decode(now));
-            now=now->right;
+        if(root == NULL) return NULL;
+        Node* result = new Node();
+        result->val = root->val;
+        TreeNode* now = root->left;
+        while(now){
+            result->children.push_back(decode(now));
+            now = now->right;
         }
-        return ret;
-        
+        return result;
     }
 };
 
