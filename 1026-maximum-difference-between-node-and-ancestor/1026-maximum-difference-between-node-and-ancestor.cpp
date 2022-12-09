@@ -12,21 +12,16 @@
 class Solution {
 public:
     int maxAncestorDiff(TreeNode* root) {
-        int ans = INT_MIN;
-        vector<int> compute;
-        DFS(root,compute,ans);
-        return ans;
+        return helper(root,INT_MIN,INT_MAX);
     }
-    void DFS(TreeNode* root, vector<int>& compute, int& ans){
-        if(!root) return;
-        if(!compute.empty()){
-            for(int i = 0; i < compute.size(); i++){
-                ans = max(ans,abs(root->val - compute[i]));
-            }
+    int helper(TreeNode* root,int currMax, int currMin){
+        if(!root){
+            return currMax - currMin;
         }
-        compute.push_back(root->val);
-        DFS(root->left, compute, ans);
-        DFS(root->right, compute, ans);
-        compute.pop_back();
+        currMax = max(currMax, root->val);
+        currMin = min(currMin, root->val);
+        int left = helper(root->left,currMax,currMin);
+        int right = helper(root->right,currMax, currMin);
+        return max(left,right);
     }
 };
