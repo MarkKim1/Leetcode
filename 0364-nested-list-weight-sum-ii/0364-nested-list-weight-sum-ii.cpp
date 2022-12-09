@@ -8,10 +8,10 @@ public:
         return findweight(nestedList,maxdepth,1);
     }
     int finddepth(vector<NestedInteger>& list){
-        if(list.size() == 0 || list.empty())return 0;
+       if(list.size() == 0)return 0;
         int maxdepth = 1;
         for(NestedInteger child : list){
-            if(!child.isInteger() and list.size() != 0){
+            if(!child.isInteger()){
                 maxdepth = max(maxdepth, 1 + finddepth(child.getList()));
             }
         }
