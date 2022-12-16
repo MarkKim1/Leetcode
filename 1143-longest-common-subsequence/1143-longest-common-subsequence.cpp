@@ -1,33 +1,16 @@
 class Solution {
 public:
-    string text1;
-    string text2;
-    int answer;
-    int memo[1001][1001];
     int longestCommonSubsequence(string text1, string text2) {
-        this->text1 = text1;
-        this->text2 = text2;
-        
-        for (int i = 0; i < text1.length(); i++) {
-            for (int j = 0; j < text2.length(); j++) {
-                this->memo[i][j] = -1;
+        vector<vector<int>> dp(text1.size() + 1, vector<int>(text2.size() + 1,0));
+        for(int i = 1; i <= text1.size(); i++){
+            for(int j = 1; j <= text2.size(); j++){
+                if(text1[i-1] == text2[j-1]){
+                    dp[i][j] = dp[i-1][j-1] + 1;
+                }else{
+                    dp[i][j] = max(dp[i-1][j],dp[i][j-1]);
+                }
             }
         }
-        this->answer = 0;
-        return dp(0,0);
-    }
-    int dp(int p1,int p2){
-        if(memo[p1][p2] != -1){
-            return memo[p1][p2];
-        }
-        if(text1[p1] == text2[p2]){
-            answer = 1 + dp(p1+1,p2+1);
-        }
-        else{
-            answer = max(dp(p1,p2+1),dp(p1+1,p2));
-        }
-        
-        memo[p1][p2] = answer;
-        return memo[p1][p2];
+        return dp[text1.size()][text2.size()];
     }
 };
