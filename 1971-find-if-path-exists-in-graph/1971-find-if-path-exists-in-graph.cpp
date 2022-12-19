@@ -28,10 +28,6 @@ public:
         for(int i = 0; i < edges.size(); i++){
             uf.makeUnion(edges[i][0],edges[i][1]);
         }
-        for(int i = 0; i < edges.size(); i++){
-            uf.makeUnion(edges[i][0],edges[i][1]);
-        }
-        
-        return uf.root[source] == uf.root[dest];
+        return uf.find(source) == uf.find(dest);
     }
 };
