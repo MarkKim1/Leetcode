@@ -1,46 +1,43 @@
 class Solution {
 public:
-    vector<string> mostVisitedPattern(vector<string>& user, vector<int>& time, vector<string>& site) {
+    vector<string> mostVisitedPattern(vector<string>& username, vector<int>& timestamp, vector<string>& website) {
       unordered_map<string,map<int,string>> map;
       unordered_map<string,int> count;
-      int max_count = 0;
       string result = "";
-      for(int i = 0; i < user.size(); i++){
-        map[user[i]][time[i]] = site[i];
+      int max_count = 0;
+      for(int i = 0; i < username.size(); i++){
+        map[username[i]][timestamp[i]] = website[i];
       }
-      for(auto each : map){
+      for(auto a : map){
         unordered_set<string> set;
-        for(auto it1 = begin(each.second); it1 != end(each.second); it1++){
-          for(auto it2 = next(it1); it2 != end(each.second); it2++){
-            for(auto it3 = next(it2); it3 != end(each.second); it3++){
-              set.insert(it1->second + "@" + it2->second + "@" + it3->second);
+        for(auto it1 = begin(a.second); it1 != end(a.second); it1++){
+          for(auto it2 = next(it1); it2 != end(a.second); it2++){
+            for(auto it3 = next(it2); it3 != end(a.second); it3++){
+              set.insert(it1->second + "$" + it2->second + "$" + it3->second);
             }
           }
         }
-        for(auto set_each : set){
-          count[set_each]++;
+        for(auto str : set){
+          count[str]++;
         }
       }
-      for(auto count_each : count){
-        if(count_each.second >= max_count){
-          result = result == "" || count_each.second > max_count ? count_each.first : min(result,count_each.first);
-          max_count = count_each.second;
+      for(auto c : count){
+        if(c.second >= max_count){
+          result = result == "" || c.second > count[result] ? c.first : min(result,c.first);
+          max_count = c.second;
         }
       }
-      vector<string> ans;
       string temp = "";
+      vector<string> ans;
       for(int i = 0; i < result.size(); i++){
         if(!isalpha(result[i])){
           ans.push_back(temp);
           temp.erase();
           continue;
         }
-        temp.push_back(result[i]);
+        temp+=result[i];
       }
       ans.push_back(temp);
       return ans;
     }
 };
-// ["joe","home",1],["joe","about",2],["joe","career",3],
-//["james","home",4], ["james","cart",5],["james","maps",6],["james","home",7],
-//["mary","home",8], ["mary","about",9], and ["mary","career",6].
