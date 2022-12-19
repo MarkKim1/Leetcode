@@ -23,7 +23,7 @@ public:
       }
       for(auto c : count){
         if(c.second >= max_count){
-          result = result == "" || c.second > count[result] ? c.first : min(result,c.first);
+          result = result == "" || c.second > max_count ? c.first : min(result,c.first);
           max_count = c.second;
         }
       }
