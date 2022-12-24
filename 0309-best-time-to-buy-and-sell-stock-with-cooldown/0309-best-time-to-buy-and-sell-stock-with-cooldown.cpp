@@ -17,11 +17,10 @@ public:
         if(buying){
             x = helper(prices,index + 1, !buying) - prices[index];
             y = helper(prices,index + 1, buying);
-            return cache[index][buying] = max(x,y);
         }else{
             x = helper(prices,index + 2, !buying) + prices[index];
             y = helper(prices,index + 1, buying);
-            return cache[index][buying] = max(x,y);
         }
+        return cache[index][buying] = max(x,y);
     }
 };
