@@ -1,18 +1,14 @@
 class Solution {
 public:
     vector<int> answerQueries(vector<int>& nums, vector<int>& queries) {
-        vector<int> result;
         sort(nums.begin(),nums.end());
-        for(int i = 0; i < queries.size(); i++){
-            int sum = 0;
-            int count = 0;
-            for(int j = 0; j < nums.size(); j++){
-                sum+=nums[j];
-                if(sum <= queries[i]){
-                    count = max(count,j+1);
-                }
-            }
-            result.push_back(count);
+        vector<int> result;
+        for(int i = 1; i < nums.size(); i++){
+            nums[i] += nums[i-1];
+        }
+        for(int query : queries){
+            int index = upper_bound(nums.begin(),nums.end(),query) - nums.begin();
+            result.push_back(index);
         }
         return result;
     }
