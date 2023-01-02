@@ -2,7 +2,7 @@ class Solution {
 public:
     bool wordPattern(string pattern, string s) {
         unordered_map<char,string> map;
-        set<string> set;
+        unordered_set<string> set;
         string temp = "";
         stringstream ss;
         ss << s;
