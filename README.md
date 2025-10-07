@@ -10,11 +10,13 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 ## Array
 |  |
 | ------- |
+| [0001-two-sum](https://github.com/MarkKim1/Leetcode/tree/master/0001-two-sum) |
 | [0049-group-anagrams](https://github.com/MarkKim1/Leetcode/tree/master/0049-group-anagrams) |
 | [1612-avoid-flood-in-the-city](https://github.com/MarkKim1/Leetcode/tree/master/1612-avoid-flood-in-the-city) |
 ## Hash Table
 |  |
 | ------- |
+| [0001-two-sum](https://github.com/MarkKim1/Leetcode/tree/master/0001-two-sum) |
 | [0049-group-anagrams](https://github.com/MarkKim1/Leetcode/tree/master/0049-group-anagrams) |
 | [0242-valid-anagram](https://github.com/MarkKim1/Leetcode/tree/master/0242-valid-anagram) |
 | [1612-avoid-flood-in-the-city](https://github.com/MarkKim1/Leetcode/tree/master/1612-avoid-flood-in-the-city) |
