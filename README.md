@@ -18,6 +18,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | ------- |
 | [0001-two-sum](https://github.com/MarkKim1/Leetcode/tree/master/0001-two-sum) |
 | [0049-group-anagrams](https://github.com/MarkKim1/Leetcode/tree/master/0049-group-anagrams) |
+| [0202-happy-number](https://github.com/MarkKim1/Leetcode/tree/master/0202-happy-number) |
 | [0242-valid-anagram](https://github.com/MarkKim1/Leetcode/tree/master/0242-valid-anagram) |
 | [1612-avoid-flood-in-the-city](https://github.com/MarkKim1/Leetcode/tree/master/1612-avoid-flood-in-the-city) |
 ## Binary Search
@@ -42,4 +43,12 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | ------- |
 | [0049-group-anagrams](https://github.com/MarkKim1/Leetcode/tree/master/0049-group-anagrams) |
 | [0242-valid-anagram](https://github.com/MarkKim1/Leetcode/tree/master/0242-valid-anagram) |
+## Math
+|  |
+| ------- |
+| [0202-happy-number](https://github.com/MarkKim1/Leetcode/tree/master/0202-happy-number) |
+## Two Pointers
+|  |
+| ------- |
+| [0202-happy-number](https://github.com/MarkKim1/Leetcode/tree/master/0202-happy-number) |
 <!---LeetCode Topics End-->
