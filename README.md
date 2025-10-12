@@ -46,6 +46,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 |  |
 | ------- |
 | [0049-group-anagrams](https://github.com/MarkKim1/Leetcode/tree/master/0049-group-anagrams) |
+| [0071-simplify-path](https://github.com/MarkKim1/Leetcode/tree/master/0071-simplify-path) |
 | [0242-valid-anagram](https://github.com/MarkKim1/Leetcode/tree/master/0242-valid-anagram) |
 ## Sorting
 |  |
@@ -70,4 +71,8 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 |  |
 | ------- |
 | [0128-longest-consecutive-sequence](https://github.com/MarkKim1/Leetcode/tree/master/0128-longest-consecutive-sequence) |
+## Stack
+|  |
+| ------- |
+| [0071-simplify-path](https://github.com/MarkKim1/Leetcode/tree/master/0071-simplify-path) |
 <!---LeetCode Topics End-->
