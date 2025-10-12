@@ -1,10 +1,8 @@
 class Solution {
 public:
     string simplifyPath(string path) {
-        stack<string> stk;
         string s = "";
         vector<string> vec;
-        
         for(int i = 0; i < path.size(); i++){
             if(s != "" and path[i] == '/'){
                 if(s == "/.."){
