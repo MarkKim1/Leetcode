@@ -15,6 +15,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0056-merge-intervals](https://github.com/MarkKim1/Leetcode/tree/master/0056-merge-intervals) |
 | [0057-insert-interval](https://github.com/MarkKim1/Leetcode/tree/master/0057-insert-interval) |
 | [0128-longest-consecutive-sequence](https://github.com/MarkKim1/Leetcode/tree/master/0128-longest-consecutive-sequence) |
+| [0150-evaluate-reverse-polish-notation](https://github.com/MarkKim1/Leetcode/tree/master/0150-evaluate-reverse-polish-notation) |
 | [0219-contains-duplicate-ii](https://github.com/MarkKim1/Leetcode/tree/master/0219-contains-duplicate-ii) |
 | [0228-summary-ranges](https://github.com/MarkKim1/Leetcode/tree/master/0228-summary-ranges) |
 | [0452-minimum-number-of-arrows-to-burst-balloons](https://github.com/MarkKim1/Leetcode/tree/master/0452-minimum-number-of-arrows-to-burst-balloons) |
@@ -58,6 +59,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 ## Math
 |  |
 | ------- |
+| [0150-evaluate-reverse-polish-notation](https://github.com/MarkKim1/Leetcode/tree/master/0150-evaluate-reverse-polish-notation) |
 | [0202-happy-number](https://github.com/MarkKim1/Leetcode/tree/master/0202-happy-number) |
 ## Two Pointers
 |  |
@@ -75,6 +77,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 |  |
 | ------- |
 | [0071-simplify-path](https://github.com/MarkKim1/Leetcode/tree/master/0071-simplify-path) |
+| [0150-evaluate-reverse-polish-notation](https://github.com/MarkKim1/Leetcode/tree/master/0150-evaluate-reverse-polish-notation) |
 | [0155-min-stack](https://github.com/MarkKim1/Leetcode/tree/master/0155-min-stack) |
 ## Design
 |  |
