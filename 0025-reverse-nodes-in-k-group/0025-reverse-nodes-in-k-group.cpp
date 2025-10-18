@@ -11,33 +11,35 @@
 class Solution {
 public:
     ListNode* reverseKGroup(ListNode* head, int k) {
-        ListNode* dummy = new ListNode(0,head);
-        ListNode* groupPrev = dummy;
-        while(true){
-            ListNode* kth = getKth(groupPrev,k);
-            if(not kth) break;
-            ListNode* groupNext = kth->next;
-            
-            //reverse
-            ListNode* prev = groupNext;
-            ListNode* curr = groupPrev->next;
-            while(curr != groupNext){
-                ListNode* temp = curr->next;
-                curr->next = prev;
-                prev = curr;
-                curr = temp;
+        ListNode* dummy = new ListNode();
+        dummy->next = head;
+        ListNode* prev = dummy;
+        ListNode* curr = dummy;
+
+        int count = 0;
+        while(prev->next){
+            prev = prev->next;
+            count++;
+        }
+        prev = dummy;
+
+        if(prev->next){
+            curr = prev->next;
+        }
+        for(int i = 0; i < count/k; i++){
+            for(int j = 0; j < k - 1; j++){
+                ListNode* forw = curr->next;
+                curr->next = forw->next;
+                forw->next = prev->next;
+                prev->next = forw;
             }
-            ListNode* temp = groupPrev->next;
-            groupPrev->next = kth;
-            groupPrev = temp;
+            if(curr->next){
+                curr = curr->next;
+                while(prev->next != curr){
+                    prev = prev->next;
+                }
+            }
         }
         return dummy->next;
-    }
-    ListNode* getKth(ListNode* curr, int k){
-        while(curr and k > 0){
-            curr = curr->next;
-            k--;
-        }
-        return curr;
     }
 };
