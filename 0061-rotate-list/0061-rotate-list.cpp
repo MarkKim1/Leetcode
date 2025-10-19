@@ -11,32 +11,20 @@
 class Solution {
 public:
     ListNode* rotateRight(ListNode* head, int k) {
-        if(!head)return NULL;
-        queue<ListNode*> q;
-        int size = 0;
-        ListNode* temp = head;
-        while(temp){
-            q.push(temp);
-            temp = temp->next;
-            size++;
+        if(!head) return head;
+        int count = 1;
+        ListNode* tail = head;
+        while(tail->next){
+            count++;
+            tail = tail->next;
         }
-        if(k %size == 0) return head;
-        int nth = size - (k % size);
-        
-        ListNode* curr = new ListNode();
-        ListNode* newhead = curr;
-        for(int i = 0; i < nth; i++){
-            curr->next = new ListNode(q.front()->val);
-            curr = curr->next;
-            q.pop();
+        tail->next = head;
+        count = count - (k % count);
+        for(int i = 0; i < count; i++){
+            tail = tail->next;
         }
-        newhead = newhead->next;
-        ListNode* result = q.front();
-        while(q.front()->next){
-            q.front() = q.front()->next;
-        }
-        q.front()->next = newhead;
-        return result;
-        
+        head = tail->next;
+        tail->next = NULL;
+        return head;
     }
 };
