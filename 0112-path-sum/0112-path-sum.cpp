@@ -13,17 +13,12 @@ class Solution {
 public:
     bool hasPathSum(TreeNode* root, int targetSum) {
         if(!root) return false;
-        int result = root->val;
-        if(!root->left and !root->right and result == targetSum) return true;
-        return helper(root->left, targetSum, result) || helper(root->right, targetSum, result);
-    }
-    bool helper(TreeNode* root, int targetSum, int result){
-        if(!root) return false;
-        result += root->val;
         if(!root->left and !root->right){
-            if(result == targetSum) return true;
-            return false;
+            return targetSum == root->val;
         }
-        return helper(root->left, targetSum, result) || helper(root->right, targetSum, result);
+        bool moveleft = hasPathSum(root->left, targetSum - root->val);
+        bool moveright = hasPathSum(root->right, targetSum - root->val);
+        
+        return moveleft || moveright;
     }
 };
