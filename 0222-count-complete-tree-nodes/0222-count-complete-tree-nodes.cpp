@@ -11,45 +11,19 @@
  */
 class Solution {
 public:
-    int find_depth(TreeNode* root){
-        int d = 0;
-        auto temp = root;
-        while(temp->left){
-            temp = temp->left;
-            d++;
-        }
-        return d;
-    }
-    int exist(int index, int depth, TreeNode* root){
-        int left = 0;
-        int right = int(pow(2,depth)-1);
-        auto node = root;
-        for(int i = 0; i < depth; i++){
-            int pivot = left + (right-left)/2;
-            if(index <= pivot){
-                node = node->left;
-                right = pivot-1;
-            }else{
-                node = node->right;
-                left = pivot+1;
-            }
-        }
-        return node != NULL;
-    }
     int countNodes(TreeNode* root) {
         if(!root) return 0;
-        int depth = find_depth(root);
-        int left = 0;
-        int right = (int)pow(2,depth)-1;
-        while(left <= right){
-            int pivot = left+(right-left)/2;
-            if(exist(pivot,depth,root)){
-                left = pivot+ 1;
-            }else{
-                right = pivot-1;
-            }
+        int hl = 0, hr = 0;
+        TreeNode* a = root;
+        TreeNode* b = root;
+        while(a){
+            hl++;
+            a = a->left;
         }
-        return int(pow(2,depth)-1) + left;
+        while(b){
+            hr++;
+            b = b->right;
+        }
+        return hl == hr ? (1 << hl) - 1 : 1 + countNodes(root->left) + countNodes(root->right);
     }
 };
-    
