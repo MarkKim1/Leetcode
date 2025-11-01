@@ -21,6 +21,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0200-number-of-islands](https://github.com/MarkKim1/Leetcode/tree/master/0200-number-of-islands) |
 | [0219-contains-duplicate-ii](https://github.com/MarkKim1/Leetcode/tree/master/0219-contains-duplicate-ii) |
 | [0228-summary-ranges](https://github.com/MarkKim1/Leetcode/tree/master/0228-summary-ranges) |
+| [0399-evaluate-division](https://github.com/MarkKim1/Leetcode/tree/master/0399-evaluate-division) |
 | [0452-minimum-number-of-arrows-to-burst-balloons](https://github.com/MarkKim1/Leetcode/tree/master/0452-minimum-number-of-arrows-to-burst-balloons) |
 | [1612-avoid-flood-in-the-city](https://github.com/MarkKim1/Leetcode/tree/master/1612-avoid-flood-in-the-city) |
 ## Hash Table
@@ -60,6 +61,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0071-simplify-path](https://github.com/MarkKim1/Leetcode/tree/master/0071-simplify-path) |
 | [0224-basic-calculator](https://github.com/MarkKim1/Leetcode/tree/master/0224-basic-calculator) |
 | [0242-valid-anagram](https://github.com/MarkKim1/Leetcode/tree/master/0242-valid-anagram) |
+| [0399-evaluate-division](https://github.com/MarkKim1/Leetcode/tree/master/0399-evaluate-division) |
 ## Sorting
 |  |
 | ------- |
@@ -92,6 +94,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | ------- |
 | [0128-longest-consecutive-sequence](https://github.com/MarkKim1/Leetcode/tree/master/0128-longest-consecutive-sequence) |
 | [0200-number-of-islands](https://github.com/MarkKim1/Leetcode/tree/master/0200-number-of-islands) |
+| [0399-evaluate-division](https://github.com/MarkKim1/Leetcode/tree/master/0399-evaluate-division) |
 ## Stack
 |  |
 | ------- |
@@ -176,6 +179,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0226-invert-binary-tree](https://github.com/MarkKim1/Leetcode/tree/master/0226-invert-binary-tree) |
 | [0230-kth-smallest-element-in-a-bst](https://github.com/MarkKim1/Leetcode/tree/master/0230-kth-smallest-element-in-a-bst) |
 | [0236-lowest-common-ancestor-of-a-binary-tree](https://github.com/MarkKim1/Leetcode/tree/master/0236-lowest-common-ancestor-of-a-binary-tree) |
+| [0399-evaluate-division](https://github.com/MarkKim1/Leetcode/tree/master/0399-evaluate-division) |
 | [0530-minimum-absolute-difference-in-bst](https://github.com/MarkKim1/Leetcode/tree/master/0530-minimum-absolute-difference-in-bst) |
 | [0637-average-of-levels-in-binary-tree](https://github.com/MarkKim1/Leetcode/tree/master/0637-average-of-levels-in-binary-tree) |
 ## Breadth-First Search
@@ -192,6 +196,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0199-binary-tree-right-side-view](https://github.com/MarkKim1/Leetcode/tree/master/0199-binary-tree-right-side-view) |
 | [0200-number-of-islands](https://github.com/MarkKim1/Leetcode/tree/master/0200-number-of-islands) |
 | [0226-invert-binary-tree](https://github.com/MarkKim1/Leetcode/tree/master/0226-invert-binary-tree) |
+| [0399-evaluate-division](https://github.com/MarkKim1/Leetcode/tree/master/0399-evaluate-division) |
 | [0530-minimum-absolute-difference-in-bst](https://github.com/MarkKim1/Leetcode/tree/master/0530-minimum-absolute-difference-in-bst) |
 | [0637-average-of-levels-in-binary-tree](https://github.com/MarkKim1/Leetcode/tree/master/0637-average-of-levels-in-binary-tree) |
 ## Binary Tree
@@ -250,4 +255,9 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 |  |
 | ------- |
 | [0133-clone-graph](https://github.com/MarkKim1/Leetcode/tree/master/0133-clone-graph) |
+| [0399-evaluate-division](https://github.com/MarkKim1/Leetcode/tree/master/0399-evaluate-division) |
+## Shortest Path
+|  |
+| ------- |
+| [0399-evaluate-division](https://github.com/MarkKim1/Leetcode/tree/master/0399-evaluate-division) |
 <!---LeetCode Topics End-->
