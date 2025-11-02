@@ -21,16 +21,16 @@ public:
 
 class Solution {
 public:
-    unordered_map<Node*,Node*> clone;
+    unordered_map<Node*, Node*> map;
     Node* cloneGraph(Node* node) {
         if(!node) return NULL;
-        if(clone.find(node) == clone.end()){
-            clone[node] = new Node(node->val,{});
-            for(Node* each : node->neighbors){
-                clone[node]->neighbors.push_back(cloneGraph(each));
+        if(map.find(node) == map.end()){
+            map[node] = new Node(node->val,{});
+            for(auto each : node->neighbors){
+                map[node]->neighbors.push_back(cloneGraph(each));
             }
         }
-        return clone[node];
+        return map[node];
+
     }
-    
 };
