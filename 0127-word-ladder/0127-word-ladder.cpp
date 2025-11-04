@@ -1,33 +1,25 @@
 class Solution {
 public:
-    int ladderLength(string beginWord, string endWord, vector<string>& wordList) {
-        unordered_set<string> wset(wordList.begin(),wordList.end());
-        queue<string> todo;
-        todo.push(beginWord);
-        int ans = 1;
-        
-        while(not todo.empty()){
-            int size = todo.size();
-            
-            for(int i = 0; i < size; i++){
-                string word = todo.front();
-                if(word == endWord){
-                    return ans;
-                }
-                todo.pop();
-                wset.erase(word);
-                for(int i = 0; i< word.size(); i++){
-                    char c = word[i];
-                    for(int j = 0; j <=26; j++){
-                        word[i] = 'a' + j;
-                        if(wset.find(word) != wset.end()){
-                            todo.push(word);
-                        }
+    int ladderLength(string a, string b, vector<string>& c) {
+        queue<pair<string, int>> q;
+        unordered_set<string> set(c.begin(),c.end());
+        q.push({a, 1});
+        while (!q.empty()) {
+            auto [first, second] = q.front();
+            q.pop();
+            if (first == b)
+                return second;
+            for (int i = 0; i < first.size(); i++){
+                char original = first[i];
+                for(char a = 'a'; a <= 'z'; a++){
+                    first[i] = a;
+                    if(set.count(first)){
+                        set.erase(first);
+                        q.push({first, second + 1});
                     }
-                    word[i] = c;
                 }
+                first[i] = original;
             }
-            ans++;
         }
         return 0;
     }
