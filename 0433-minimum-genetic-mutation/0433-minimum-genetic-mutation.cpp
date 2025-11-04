@@ -1,32 +1,28 @@
 class Solution {
 public:
-    int minMutation(string start, string end, vector<string>& bank) {
-        unordered_set<int> st;
-        int count = 0;
-        queue<string>q;
-        q.push(start);
+    int minMutation(string startGene, string endGene, vector<string>& bank) {
+        int result = 0;
+        queue<pair<string,int>> q;
+        unordered_set<string> set;
+        
+        q.push({startGene,0});
+        set.insert(startGene);
+        
         while(!q.empty()){
-            int size = q.size();
-            for(int i = 0; i < size; i++){
-                string curr = q.front();
-                q.pop();
-                if(curr == end){
-                    return count;
+            auto curr = q.front();
+            if(curr.first == endGene) return curr.second;
+            q.pop();
+            for(string each : bank){
+                int diff = 0;
+                if(set.count(each)) continue;
+                for(int i = 0; i < curr.first.size(); i++){
+                    if(curr.first[i] != each[i]) diff++;
                 }
-                for(int i = 0; i < bank.size(); i++){
-                    int diff = 0;
-                    for(int j = 0; j < bank[0].size(); j++){
-                        if(curr[j] != bank[i][j]){
-                            diff++;
-                        }
-                    }
-                    if(diff == 1 and !st.count(i)){
-                        st.insert(i);
-                        q.push(bank[i]);
-                    }
+                if(diff == 1){
+                    set.insert(each);
+                    q.push({each,curr.second + 1});
                 }
             }
-            count++;
         }
         return -1;
     }
