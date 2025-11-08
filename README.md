@@ -7,6 +7,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 |  |
 | ------- |
 | [0017-letter-combinations-of-a-phone-number](https://github.com/MarkKim1/Leetcode/tree/master/0017-letter-combinations-of-a-phone-number) |
+| [0046-permutations](https://github.com/MarkKim1/Leetcode/tree/master/0046-permutations) |
 | [0052-n-queens-ii](https://github.com/MarkKim1/Leetcode/tree/master/0052-n-queens-ii) |
 | [0077-combinations](https://github.com/MarkKim1/Leetcode/tree/master/0077-combinations) |
 | [0212-word-search-ii](https://github.com/MarkKim1/Leetcode/tree/master/0212-word-search-ii) |
@@ -14,6 +15,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 |  |
 | ------- |
 | [0001-two-sum](https://github.com/MarkKim1/Leetcode/tree/master/0001-two-sum) |
+| [0046-permutations](https://github.com/MarkKim1/Leetcode/tree/master/0046-permutations) |
 | [0049-group-anagrams](https://github.com/MarkKim1/Leetcode/tree/master/0049-group-anagrams) |
 | [0056-merge-intervals](https://github.com/MarkKim1/Leetcode/tree/master/0056-merge-intervals) |
 | [0057-insert-interval](https://github.com/MarkKim1/Leetcode/tree/master/0057-insert-interval) |
