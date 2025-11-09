@@ -11,6 +11,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0046-permutations](https://github.com/MarkKim1/Leetcode/tree/master/0046-permutations) |
 | [0052-n-queens-ii](https://github.com/MarkKim1/Leetcode/tree/master/0052-n-queens-ii) |
 | [0077-combinations](https://github.com/MarkKim1/Leetcode/tree/master/0077-combinations) |
+| [0079-word-search](https://github.com/MarkKim1/Leetcode/tree/master/0079-word-search) |
 | [0212-word-search-ii](https://github.com/MarkKim1/Leetcode/tree/master/0212-word-search-ii) |
 ## Array
 |  |
@@ -21,6 +22,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0049-group-anagrams](https://github.com/MarkKim1/Leetcode/tree/master/0049-group-anagrams) |
 | [0056-merge-intervals](https://github.com/MarkKim1/Leetcode/tree/master/0056-merge-intervals) |
 | [0057-insert-interval](https://github.com/MarkKim1/Leetcode/tree/master/0057-insert-interval) |
+| [0079-word-search](https://github.com/MarkKim1/Leetcode/tree/master/0079-word-search) |
 | [0105-construct-binary-tree-from-preorder-and-inorder-traversal](https://github.com/MarkKim1/Leetcode/tree/master/0105-construct-binary-tree-from-preorder-and-inorder-traversal) |
 | [0106-construct-binary-tree-from-inorder-and-postorder-traversal](https://github.com/MarkKim1/Leetcode/tree/master/0106-construct-binary-tree-from-inorder-and-postorder-traversal) |
 | [0128-longest-consecutive-sequence](https://github.com/MarkKim1/Leetcode/tree/master/0128-longest-consecutive-sequence) |
@@ -74,6 +76,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0017-letter-combinations-of-a-phone-number](https://github.com/MarkKim1/Leetcode/tree/master/0017-letter-combinations-of-a-phone-number) |
 | [0049-group-anagrams](https://github.com/MarkKim1/Leetcode/tree/master/0049-group-anagrams) |
 | [0071-simplify-path](https://github.com/MarkKim1/Leetcode/tree/master/0071-simplify-path) |
+| [0079-word-search](https://github.com/MarkKim1/Leetcode/tree/master/0079-word-search) |
 | [0127-word-ladder](https://github.com/MarkKim1/Leetcode/tree/master/0127-word-ladder) |
 | [0208-implement-trie-prefix-tree](https://github.com/MarkKim1/Leetcode/tree/master/0208-implement-trie-prefix-tree) |
 | [0211-design-add-and-search-words-data-structure](https://github.com/MarkKim1/Leetcode/tree/master/0211-design-add-and-search-words-data-structure) |
@@ -187,6 +190,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 ## Depth-First Search
 |  |
 | ------- |
+| [0079-word-search](https://github.com/MarkKim1/Leetcode/tree/master/0079-word-search) |
 | [0098-validate-binary-search-tree](https://github.com/MarkKim1/Leetcode/tree/master/0098-validate-binary-search-tree) |
 | [0100-same-tree](https://github.com/MarkKim1/Leetcode/tree/master/0100-same-tree) |
 | [0101-symmetric-tree](https://github.com/MarkKim1/Leetcode/tree/master/0101-symmetric-tree) |
@@ -283,6 +287,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 ## Matrix
 |  |
 | ------- |
+| [0079-word-search](https://github.com/MarkKim1/Leetcode/tree/master/0079-word-search) |
 | [0130-surrounded-regions](https://github.com/MarkKim1/Leetcode/tree/master/0130-surrounded-regions) |
 | [0200-number-of-islands](https://github.com/MarkKim1/Leetcode/tree/master/0200-number-of-islands) |
 | [0212-word-search-ii](https://github.com/MarkKim1/Leetcode/tree/master/0212-word-search-ii) |
