@@ -1,31 +1,30 @@
 class Solution {
 public:
+    bool res = false;
     bool exist(vector<vector<char>>& board, string word) {
         for(int i = 0; i < board.size(); i++){
             for(int j = 0; j < board[0].size(); j++){
                 if(board[i][j] == word[0]){
-                    if(helper(0,i,j,board,word)){
-                        return true;
-                    }
+                    dfs(board,i,j,word);
+                    if(res) return true;
                 }
             }
         }
         return false;
     }
-    bool helper(int index, int i, int j,vector<vector<char>>& board, string word){
-        if(index >= word.size()){
-            return true;
+    void dfs(vector<vector<char>>& board, int i, int j, string word){
+        if(i < 0 or j < 0 or i >= board.size() or j >= board[0].size() or board[i][j] == '#' or board[i][j] != word[0]){
+            return;
         }
-        if(min(i,j) < 0 || i >= board.size() || j >= board[0].size() || board[i][j] != word[index]){
-            return false;
+        if(word.size() == 1 and board[i][j] == word[0]){
+            res = true;
         }
-        char original = board[i][j];
+        char c = board[i][j];
         board[i][j] = '#';
-        bool a = helper(index+1,i+1,j,board,word);
-        bool b = helper(index+1,i-1,j,board,word);
-        bool c = helper(index+1,i,j+1,board,word);
-        bool d = helper(index+1,i,j-1,board,word);
-        board[i][j] = original;
-        return a || b || c || d;
+        dfs(board,i + 1,j,word.substr(1));
+        dfs(board,i - 1,j,word.substr(1));
+        dfs(board,i,j + 1, word.substr(1));
+        dfs(board,i,j - 1, word.substr(1));
+        board[i][j] = c;
     }
 };
