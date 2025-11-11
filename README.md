@@ -91,6 +91,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | ------- |
 | [0049-group-anagrams](https://github.com/MarkKim1/Leetcode/tree/master/0049-group-anagrams) |
 | [0056-merge-intervals](https://github.com/MarkKim1/Leetcode/tree/master/0056-merge-intervals) |
+| [0148-sort-list](https://github.com/MarkKim1/Leetcode/tree/master/0148-sort-list) |
 | [0242-valid-anagram](https://github.com/MarkKim1/Leetcode/tree/master/0242-valid-anagram) |
 | [0452-minimum-number-of-arrows-to-burst-balloons](https://github.com/MarkKim1/Leetcode/tree/master/0452-minimum-number-of-arrows-to-burst-balloons) |
 ## Math
@@ -108,6 +109,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0082-remove-duplicates-from-sorted-list-ii](https://github.com/MarkKim1/Leetcode/tree/master/0082-remove-duplicates-from-sorted-list-ii) |
 | [0086-partition-list](https://github.com/MarkKim1/Leetcode/tree/master/0086-partition-list) |
 | [0141-linked-list-cycle](https://github.com/MarkKim1/Leetcode/tree/master/0141-linked-list-cycle) |
+| [0148-sort-list](https://github.com/MarkKim1/Leetcode/tree/master/0148-sort-list) |
 | [0202-happy-number](https://github.com/MarkKim1/Leetcode/tree/master/0202-happy-number) |
 ## Sliding Window
 |  |
@@ -160,6 +162,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0138-copy-list-with-random-pointer](https://github.com/MarkKim1/Leetcode/tree/master/0138-copy-list-with-random-pointer) |
 | [0141-linked-list-cycle](https://github.com/MarkKim1/Leetcode/tree/master/0141-linked-list-cycle) |
 | [0146-lru-cache](https://github.com/MarkKim1/Leetcode/tree/master/0146-lru-cache) |
+| [0148-sort-list](https://github.com/MarkKim1/Leetcode/tree/master/0148-sort-list) |
 ## Doubly-Linked List
 |  |
 | ------- |
@@ -269,6 +272,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0105-construct-binary-tree-from-preorder-and-inorder-traversal](https://github.com/MarkKim1/Leetcode/tree/master/0105-construct-binary-tree-from-preorder-and-inorder-traversal) |
 | [0106-construct-binary-tree-from-inorder-and-postorder-traversal](https://github.com/MarkKim1/Leetcode/tree/master/0106-construct-binary-tree-from-inorder-and-postorder-traversal) |
 | [0108-convert-sorted-array-to-binary-search-tree](https://github.com/MarkKim1/Leetcode/tree/master/0108-convert-sorted-array-to-binary-search-tree) |
+| [0148-sort-list](https://github.com/MarkKim1/Leetcode/tree/master/0148-sort-list) |
 ## Dynamic Programming
 |  |
 | ------- |
@@ -319,4 +323,8 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0208-implement-trie-prefix-tree](https://github.com/MarkKim1/Leetcode/tree/master/0208-implement-trie-prefix-tree) |
 | [0211-design-add-and-search-words-data-structure](https://github.com/MarkKim1/Leetcode/tree/master/0211-design-add-and-search-words-data-structure) |
 | [0212-word-search-ii](https://github.com/MarkKim1/Leetcode/tree/master/0212-word-search-ii) |
+## Merge Sort
+|  |
+| ------- |
+| [0148-sort-list](https://github.com/MarkKim1/Leetcode/tree/master/0148-sort-list) |
 <!---LeetCode Topics End-->
