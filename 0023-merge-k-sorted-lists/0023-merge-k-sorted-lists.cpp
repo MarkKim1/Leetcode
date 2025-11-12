@@ -12,40 +12,39 @@ class Solution {
 public:
     ListNode* mergeKLists(vector<ListNode*>& lists) {
         if(lists.empty()) return NULL;
-        ListNode* ans = new ListNode();
-        
-        int size = lists.size();
-        int interval = 1;
-        while(interval < size){
-            for(int i = 0; i + interval < size; i = i + interval*2){
-                lists[i] = mergeSort(lists[i],lists[i+interval]);
-            }
-            interval*=2;
+        if(lists.size() == 1) return lists[0];
+        ListNode* result = lists[0];
+        while(lists.size() > 1){
+            lists.push_back(merge(lists[0],lists[1]));
+            lists.erase(lists.begin());
+            lists.erase(lists.begin());
         }
-        ans = lists[0];
-        return ans;
+        return lists.front();
     }
-    
-    ListNode* mergeSort(ListNode* result, ListNode* list){
-        ListNode* toReturn = new ListNode();
-        ListNode* head = toReturn;
-        while(result || list){
-            if(result and list){
-                if(result->val > list->val){
-                    toReturn->next = new ListNode(list->val);
-                    list = list->next;
-                }else{
-                    toReturn->next = new ListNode(result->val);
-                    result = result->next;
-                }
-            }else if(!result){
-                toReturn->next = new ListNode(list->val);
-                list = list->next;
-            }else{
-                toReturn->next = new ListNode(result->val);
-                result = result->next;
+
+    ListNode* merge(ListNode* l1, ListNode* l2){
+        ListNode* head = new ListNode();
+        ListNode* curr = head;
+        while(l1 and l2){
+            if(l1->val < l2->val){
+                curr->next = new ListNode(l1->val);
+                l1 = l1->next;
             }
-            toReturn = toReturn->next;
+            else{
+                curr->next = new ListNode(l2->val);
+                l2 = l2->next;
+            }
+            curr = curr->next;
+        }
+        while(l1){
+            curr->next = new ListNode(l1->val);
+            curr = curr->next;
+            l1 = l1->next;
+        }
+        while(l2){
+            curr->next = new ListNode(l2->val);
+            curr = curr->next;
+            l2 = l2->next;
         }
         return head->next;
     }
