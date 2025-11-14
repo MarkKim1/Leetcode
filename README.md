@@ -20,6 +20,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0039-combination-sum](https://github.com/MarkKim1/Leetcode/tree/master/0039-combination-sum) |
 | [0046-permutations](https://github.com/MarkKim1/Leetcode/tree/master/0046-permutations) |
 | [0049-group-anagrams](https://github.com/MarkKim1/Leetcode/tree/master/0049-group-anagrams) |
+| [0053-maximum-subarray](https://github.com/MarkKim1/Leetcode/tree/master/0053-maximum-subarray) |
 | [0056-merge-intervals](https://github.com/MarkKim1/Leetcode/tree/master/0056-merge-intervals) |
 | [0057-insert-interval](https://github.com/MarkKim1/Leetcode/tree/master/0057-insert-interval) |
 | [0079-word-search](https://github.com/MarkKim1/Leetcode/tree/master/0079-word-search) |
@@ -274,6 +275,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 |  |
 | ------- |
 | [0023-merge-k-sorted-lists](https://github.com/MarkKim1/Leetcode/tree/master/0023-merge-k-sorted-lists) |
+| [0053-maximum-subarray](https://github.com/MarkKim1/Leetcode/tree/master/0053-maximum-subarray) |
 | [0105-construct-binary-tree-from-preorder-and-inorder-traversal](https://github.com/MarkKim1/Leetcode/tree/master/0105-construct-binary-tree-from-preorder-and-inorder-traversal) |
 | [0106-construct-binary-tree-from-inorder-and-postorder-traversal](https://github.com/MarkKim1/Leetcode/tree/master/0106-construct-binary-tree-from-inorder-and-postorder-traversal) |
 | [0108-convert-sorted-array-to-binary-search-tree](https://github.com/MarkKim1/Leetcode/tree/master/0108-convert-sorted-array-to-binary-search-tree) |
@@ -282,6 +284,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 ## Dynamic Programming
 |  |
 | ------- |
+| [0053-maximum-subarray](https://github.com/MarkKim1/Leetcode/tree/master/0053-maximum-subarray) |
 | [0124-binary-tree-maximum-path-sum](https://github.com/MarkKim1/Leetcode/tree/master/0124-binary-tree-maximum-path-sum) |
 ## Binary Search Tree
 |  |
