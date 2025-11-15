@@ -17,6 +17,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 |  |
 | ------- |
 | [0001-two-sum](https://github.com/MarkKim1/Leetcode/tree/master/0001-two-sum) |
+| [0035-search-insert-position](https://github.com/MarkKim1/Leetcode/tree/master/0035-search-insert-position) |
 | [0039-combination-sum](https://github.com/MarkKim1/Leetcode/tree/master/0039-combination-sum) |
 | [0046-permutations](https://github.com/MarkKim1/Leetcode/tree/master/0046-permutations) |
 | [0049-group-anagrams](https://github.com/MarkKim1/Leetcode/tree/master/0049-group-anagrams) |
@@ -63,6 +64,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 ## Binary Search
 |  |
 | ------- |
+| [0035-search-insert-position](https://github.com/MarkKim1/Leetcode/tree/master/0035-search-insert-position) |
 | [0222-count-complete-tree-nodes](https://github.com/MarkKim1/Leetcode/tree/master/0222-count-complete-tree-nodes) |
 | [1612-avoid-flood-in-the-city](https://github.com/MarkKim1/Leetcode/tree/master/1612-avoid-flood-in-the-city) |
 ## Greedy
