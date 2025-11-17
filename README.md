@@ -34,6 +34,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0128-longest-consecutive-sequence](https://github.com/MarkKim1/Leetcode/tree/master/0128-longest-consecutive-sequence) |
 | [0130-surrounded-regions](https://github.com/MarkKim1/Leetcode/tree/master/0130-surrounded-regions) |
 | [0150-evaluate-reverse-polish-notation](https://github.com/MarkKim1/Leetcode/tree/master/0150-evaluate-reverse-polish-notation) |
+| [0153-find-minimum-in-rotated-sorted-array](https://github.com/MarkKim1/Leetcode/tree/master/0153-find-minimum-in-rotated-sorted-array) |
 | [0162-find-peak-element](https://github.com/MarkKim1/Leetcode/tree/master/0162-find-peak-element) |
 | [0200-number-of-islands](https://github.com/MarkKim1/Leetcode/tree/master/0200-number-of-islands) |
 | [0212-word-search-ii](https://github.com/MarkKim1/Leetcode/tree/master/0212-word-search-ii) |
@@ -72,6 +73,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0034-find-first-and-last-position-of-element-in-sorted-array](https://github.com/MarkKim1/Leetcode/tree/master/0034-find-first-and-last-position-of-element-in-sorted-array) |
 | [0035-search-insert-position](https://github.com/MarkKim1/Leetcode/tree/master/0035-search-insert-position) |
 | [0074-search-a-2d-matrix](https://github.com/MarkKim1/Leetcode/tree/master/0074-search-a-2d-matrix) |
+| [0153-find-minimum-in-rotated-sorted-array](https://github.com/MarkKim1/Leetcode/tree/master/0153-find-minimum-in-rotated-sorted-array) |
 | [0162-find-peak-element](https://github.com/MarkKim1/Leetcode/tree/master/0162-find-peak-element) |
 | [0222-count-complete-tree-nodes](https://github.com/MarkKim1/Leetcode/tree/master/0222-count-complete-tree-nodes) |
 | [1612-avoid-flood-in-the-city](https://github.com/MarkKim1/Leetcode/tree/master/1612-avoid-flood-in-the-city) |
