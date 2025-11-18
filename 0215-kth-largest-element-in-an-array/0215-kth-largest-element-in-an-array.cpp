@@ -1,36 +1,35 @@
 class Solution {
 public:
     int findKthLargest(vector<int>& nums, int k) {
-        int left = 0, right = nums.size() - 1, kth;
-        while (true) {
-            int idx = partition(nums, left, right);
-            if (idx == k - 1) {
-                kth = nums[idx];
-                break;
+        int left = 0;
+        int right = nums.size()-1;
+        k = nums.size() - k;
+        while(true){
+            int index = partition(nums, left, right,k);
+            if(index == k) return nums[index];
+            if(index < k){
+                left = index + 1;
             }
-            if (idx < k - 1) {
-                left = idx + 1;
-            } else {
-                right = idx - 1;
-            }
+            else right = index - 1;
         }
-        return kth;
+        return 1;
     }
-private:
-    int partition(vector<int>& nums, int left, int right) {
-        int pivot = nums[left], l = left + 1, r = right;
-        while (l <= r) {
-            if (nums[l] < pivot && nums[r] > pivot) {
-                swap(nums[l++], nums[r--]);
+    int partition(vector<int>& nums, int left, int right, int k){
+        int pivot = nums[left];
+        int l = left;
+        left += 1;
+        while(left <= right){
+            if(nums[left] > pivot and nums[right] < pivot){
+                swap(nums[left++], nums[right--]);
             }
-            if (nums[l] >= pivot) {
-                l++;
+            if(nums[left] <= pivot){
+                left++;
             }
-            if (nums[r] <= pivot) {
-                r--;
+            if(nums[right] >= pivot){
+                right--;
             }
         }
-        swap(nums[left], nums[r]);
-        return r;
+        swap(nums[right], nums[l]);
+        return right;
     }
 };
