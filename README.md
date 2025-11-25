@@ -90,6 +90,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | ------- |
 | [0023-merge-k-sorted-lists](https://github.com/MarkKim1/Leetcode/tree/master/0023-merge-k-sorted-lists) |
 | [0215-kth-largest-element-in-an-array](https://github.com/MarkKim1/Leetcode/tree/master/0215-kth-largest-element-in-an-array) |
+| [0295-find-median-from-data-stream](https://github.com/MarkKim1/Leetcode/tree/master/0295-find-median-from-data-stream) |
 | [0502-ipo](https://github.com/MarkKim1/Leetcode/tree/master/0502-ipo) |
 | [1612-avoid-flood-in-the-city](https://github.com/MarkKim1/Leetcode/tree/master/1612-avoid-flood-in-the-city) |
 ## String
@@ -115,6 +116,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0148-sort-list](https://github.com/MarkKim1/Leetcode/tree/master/0148-sort-list) |
 | [0215-kth-largest-element-in-an-array](https://github.com/MarkKim1/Leetcode/tree/master/0215-kth-largest-element-in-an-array) |
 | [0242-valid-anagram](https://github.com/MarkKim1/Leetcode/tree/master/0242-valid-anagram) |
+| [0295-find-median-from-data-stream](https://github.com/MarkKim1/Leetcode/tree/master/0295-find-median-from-data-stream) |
 | [0452-minimum-number-of-arrows-to-burst-balloons](https://github.com/MarkKim1/Leetcode/tree/master/0452-minimum-number-of-arrows-to-burst-balloons) |
 | [0502-ipo](https://github.com/MarkKim1/Leetcode/tree/master/0502-ipo) |
 ## Math
@@ -134,6 +136,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0141-linked-list-cycle](https://github.com/MarkKim1/Leetcode/tree/master/0141-linked-list-cycle) |
 | [0148-sort-list](https://github.com/MarkKim1/Leetcode/tree/master/0148-sort-list) |
 | [0202-happy-number](https://github.com/MarkKim1/Leetcode/tree/master/0202-happy-number) |
+| [0295-find-median-from-data-stream](https://github.com/MarkKim1/Leetcode/tree/master/0295-find-median-from-data-stream) |
 ## Sliding Window
 |  |
 | ------- |
@@ -162,6 +165,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0173-binary-search-tree-iterator](https://github.com/MarkKim1/Leetcode/tree/master/0173-binary-search-tree-iterator) |
 | [0208-implement-trie-prefix-tree](https://github.com/MarkKim1/Leetcode/tree/master/0208-implement-trie-prefix-tree) |
 | [0211-design-add-and-search-words-data-structure](https://github.com/MarkKim1/Leetcode/tree/master/0211-design-add-and-search-words-data-structure) |
+| [0295-find-median-from-data-stream](https://github.com/MarkKim1/Leetcode/tree/master/0295-find-median-from-data-stream) |
 ## Recursion
 |  |
 | ------- |
@@ -379,4 +383,8 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 |  |
 | ------- |
 | [0215-kth-largest-element-in-an-array](https://github.com/MarkKim1/Leetcode/tree/master/0215-kth-largest-element-in-an-array) |
+## Data Stream
+|  |
+| ------- |
+| [0295-find-median-from-data-stream](https://github.com/MarkKim1/Leetcode/tree/master/0295-find-median-from-data-stream) |
 <!---LeetCode Topics End-->
