@@ -52,6 +52,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [1612-avoid-flood-in-the-city](https://github.com/MarkKim1/Leetcode/tree/master/1612-avoid-flood-in-the-city) |
 | [2099-find-subsequence-of-length-k-with-the-largest-sum](https://github.com/MarkKim1/Leetcode/tree/master/2099-find-subsequence-of-length-k-with-the-largest-sum) |
 | [2335-minimum-amount-of-time-to-fill-cups](https://github.com/MarkKim1/Leetcode/tree/master/2335-minimum-amount-of-time-to-fill-cups) |
+| [2500-delete-greatest-value-in-each-row](https://github.com/MarkKim1/Leetcode/tree/master/2500-delete-greatest-value-in-each-row) |
 ## Hash Table
 |  |
 | ------- |
@@ -104,6 +105,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [2099-find-subsequence-of-length-k-with-the-largest-sum](https://github.com/MarkKim1/Leetcode/tree/master/2099-find-subsequence-of-length-k-with-the-largest-sum) |
 | [2231-largest-number-after-digit-swaps-by-parity](https://github.com/MarkKim1/Leetcode/tree/master/2231-largest-number-after-digit-swaps-by-parity) |
 | [2335-minimum-amount-of-time-to-fill-cups](https://github.com/MarkKim1/Leetcode/tree/master/2335-minimum-amount-of-time-to-fill-cups) |
+| [2500-delete-greatest-value-in-each-row](https://github.com/MarkKim1/Leetcode/tree/master/2500-delete-greatest-value-in-each-row) |
 ## String
 |  |
 | ------- |
@@ -135,6 +137,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [2099-find-subsequence-of-length-k-with-the-largest-sum](https://github.com/MarkKim1/Leetcode/tree/master/2099-find-subsequence-of-length-k-with-the-largest-sum) |
 | [2231-largest-number-after-digit-swaps-by-parity](https://github.com/MarkKim1/Leetcode/tree/master/2231-largest-number-after-digit-swaps-by-parity) |
 | [2335-minimum-amount-of-time-to-fill-cups](https://github.com/MarkKim1/Leetcode/tree/master/2335-minimum-amount-of-time-to-fill-cups) |
+| [2500-delete-greatest-value-in-each-row](https://github.com/MarkKim1/Leetcode/tree/master/2500-delete-greatest-value-in-each-row) |
 ## Math
 |  |
 | ------- |
@@ -360,6 +363,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0212-word-search-ii](https://github.com/MarkKim1/Leetcode/tree/master/0212-word-search-ii) |
 | [0772-construct-quad-tree](https://github.com/MarkKim1/Leetcode/tree/master/0772-construct-quad-tree) |
 | [0945-snakes-and-ladders](https://github.com/MarkKim1/Leetcode/tree/master/0945-snakes-and-ladders) |
+| [2500-delete-greatest-value-in-each-row](https://github.com/MarkKim1/Leetcode/tree/master/2500-delete-greatest-value-in-each-row) |
 ## Graph
 |  |
 | ------- |
@@ -403,4 +407,8 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 |  |
 | ------- |
 | [0295-find-median-from-data-stream](https://github.com/MarkKim1/Leetcode/tree/master/0295-find-median-from-data-stream) |
+## Simulation
+|  |
+| ------- |
+| [2500-delete-greatest-value-in-each-row](https://github.com/MarkKim1/Leetcode/tree/master/2500-delete-greatest-value-in-each-row) |
 <!---LeetCode Topics End-->
