@@ -53,6 +53,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [2099-find-subsequence-of-length-k-with-the-largest-sum](https://github.com/MarkKim1/Leetcode/tree/master/2099-find-subsequence-of-length-k-with-the-largest-sum) |
 | [2335-minimum-amount-of-time-to-fill-cups](https://github.com/MarkKim1/Leetcode/tree/master/2335-minimum-amount-of-time-to-fill-cups) |
 | [2500-delete-greatest-value-in-each-row](https://github.com/MarkKim1/Leetcode/tree/master/2500-delete-greatest-value-in-each-row) |
+| [2558-take-gifts-from-the-richest-pile](https://github.com/MarkKim1/Leetcode/tree/master/2558-take-gifts-from-the-richest-pile) |
 ## Hash Table
 |  |
 | ------- |
@@ -106,6 +107,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [2231-largest-number-after-digit-swaps-by-parity](https://github.com/MarkKim1/Leetcode/tree/master/2231-largest-number-after-digit-swaps-by-parity) |
 | [2335-minimum-amount-of-time-to-fill-cups](https://github.com/MarkKim1/Leetcode/tree/master/2335-minimum-amount-of-time-to-fill-cups) |
 | [2500-delete-greatest-value-in-each-row](https://github.com/MarkKim1/Leetcode/tree/master/2500-delete-greatest-value-in-each-row) |
+| [2558-take-gifts-from-the-richest-pile](https://github.com/MarkKim1/Leetcode/tree/master/2558-take-gifts-from-the-richest-pile) |
 ## String
 |  |
 | ------- |
@@ -411,4 +413,5 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 |  |
 | ------- |
 | [2500-delete-greatest-value-in-each-row](https://github.com/MarkKim1/Leetcode/tree/master/2500-delete-greatest-value-in-each-row) |
+| [2558-take-gifts-from-the-richest-pile](https://github.com/MarkKim1/Leetcode/tree/master/2558-take-gifts-from-the-richest-pile) |
 <!---LeetCode Topics End-->
