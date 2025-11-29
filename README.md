@@ -54,6 +54,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [2335-minimum-amount-of-time-to-fill-cups](https://github.com/MarkKim1/Leetcode/tree/master/2335-minimum-amount-of-time-to-fill-cups) |
 | [2500-delete-greatest-value-in-each-row](https://github.com/MarkKim1/Leetcode/tree/master/2500-delete-greatest-value-in-each-row) |
 | [2558-take-gifts-from-the-richest-pile](https://github.com/MarkKim1/Leetcode/tree/master/2558-take-gifts-from-the-richest-pile) |
+| [3318-find-x-sum-of-all-k-long-subarrays-i](https://github.com/MarkKim1/Leetcode/tree/master/3318-find-x-sum-of-all-k-long-subarrays-i) |
 ## Hash Table
 |  |
 | ------- |
@@ -75,6 +76,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0433-minimum-genetic-mutation](https://github.com/MarkKim1/Leetcode/tree/master/0433-minimum-genetic-mutation) |
 | [1612-avoid-flood-in-the-city](https://github.com/MarkKim1/Leetcode/tree/master/1612-avoid-flood-in-the-city) |
 | [2099-find-subsequence-of-length-k-with-the-largest-sum](https://github.com/MarkKim1/Leetcode/tree/master/2099-find-subsequence-of-length-k-with-the-largest-sum) |
+| [3318-find-x-sum-of-all-k-long-subarrays-i](https://github.com/MarkKim1/Leetcode/tree/master/3318-find-x-sum-of-all-k-long-subarrays-i) |
 ## Binary Search
 |  |
 | ------- |
@@ -108,6 +110,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [2335-minimum-amount-of-time-to-fill-cups](https://github.com/MarkKim1/Leetcode/tree/master/2335-minimum-amount-of-time-to-fill-cups) |
 | [2500-delete-greatest-value-in-each-row](https://github.com/MarkKim1/Leetcode/tree/master/2500-delete-greatest-value-in-each-row) |
 | [2558-take-gifts-from-the-richest-pile](https://github.com/MarkKim1/Leetcode/tree/master/2558-take-gifts-from-the-richest-pile) |
+| [3318-find-x-sum-of-all-k-long-subarrays-i](https://github.com/MarkKim1/Leetcode/tree/master/3318-find-x-sum-of-all-k-long-subarrays-i) |
 ## String
 |  |
 | ------- |
@@ -162,6 +165,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 |  |
 | ------- |
 | [0219-contains-duplicate-ii](https://github.com/MarkKim1/Leetcode/tree/master/0219-contains-duplicate-ii) |
+| [3318-find-x-sum-of-all-k-long-subarrays-i](https://github.com/MarkKim1/Leetcode/tree/master/3318-find-x-sum-of-all-k-long-subarrays-i) |
 ## Union Find
 |  |
 | ------- |
