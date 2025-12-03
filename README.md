@@ -76,6 +76,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0219-contains-duplicate-ii](https://github.com/MarkKim1/Leetcode/tree/master/0219-contains-duplicate-ii) |
 | [0242-valid-anagram](https://github.com/MarkKim1/Leetcode/tree/master/0242-valid-anagram) |
 | [0347-top-k-frequent-elements](https://github.com/MarkKim1/Leetcode/tree/master/0347-top-k-frequent-elements) |
+| [0355-design-twitter](https://github.com/MarkKim1/Leetcode/tree/master/0355-design-twitter) |
 | [0433-minimum-genetic-mutation](https://github.com/MarkKim1/Leetcode/tree/master/0433-minimum-genetic-mutation) |
 | [1612-avoid-flood-in-the-city](https://github.com/MarkKim1/Leetcode/tree/master/1612-avoid-flood-in-the-city) |
 | [2099-find-subsequence-of-length-k-with-the-largest-sum](https://github.com/MarkKim1/Leetcode/tree/master/2099-find-subsequence-of-length-k-with-the-largest-sum) |
@@ -106,6 +107,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0215-kth-largest-element-in-an-array](https://github.com/MarkKim1/Leetcode/tree/master/0215-kth-largest-element-in-an-array) |
 | [0295-find-median-from-data-stream](https://github.com/MarkKim1/Leetcode/tree/master/0295-find-median-from-data-stream) |
 | [0347-top-k-frequent-elements](https://github.com/MarkKim1/Leetcode/tree/master/0347-top-k-frequent-elements) |
+| [0355-design-twitter](https://github.com/MarkKim1/Leetcode/tree/master/0355-design-twitter) |
 | [0502-ipo](https://github.com/MarkKim1/Leetcode/tree/master/0502-ipo) |
 | [0506-relative-ranks](https://github.com/MarkKim1/Leetcode/tree/master/0506-relative-ranks) |
 | [1464-maximum-product-of-two-elements-in-an-array](https://github.com/MarkKim1/Leetcode/tree/master/1464-maximum-product-of-two-elements-in-an-array) |
@@ -198,6 +200,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0208-implement-trie-prefix-tree](https://github.com/MarkKim1/Leetcode/tree/master/0208-implement-trie-prefix-tree) |
 | [0211-design-add-and-search-words-data-structure](https://github.com/MarkKim1/Leetcode/tree/master/0211-design-add-and-search-words-data-structure) |
 | [0295-find-median-from-data-stream](https://github.com/MarkKim1/Leetcode/tree/master/0295-find-median-from-data-stream) |
+| [0355-design-twitter](https://github.com/MarkKim1/Leetcode/tree/master/0355-design-twitter) |
 ## Recursion
 |  |
 | ------- |
@@ -224,6 +227,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0141-linked-list-cycle](https://github.com/MarkKim1/Leetcode/tree/master/0141-linked-list-cycle) |
 | [0146-lru-cache](https://github.com/MarkKim1/Leetcode/tree/master/0146-lru-cache) |
 | [0148-sort-list](https://github.com/MarkKim1/Leetcode/tree/master/0148-sort-list) |
+| [0355-design-twitter](https://github.com/MarkKim1/Leetcode/tree/master/0355-design-twitter) |
 | [3507-minimum-pair-removal-to-sort-array-i](https://github.com/MarkKim1/Leetcode/tree/master/3507-minimum-pair-removal-to-sort-array-i) |
 ## Doubly-Linked List
 |  |
