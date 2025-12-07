@@ -1,22 +1,29 @@
 class Solution {
 public:
-    vector<vector<int>> result;
-    vector<int> temp;
-    unordered_set<int> visited;
     vector<vector<int>> permuteUnique(vector<int>& nums) {
-        sort(nums.begin(), nums.end());
-        helper(nums, 0);
+        unordered_map<int,int> count;
+        vector<vector<int>> result;
+        for(int i = 0; i < nums.size(); i++){
+            count[nums[i]]++;
+        }
+        vector<int> comb;
+        backtrack(result,comb,count, nums.size());
         return result;
     }
-    void helper(vector<int> nums, int index){
-        if(index == nums.size() - 1){
-            result.push_back(nums);
+    void backtrack(vector<vector<int>>& result, vector<int>& comb, unordered_map<int,int>& count, int a){
+        if(comb.size() == a){
+            result.push_back(comb);
             return;
         }
-        for(int i = index; i < nums.size(); i++){
-            if(i != index and nums[i] == nums[index]) continue;
-            swap(nums[i], nums[index]);
-            helper(nums, index+1);
+        for(auto& each: count){
+            int num = each.first;
+            int counter = each.second;
+            if(counter == 0) continue;
+            comb.push_back(num);
+            each.second--;
+            backtrack(result,comb,count,a);
+            comb.pop_back();
+            each.second++;
         }
     }
 };
