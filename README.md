@@ -166,6 +166,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 |  |
 | ------- |
 | [0002-add-two-numbers](https://github.com/MarkKim1/Leetcode/tree/master/0002-add-two-numbers) |
+| [0070-climbing-stairs](https://github.com/MarkKim1/Leetcode/tree/master/0070-climbing-stairs) |
 | [0150-evaluate-reverse-polish-notation](https://github.com/MarkKim1/Leetcode/tree/master/0150-evaluate-reverse-polish-notation) |
 | [0202-happy-number](https://github.com/MarkKim1/Leetcode/tree/master/0202-happy-number) |
 | [0224-basic-calculator](https://github.com/MarkKim1/Leetcode/tree/master/0224-basic-calculator) |
@@ -367,6 +368,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 |  |
 | ------- |
 | [0053-maximum-subarray](https://github.com/MarkKim1/Leetcode/tree/master/0053-maximum-subarray) |
+| [0070-climbing-stairs](https://github.com/MarkKim1/Leetcode/tree/master/0070-climbing-stairs) |
 | [0124-binary-tree-maximum-path-sum](https://github.com/MarkKim1/Leetcode/tree/master/0124-binary-tree-maximum-path-sum) |
 | [0954-maximum-sum-circular-subarray](https://github.com/MarkKim1/Leetcode/tree/master/0954-maximum-sum-circular-subarray) |
 ## Binary Search Tree
@@ -460,4 +462,8 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | ------- |
 | [0347-top-k-frequent-elements](https://github.com/MarkKim1/Leetcode/tree/master/0347-top-k-frequent-elements) |
 | [0767-reorganize-string](https://github.com/MarkKim1/Leetcode/tree/master/0767-reorganize-string) |
+## Memoization
+|  |
+| ------- |
+| [0070-climbing-stairs](https://github.com/MarkKim1/Leetcode/tree/master/0070-climbing-stairs) |
 <!---LeetCode Topics End-->
