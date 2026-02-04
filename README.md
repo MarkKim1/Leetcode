@@ -60,6 +60,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [2558-take-gifts-from-the-richest-pile](https://github.com/MarkKim1/Leetcode/tree/master/2558-take-gifts-from-the-richest-pile) |
 | [3318-find-x-sum-of-all-k-long-subarrays-i](https://github.com/MarkKim1/Leetcode/tree/master/3318-find-x-sum-of-all-k-long-subarrays-i) |
 | [3507-minimum-pair-removal-to-sort-array-i](https://github.com/MarkKim1/Leetcode/tree/master/3507-minimum-pair-removal-to-sort-array-i) |
+| [3640-trionic-array-ii](https://github.com/MarkKim1/Leetcode/tree/master/3640-trionic-array-ii) |
 ## Hash Table
 |  |
 | ------- |
@@ -371,6 +372,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0070-climbing-stairs](https://github.com/MarkKim1/Leetcode/tree/master/0070-climbing-stairs) |
 | [0124-binary-tree-maximum-path-sum](https://github.com/MarkKim1/Leetcode/tree/master/0124-binary-tree-maximum-path-sum) |
 | [0954-maximum-sum-circular-subarray](https://github.com/MarkKim1/Leetcode/tree/master/0954-maximum-sum-circular-subarray) |
+| [3640-trionic-array-ii](https://github.com/MarkKim1/Leetcode/tree/master/3640-trionic-array-ii) |
 ## Binary Search Tree
 |  |
 | ------- |
