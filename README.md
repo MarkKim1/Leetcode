@@ -60,6 +60,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [2558-take-gifts-from-the-richest-pile](https://github.com/MarkKim1/Leetcode/tree/master/2558-take-gifts-from-the-richest-pile) |
 | [3318-find-x-sum-of-all-k-long-subarrays-i](https://github.com/MarkKim1/Leetcode/tree/master/3318-find-x-sum-of-all-k-long-subarrays-i) |
 | [3507-minimum-pair-removal-to-sort-array-i](https://github.com/MarkKim1/Leetcode/tree/master/3507-minimum-pair-removal-to-sort-array-i) |
+| [3637-trionic-array-i](https://github.com/MarkKim1/Leetcode/tree/master/3637-trionic-array-i) |
 | [3640-trionic-array-ii](https://github.com/MarkKim1/Leetcode/tree/master/3640-trionic-array-ii) |
 ## Hash Table
 |  |
