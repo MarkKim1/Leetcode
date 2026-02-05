@@ -59,6 +59,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [2500-delete-greatest-value-in-each-row](https://github.com/MarkKim1/Leetcode/tree/master/2500-delete-greatest-value-in-each-row) |
 | [2558-take-gifts-from-the-richest-pile](https://github.com/MarkKim1/Leetcode/tree/master/2558-take-gifts-from-the-richest-pile) |
 | [3318-find-x-sum-of-all-k-long-subarrays-i](https://github.com/MarkKim1/Leetcode/tree/master/3318-find-x-sum-of-all-k-long-subarrays-i) |
+| [3379-transformed-array](https://github.com/MarkKim1/Leetcode/tree/master/3379-transformed-array) |
 | [3507-minimum-pair-removal-to-sort-array-i](https://github.com/MarkKim1/Leetcode/tree/master/3507-minimum-pair-removal-to-sort-array-i) |
 | [3637-trionic-array-i](https://github.com/MarkKim1/Leetcode/tree/master/3637-trionic-array-i) |
 | [3640-trionic-array-ii](https://github.com/MarkKim1/Leetcode/tree/master/3640-trionic-array-ii) |
@@ -451,6 +452,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | ------- |
 | [2500-delete-greatest-value-in-each-row](https://github.com/MarkKim1/Leetcode/tree/master/2500-delete-greatest-value-in-each-row) |
 | [2558-take-gifts-from-the-richest-pile](https://github.com/MarkKim1/Leetcode/tree/master/2558-take-gifts-from-the-richest-pile) |
+| [3379-transformed-array](https://github.com/MarkKim1/Leetcode/tree/master/3379-transformed-array) |
 | [3507-minimum-pair-removal-to-sort-array-i](https://github.com/MarkKim1/Leetcode/tree/master/3507-minimum-pair-removal-to-sort-array-i) |
 ## Ordered Set
 |  |
